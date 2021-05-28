@@ -1,0 +1,143 @@
+body, html {
+  height: 100%;
+}
+
+td {
+    border: 5px solid transparent;
+    background-clip: padding-box;
+}
+
+/*
+.bg {
+   The image used 
+  background-image: url("../imgs/fundo2.jpg");
+
+  Full height 
+  height: 100%;
+
+  Center and scale the image nicely 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+*/
+
+.fundo{
+    background-color: #5E7561;
+}
+
+.plantas{
+    height: 200px;
+    width: 225px;
+    max-width: 225px;
+    max-height: 200px;
+}
+
+.plantas_desc{
+    height: auto;
+    width: auto;
+    background-color: transparent;
+    text-align: left;
+}
+
+button{
+    text-align: left;
+}
+
+.orcamento{
+    border: 5px solid white
+}
+
+.right{
+    text-align: right;
+}
+
+.navbar-custom{
+    background-color: #194d0d;
+}
+
+a{
+    color: white;
+}
+
+.active{
+    background-color:#000000;
+}
+
+/* #footer	{
+            
+    margin: 0px auto 0px auto;
+    padding: 0px 0 0 0;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    
+}
+
+#footer-left	{
+    color: #FFFFFF;	 
+    font-size: 11px;
+    line-height: 11px;
+    padding: 10px 0 30px 0px;
+    background: #231709;  
+    height: 12px;
+    
+    } 
+
+#footer-left a	{
+    color: #FFFFFF;
+    text-decoration: none;
+    }
+#footer-left 	 a.selected,
+#footer-left 	 a:hover	{
+    color: red;
+    text-decoration: none;
+    } */
+
+.footer{
+    position:fixed;
+    left: 0px;
+    bottom:0px;
+    width:100%;
+    background-color: #194d0d;
+    text-align: center;
+    height: 40px;
+    color: white;
+}
+
+.nav-pills > li > a.active {
+    background-color: #5E7561 !important;
+    color: #ffffff !important;
+    }
+    
+    .nav-pills > li > a:hover {
+    color: #ffffff !important;
+    }
+    
+    .nav-link-color {
+    color: #ffffff;
+    }
+
+.btn-color{
+    background-color: #5E7561 !important;
+    color: #ffffff !important;
+}
+
+.table-color{
+    background-color: #5E7561 !important;
+    color: #ffffff !important;
+}
+
+.font{
+    font-size: 20px;
+    font-family: calibri;
+}
+
+.titulo{
+    font-size: 38px;
+}
+
+.btn-excluir{
+    background-color: #6c1111 !important;
+    color: #ffffff !important;
+}
