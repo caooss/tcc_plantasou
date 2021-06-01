@@ -9,7 +9,7 @@
         <title>PlantaSou</title>
 
         <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
-        <link rel="stylesheet" href="./css/teste.css">
+        <link rel="stylesheet" href="./css/estilo.css">
         <script src="js/jquery-3.5.1.min.js"></script>
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
