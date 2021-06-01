@@ -16,47 +16,48 @@
     </head>
     <body>
         <div class="navbar-custom">
-         <nav class="navbar navbar-expand-lg navbar-dark ">
-          <div class="media">
-            <div class="container-fluid">
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <a class="navbar-brand" href="#">
-                <!--<img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">-->
-                <img src="./imgs/logo_lo.png" class="align-self-center mr-3 rounded float-right" width="100" height="100" alt="...">
-                PlantaSou
-              </a>
-              
-                <ul class="navbar-nav nav-pills nav-link-color me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link nav-link-color active" aria-current="page" href="#">🏠 Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link nav-link-color" href="./sementes.html">Produtos</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link nav-link-color" href="./orcamento.html">Orçamento</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link nav-link-color" href="./cultivo.html">Cultivo</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link nav-link-color" href="./cultivo.html">Histórico</a>
-                  </li>
-                </ul>
-                <!--<form class="d-flex">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>-->
+          <nav class="navbar navbar-expand-lg navbar-dark ">
+            <div class="media">
+              <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <a class="navbar-brand" href="#">
+                    <!--<img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">-->
+                    <img src="./imgs/logo_lo.png" class="align-self-center mr-3 rounded float-right" width="100" height="100" alt="...">
+                    PlantaSou
+                  </a>
+                
+                  <ul class="navbar-nav nav-pills nav-link-color me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link nav-link-color active" aria-current="page" href="#">🏠 Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link nav-link-color" href="./produtos.php">Produtos</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link nav-link-color" href="./orcamento.php">Orçamento</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link nav-link-color" href="./cultivo.php">Cultivo</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link nav-link-color" href="./historico.php">Histórico</a>
+                    </li>
+                  </ul>
+                  <!--<form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                  </form>-->
+                </div>
               </div>
             </div>
           </nav>
-           
         </div>
+
         <div class="bg">
             <div class="p-5">
                 <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
                   <div class="d-flex justify-content-center align-items-center h-100">
-                    <div class="text-white">
+                    <div class="font text-white">
                       <h1 class="titulo mb-3" align="center">PlantaSou?</h1>
                       <div class="container">
                         <p class="font text-justify">
@@ -78,7 +79,7 @@
                                 <td><img src="./imgs/tomates.png" width="70" height="70"/></td>
     
                                 <td>
-                                  Na página produtos, serão disponibilizados alguns alimentos e suas sementes, além de suas informações nutricionais e seus valores estimados no mercado. 
+                                  Na página <a class="link" href="./produtos.php">produtos</a>, serão disponibilizados alguns alimentos e suas sementes, além de suas informações nutricionais e seus valores estimados no mercado. 
                                   Se possuir cadastro, o site oferece ao usuário a opção de selecionar os alimentos desejados, apresentando eles na página do orçamento.
                                 </td>
                               </tr>
@@ -86,7 +87,7 @@
                                 <td><img src="./imgs/moeda.png" width="70" height="70"/></td>
                                 
                                 <td>
-                                  Na página orçamento, se possuir cadastro, irá conter uma tabela com o produto, seu valor estimado e a quantidade escolhida pelo usuário, determinando o valor 
+                                  Na página <a href="./orcamento.php">orçamento</a>, se possuir cadastro, irá conter uma tabela com o produto, seu valor estimado e a quantidade escolhida pelo usuário, determinando o valor 
                               estimado total dos cultivos que serão feitos.
                                 </td>
                               </tr>
@@ -94,14 +95,14 @@
                                 <td><img src="./imgs/crescer-planta.png" width="70" height="70"/></td>
                                 
                                 <td>
-                                  Na página cultivo, estarão presentes as informações detalhadas de cada etapa da cultivação dos alimentos indicados na plataforma.
+                                  Na página <a href="./cultivo.php">cultivo</a>, estarão presentes as informações detalhadas de cada etapa da cultivação dos alimentos indicados na plataforma.
                                 </td>
                               </tr>
                               <tr>
                                 <td><img src="./imgs/livro.png" width="70" height="70"/></td>
                                 
                                 <td>
-                                  Na página histórico, se possuir cadastro, o usuário poderá encontrar todos os produtos já selecionados.
+                                  Na página <a href="./historico.php">histórico</a>, se possuir cadastro, o usuário poderá encontrar todos os produtos já selecionados.
                                 </td>
                               </tr>
                             </table>

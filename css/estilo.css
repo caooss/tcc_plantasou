@@ -7,6 +7,10 @@ td {
     background-clip: padding-box;
 }
 
+tr.spaceUnder>td {
+    padding-bottom: 8px;
+  }
+
 /*
 .bg {
    The image used 
@@ -57,7 +61,11 @@ button{
 }
 
 a{
-    color: white;
+    color: green;
+}
+
+a:hover{
+    color: #654321;
 }
 
 .active{
@@ -129,7 +137,7 @@ a{
 }
 
 .font{
-    font-size: 20px;
+    font-size: 30px;
     font-family: calibri;
 }
 
