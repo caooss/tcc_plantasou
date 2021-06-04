@@ -1,22 +1,45 @@
 <?php
-    $email=$_POST['email'];
-    $senha=$_POST['senha'];
-
     include('../inc/conexao.php');
 
-    $sql="SELECT * FROM usuario";
+    $hidden=$_POST['hidden'];
+    
+    if($hidden==1){
+        $nome=$_POST['nome'];
+        $email=$_POST['email'];
+        $senha=$_POST['senha'];
 
-    $query=mysqli_query($con, $sql);
+        $sql="INSERT INTO usuario (nome, senha, email) VALUE ('$nome', '$senha', '$email')";
 
-    if(mysqli_num_rows($query)>0){
-      while(($usuario=mysqli_fetch_assoc($query))!=NULL){
-        if((((($email==$usuario['email']) && $email=="admin@admin.com")) && (($senha==$usuario['senha']) && $senha=="admin"))){
-            setcookie('ADM', 1, time()+600);
-            header("Location: ../php/home_adm.php");
-        }else if((($email==$usuario['email']) && ($senha==$usuario['senha']))){
-            setcookie('USER', $usuario['cod_usuario'], time()+600);
-            header("Location: ../php/home_user.php");
+        $insert=mysqli_query($con, $sql);
+
+        if($insert){
+            echo "<h1>Cadastro realizado com sucesso</h1>";
+            echo "<a href='../php/home_user.php'>voltar</a>";
+        }else{
+            echo "Errou!!!!";
         }
-      }
+
+    }else{
+        $email=$_POST['email'];
+        $senha=$_POST['senha'];
+
+        $sql="SELECT * FROM usuario";
+
+        $query=mysqli_query($con, $sql);
+
+        if(mysqli_num_rows($query)>0){
+            while(($usuario=mysqli_fetch_assoc($query))!=NULL){
+                if((((($email==$usuario['email']) && $email=="admin@admin.com")) && (($senha==$usuario['senha']) && $senha=="admin"))){
+                    setcookie('ADM', 1, time()+600);
+                    header("Location: ../php/home_adm.php");
+                }else if((($email==$usuario['email']) && ($senha==$usuario['senha']))){
+                    setcookie('USER', $usuario['cod_usuario'], time()+600);
+                    header("Location: ../php/home_user.php");
+                }
+            }
+        }
     }
+
+    include('../inc/disconnect.php');
+    
 ?>

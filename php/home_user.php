@@ -135,6 +135,7 @@
 
         <?php
           include "../inc/login.inc";
+          include "../inc/cadastro.php";
         ?>
     </body>
 </html>
