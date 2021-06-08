@@ -38,6 +38,12 @@
                         <li class="nav-item">
                             <a class="nav-link nav-link-color" href="../php/historico.php">Histórico</a>
                         </li>
+                        <li class="margin">
+                            <form class="d-flex">
+                                <input class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Search"/>
+                                <button class="btn btn-outline-success nav-link-color borda" type="submit">Buscar</button>
+                            </form>
+                        </li>
                         </ul>
                     </div>
                 </div>
