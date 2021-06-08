@@ -45,56 +45,54 @@
         </nav>
     </div>
 
-    <form action="orcamento.php" method="post">
-        <?php
-            include("../inc/conexao.php");
+    <?php
+        include("../inc/conexao.php");
 
-            $sql="SELECT * FROM produto";
+        $sql="SELECT * FROM cultivo";
 
-            $query=mysqli_query($con, $sql);
+        $query=mysqli_query($con, $sql);
 
-            echo '
-            <div class="p-5 text-center">
-                <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
-                    <div class="font text-white">
-                        <table class="table table-bordered">
-            
-            ';
+        echo '
+        <div class="p-5 text-center">
+            <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
+                <div class="font text-white">
+                    <table class="table table-bordered">
+        
+        ';
 
-            if(mysqli_num_rows($query)>0){
-                while(($resultado=mysqli_fetch_assoc($query))!=NULL){
-                    echo 
-                    '
-                        <tr>
-                            <td class="plantas_desc text-white">
-                                '.$resultado["nome"].'<br><br>
-                                <ul>
-                                    <li>'.$resultado["vitaminas"].'</li>
-                                    <li>'.$resultado["beneficios"].'</li>
-                                </ul>
-                                <br>
-                                <h5 class="font">R$ '.number_format($resultado["preco"],2).' X <input type="number" value="" placeholder="Quantidade..."/></h5>
-                                <div class="right">
-                                    <button type="button" name="selecionar" class="font btn btn-color">Selecionar</button>
-                                </div>
-                            </td>
-                        </tr>
-                    ';
-                }
-            }else{
-                echo mysqli_error($con);
+        if(mysqli_num_rows($query)>0){
+            while(($resultado=mysqli_fetch_assoc($query))!=NULL){
+                echo 
+                '
+                    <tr>
+                        <td class="plantas_desc text-white">
+                            '.$resultado["nome"].'<br><br>
+                            <ul>
+                                <li><h2>Clima:</h2> '.$resultado["clima"].'</li><br>
+                                <li>'.$resultado["espaco"].'</li><br>
+                                <li>'.$resultado["plantio"].'</li><br>
+                                <li>'.$resultado["luminosidade"].'</li><br>
+                                <li>'.$resultado["irrigacao"].'</li><br>
+                                <li>'.$resultado["temp_colheita"].'</li><br>
+                            </ul>
+                            <br>
+                        </td>
+                    </tr>
+                ';
             }
+        }else{
+            echo mysqli_error($con);
+        }
 
-            include("../inc/disconnect.php");
+        include("../inc/disconnect.php");
 
-            echo '
-                        </table>
-                    </div>
+        echo '
+                    </table>
                 </div>
             </div>
-                        
-            ';
-        ?>
-    </form>
+        </div>
+                    
+        ';
+    ?>
 </body>
 </html>
