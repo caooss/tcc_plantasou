@@ -16,29 +16,37 @@
             <div class="media">
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <a class="navbar-brand" href="#">
+                    <a class="navbar-brand plantasou" href="#">
                         <!--<img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">-->
-                        <img src="../imgs/logo_lo.png" class="align-self-center mr-3 rounded float-right" width="100" height="100" alt="...">
+                        <img src="../imgs/logo_new.jpeg" class="align-self-center mr-3 rounded float-right" width="75" height="75" alt="...">
                         PlantaSou
-                        </a>
+                    </a>
                     
                         <ul class="navbar-nav nav-pills nav-link-color me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link nav-link-color" href="home_user.php">Home</a>
+                            <a class="nav-link nav-link-color" href="../php/home_user.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-link-color active" aria-current="page" href="#">🌱 Produtos</a>
+                            <a class="nav-link nav-link-color" href="../php/produtos.php">Produtos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-link-color" href="./orcamento.php">Orçamento</a>
+                            <a class="nav-link nav-link-color" href="../php/orcamento.php">Orçamento</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-link-color" href="./cultivo.php">Cultivo</a>
+                            <a class="nav-link nav-link-color active" aria-current="page" href="#">🌎 Cultivo</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-link-color" href="./historico.php">Histórico</a>
+                            <a class="nav-link nav-link-color" href="../php/historico.php">Histórico</a>
                         </li>
+                        <li class="margin">
+                            <form class="d-flex">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+                                <button class="btn btn-outline-success nav-link-color borda" type="submit">Search</button>
+                            </form>
+                        </li>
+
                         </ul>
+
                     </div>
                 </div>
             </div>
@@ -52,32 +60,30 @@
 
         $query=mysqli_query($con, $sql);
 
-        echo '
-        <div class="p-5 text-center">
-            <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
-                <div class="font text-white">
-                    <table class="table table-bordered">
-        
-        ';
-
         if(mysqli_num_rows($query)>0){
             while(($resultado=mysqli_fetch_assoc($query))!=NULL){
                 echo 
                 '
-                    <tr>
-                        <td class="plantas_desc text-white">
-                            '.$resultado["nome"].'<br><br>
-                            <ul>
-                                <li><h2>Clima:</h2> '.$resultado["clima"].'</li><br>
-                                <li>'.$resultado["espaco"].'</li><br>
-                                <li>'.$resultado["plantio"].'</li><br>
-                                <li>'.$resultado["luminosidade"].'</li><br>
-                                <li>'.$resultado["irrigacao"].'</li><br>
-                                <li>'.$resultado["temp_colheita"].'</li><br>
-                            </ul>
-                            <br>
-                        </td>
-                    </tr>
+                <div class="p-5 text-center">
+                    <div class="alert alert-success font" role="alert">
+                        <table class="table table-bordered">
+                            <tr>
+                                <td class="plantas_desc text-black"><h2>
+                                    '.$resultado["nome"].'</h2><br><br>
+                                    <ul>
+                                        <li><h4>Clima:</h4>'.$resultado["clima"].'</li><br>
+                                        <li><h4>Espaço:</h4>'.$resultado["espaco"].'</li><br>
+                                        <li><h4>Plantio:</h4>'.$resultado["plantio"].'</li><br>
+                                        <li><h4>Luminosidade:</h4>'.$resultado["luminosidade"].'</li><br>
+                                        <li><h4>Irrigação:</h4>'.$resultado["irrigacao"].'</li><br>
+                                        <li><h4>Tempo para a colheita:</h4>'.$resultado["temp_colheita"].'</li><br>
+                                    </ul>
+                                    <br>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
                 ';
             }
         }else{
@@ -85,14 +91,6 @@
         }
 
         include("../inc/disconnect.php");
-
-        echo '
-                    </table>
-                </div>
-            </div>
-        </div>
-                    
-        ';
     ?>
 </body>
 </html>

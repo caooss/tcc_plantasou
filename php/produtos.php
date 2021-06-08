@@ -16,27 +16,27 @@
             <div class="media">
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <a class="navbar-brand" href="#">
-                        <!--<img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">-->
-                        <img src="../imgs/logo_lo.png" class="align-self-center mr-3 rounded float-right" width="100" height="100" alt="...">
-                        PlantaSou
+                        <a class="navbar-brand plantasou" href="#">
+                            <!--<img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">-->
+                            <img src="../imgs/logo_new.jpeg" class="align-self-center mr-3 rounded float-right" width="75" height="75" alt="...">
+                            PlantaSou
                         </a>
                     
                         <ul class="navbar-nav nav-pills nav-link-color me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link nav-link-color" href="home_user.php">Home</a>
+                            <a class="nav-link nav-link-color" href="../php/home_user.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link nav-link-color active" aria-current="page" href="#">🌱 Produtos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-link-color" href="./orcamento.php">Orçamento</a>
+                            <a class="nav-link nav-link-color" href="../php/orcamento.php">Orçamento</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-link-color" href="./cultivo.php">Cultivo</a>
+                            <a class="nav-link nav-link-color" href="../php/cultivo.php">Cultivo</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-link-color" href="./historico.php">Histórico</a>
+                            <a class="nav-link nav-link-color" href="../php/historico.php">Histórico</a>
                         </li>
                         </ul>
                     </div>
@@ -53,32 +53,28 @@
 
             $query=mysqli_query($con, $sql);
 
-            echo '
-            <div class="p-5 text-center">
-                <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
-                    <div class="font text-white">
-                        <table class="table table-bordered">
-            
-            ';
-
             if(mysqli_num_rows($query)>0){
                 while(($resultado=mysqli_fetch_assoc($query))!=NULL){
                     echo 
                     '
-                        <tr>
-                            <td class="plantas_desc text-white">
-                                '.$resultado["nome"].'<br><br>
-                                <ul>
-                                    <li>'.$resultado["vitaminas"].'</li>
-                                    <li>'.$resultado["beneficios"].'</li>
-                                </ul>
-                                <br>
-                                <h5 class="font">R$ '.number_format($resultado["preco"],2).' X <input type="number" value="" placeholder="Quantidade..."/></h5>
-                                <div class="right">
-                                    <button type="button" name="selecionar" class="font btn btn-color">Selecionar</button>
-                                </div>
-                            </td>
-                        </tr>
+                    <div class="p-5 text-center">
+                        <div class="alert alert-success font" role="alert">
+                            <div class="text-black">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td class="plantas_desc text-black">
+                                            '.$resultado["nome"].'<br><br>
+                                            <ul>
+                                                <li>'.$resultado["vitaminas"].'</li>
+                                                <li>'.$resultado["beneficios"].'</li>
+                                            </ul>
+                                            <br>
+                                            <h5 class="font">R$ '.number_format($resultado["preco"],2).' X <input type="number" value="" placeholder="Quantidade..."/></h5>
+                                            <div class="right">
+                                                <button type="button" name="selecionar" class="font btn btn-color">Selecionar</button>
+                                            </div>
+                                        </td>
+                                    </tr>
                     ';
                 }
             }else{

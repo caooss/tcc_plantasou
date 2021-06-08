@@ -1,5 +1,5 @@
 <?php
-  if(empty($_COOKIE["USER"])){
+  /*if(empty($_COOKIE["ADM"])){
     echo
       '
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#login">
@@ -7,8 +7,9 @@
       </button>
       ';
   }else{
-    setcookie('USER', $_COOKIE["USER"], time()+600);
-  }
+    setcookie('ADM', 1, time()+600);
+  }*/
+  
 ?>
 
 <!DOCTYPE html>
@@ -19,10 +20,8 @@
 
         <link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap.min.css" />
         <link rel="stylesheet" href="../css/estilo.css">
-        <script src="../js/jquery-3.5.1.min.js"></script>
-        <script src="../js/popper.min.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link rel="shortcut icon" href="../imgs/logo_new.ico">
+
     </head>
     <body>
         <div class="navbar-custom">
@@ -30,9 +29,9 @@
             <div class="media">
               <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <a class="navbar-brand" href="#">
+                  <a class="navbar-brand plantasou" href="#">
                     <!--<img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">-->
-                    <img src="../imgs/logo_lo.png" class="align-self-center mr-3 rounded float-right" width="100" height="100" alt="...">
+                    <img src="../imgs/logo_new.jpeg" class="align-self-center mr-3 rounded float-right" width="75" height="75" alt="...">
                     PlantaSou
                   </a>
                 
@@ -65,9 +64,9 @@
 
         <div class="bg">
             <div class="p-5">
-                <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
+                <div class="alert alert-success font" role="alert">
                   <div class="d-flex justify-content-center align-items-center h-100">
-                    <div class="font text-white">
+                    <div class="text-black">
                       <h1 class="titulo mb-3" align="center">PlantaSou?</h1>
                       <div class="container">
                         <p class="font text-justify">
@@ -138,5 +137,10 @@
           include "../inc/login.inc";
           include "../inc/cadastro.php";
         ?>
+
+        <script src="../js/jquery-3.5.1.min.js"></script>
+        <script src="../js/popper.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     </body>
 </html>

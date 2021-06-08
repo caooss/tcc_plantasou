@@ -25,15 +25,15 @@
     </head>
     <body>
         <div class="navbar-custom">
-         <nav class="navbar navbar-expand-lg navbar-dark ">
+         <nav class="navbar navbar-expand-lg navbar-dark">
           <div class="media">
             <div class="container-fluid">
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <a class="navbar-brand" href="#">
-                <!--<img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">-->
-                <img src="../imgs/logo_lo.png" class="align-self-center mr-3 rounded float-right" width="100" height="100" alt="...">
-                PlantaSou
-              </a>
+                <a class="navbar-brand plantasou" href="#">
+                    <!--<img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">-->
+                    <img src="../imgs/logo_new.jpeg" class="align-self-center mr-3 rounded float-right" width="75" height="75" alt="...">
+                    PlantaSou
+                </a>
               
                 <ul class="navbar-nav nav-pills nav-link-color me-auto mb-2 mb-lg-0">
                   <li class="nav-item">

@@ -11,21 +11,6 @@ tr.spaceUnder>td {
     padding-bottom: 8px;
   }
 
-/*
-.bg {
-   The image used 
-  background-image: url("../imgs/fundo2.jpg");
-
-  Full height 
-  height: 100%;
-
-  Center and scale the image nicely 
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-*/
-
 .fundo{
     background-color: #5E7561;
 }
@@ -57,7 +42,7 @@ button{
 }
 
 .navbar-custom{
-    background-color: #194d0d;
+    background-color: #4c7032;
 }
 
 a{
@@ -72,49 +57,20 @@ a:hover{
     background-color:#000000;
 }
 
-/* #footer	{
-            
-    margin: 0px auto 0px auto;
-    padding: 0px 0 0 0;
-    text-align: center;
-    position: relative;
-    width: 100%;
-    
-}
-
-#footer-left	{
-    color: #FFFFFF;	 
-    font-size: 11px;
-    line-height: 11px;
-    padding: 10px 0 30px 0px;
-    background: #231709;  
-    height: 12px;
-    
-    } 
-
-#footer-left a	{
-    color: #FFFFFF;
-    text-decoration: none;
-    }
-#footer-left 	 a.selected,
-#footer-left 	 a:hover	{
-    color: red;
-    text-decoration: none;
-    } */
-
 .footer{
     position:fixed;
     left: 0px;
     bottom:0px;
     width:100%;
-    background-color: #194d0d;
+    background-color: #4c7032;
     text-align: center;
     height: 40px;
     color: white;
 }
 
 .nav-pills > li > a.active {
-    background-color: #5E7561 !important;
+    /*background-color: #9dbfb0 !important;*/
+    background-color: rgb(98, 136, 70) !important;
     color: #ffffff !important;
     }
     
@@ -124,6 +80,7 @@ a:hover{
     
     .nav-link-color {
     color: #ffffff;
+    font-size: 22px;
     }
 
 .btn-color{
@@ -137,9 +94,8 @@ a:hover{
 }
 
 .font{
-    font-size: 30px;
+    font-size: 25px;
     font-family: calibri;
-    color: #ffffff;
 }
 
 .titulo{
@@ -149,4 +105,21 @@ a:hover{
 .btn-excluir{
     background-color: #6c1111 !important;
     color: #ffffff !important;
+}
+
+.plantasou{
+    font-size: 22px;
+}
+
+.margin{
+    margin-left: 861px;
+}
+
+.borda{
+    border-color: #ffffff;
+}
+
+.borda:hover{
+    background-color: rgb(98, 136, 70);
+    /*border-color: #ffffff;*/
 }
