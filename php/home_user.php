@@ -83,7 +83,11 @@
                         <p class="font text-justify">
                             <table>
                               <tr>
-                                <td><img src="../imgs/tomates.png" width="70" height="70"/></td>
+                                <td>
+                                  <a class="link" href="./produtos.php">
+                                    <img src="../imgs/tomates.png" width="70" height="70"/>
+                                  </a>
+                                </td>
     
                                 <td>
                                   Na página <a class="link" href="./produtos.php">produtos</a>, serão disponibilizados alguns alimentos e suas sementes, além de suas informações nutricionais e seus valores estimados no mercado. 
@@ -91,7 +95,11 @@
                                 </td>
                               </tr>
                               <tr>
-                                <td><img src="../imgs/moeda.png" width="70" height="70"/></td>
+                                <td>
+                                  <a href="./orcamento.php">
+                                    <img src="../imgs/moeda.png" width="70" height="70"/>
+                                  </a>
+                                </td>
                                 
                                 <td>
                                   Na página <a href="./orcamento.php">orçamento</a>, se possuir cadastro, irá conter uma tabela com o produto, seu valor estimado e a quantidade escolhida pelo usuário, determinando o valor 
@@ -99,14 +107,22 @@
                                 </td>
                               </tr>
                               <tr>
-                                <td><img src="../imgs/crescer-planta.png" width="70" height="70"/></td>
+                                <td>
+                                  <a href="./cultivo.php">
+                                    <img src="../imgs/crescer-planta.png" width="70" height="70"/>
+                                  </a>
+                                </td>
                                 
                                 <td>
                                   Na página <a href="./cultivo.php">cultivo</a>, estarão presentes as informações detalhadas de cada etapa da cultivação dos alimentos indicados na plataforma.
                                 </td>
                               </tr>
                               <tr>
-                                <td><img src="../imgs/livro.png" width="70" height="70"/></td>
+                                <td>
+                                  <a href="./historico.php">
+                                    <img src="../imgs/livro.png" width="70" height="70"/>
+                                  </a>
+                                </td>
                                 
                                 <td>
                                   Na página <a href="./historico.php">histórico</a>, se possuir cadastro, o usuário poderá encontrar todos os produtos já selecionados.
