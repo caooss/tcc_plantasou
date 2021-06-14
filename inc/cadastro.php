@@ -38,16 +38,10 @@
 
                 <div class="modal-footer float-right">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                  <button type="submit" class="btn btn-primary">Entrar</button>
+                  <button type="submit" class="btn btn-primary">Cadastrar</button>
                 </div>
                 <input type="hidden" name="hidden" value="1"/>
               </form>
-
-              <div modal-footer float-left>
-                <button class="btn btn-secundary btn-cadastrar" data-toggle="modal" data-target="#NovoUsuario">
-                  Cadastrar
-                </button>
-              </div>
             ';
         ?>
       </div>

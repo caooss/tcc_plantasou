@@ -13,7 +13,7 @@
         $insert=mysqli_query($con, $sql);
 
         if($insert){
-            header("Location: ../php/login.php");
+            header("Location: ../php/index.php");
         }else{
             echo "";
         }
