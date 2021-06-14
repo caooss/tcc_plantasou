@@ -1,15 +1,9 @@
 <?php
-  /*if(empty($_COOKIE["ADM"])){
-    echo
-      '
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#login">
-        Login
-      </button>
-      ';
-  }else{
-    setcookie('ADM', 1, time()+600);
-  }*/
-  
+    if(empty($_COOKIE["USER"])){
+      header ("Location: ../php/index.php");
+    }else{
+      setcookie('USER', $_COOKIE["USER"], time()+600);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +18,7 @@
 
     </head>
     <body>
+
         <div class="navbar-custom">
           <nav class="navbar navbar-expand-lg navbar-dark ">
             <div class="media">
@@ -51,6 +46,9 @@
                     <li class="nav-item">
                       <a class="nav-link nav-link-color" href="./historico.php">Histórico</a>
                     </li>
+                    <li class="nav-item">
+                      <a class="nav-link nav-link-color" href="./logout_user.php">Sair</a>
+                    </li>
                   </ul>
                   <!--<form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -64,7 +62,7 @@
 
         <div class="bg">
             <div class="p-5">
-                <div class="alert alert-success font" role="alert">
+                <div class="alert font">
                   <div class="d-flex justify-content-center align-items-center h-100">
                     <div class="text-black">
                       <h1 class="titulo mb-3" align="center">PlantaSou?</h1>

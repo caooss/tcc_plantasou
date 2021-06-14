@@ -112,7 +112,7 @@ a:hover{
 }
 
 .margin{
-    margin-left: 861px;
+    margin-left: 810px;
 }
 
 .borda{
@@ -123,3 +123,83 @@ a:hover{
     background-color: rgb(98, 136, 70);
     /*border-color: #ffffff;*/
 }
+
+.card-custom{
+    background-color: #4c7032;
+}
+
+.alert{
+    background-color: #d6fccf;
+}
+
+/*                      
+                        <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-addon">
+                            <i class="material-icons">email</i>
+                          </div>
+                          <input type="email" name="email" class="form-control" placeholder="exemplo@gmail.com"/>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-addon">
+                            <i class="material-icons">lock</i>
+                          </div>
+                          <input type="password" name="senha" class="form-control" placeholder="123456789"/>
+                        </div>
+                      </div>
+
+                      <div class="modal-footer float-right">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Entrar</button>
+                      </div>
+                    </form>
+
+                    <div modal-footer float-left>
+                      <button type="button" class="btn btn-secundary btn-cadastrar" data-bs-toggle="modal" data-bs-target="#NovoUsuario">
+                        Cadastrar
+                      </button>
+                    </div>
+                  ';
+
+                  ------------------------------------------------------------------------
+                  <div class="login-form col-sm-6 offset-3 col-md-4 offset-4">
+        <header>
+            <h2 class="text-center">Entre com seu <b>e-mail</b> e <b>senha</b></h2>
+        </header>
+            <?php
+                if (empty($_POST)){
+                    echo '
+                    <form action="#" method="POST">
+                    <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="material-icons">email</i>
+                        </div>
+                        <input type="email" name="email" class="form-control" placeholder="E-mail"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="material-icons">lock</i>
+                        </div>
+                        <input type="password" name="senha" class="form-control" id="senha" placeholder="Senha"/>
+                    </div>
+                </div>
+
+                <footer>
+                    <div class="float-right">
+                        <button type="submit" class="btn btn-primary">Entrar</button>
+                    </div>
+                </footer>
+            </form>
+            <div class="float-left"></div>
+                <button class="btn btn-secondary btn-cadastrar" data-toggle="modal" data-target="#NovoUsuario">
+                  Cadastrar
+                </button>
+          </div>';
+                  */

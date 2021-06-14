@@ -23,27 +23,61 @@
                         </a>
                     
                         <ul class="navbar-nav nav-pills nav-link-color me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-color" href="../php/home_user.php">Home</a>
-                        </li>
+                        <?php
+                            if(isset($_COOKIE["USER"])){
+                                echo'
+                                <li class="nav-item">
+                                    <a class="nav-link nav-link-color" href="../php/home_user.php">Home</a>
+                                </li>
+                                ';
+                            }else{
+                                echo'
+                                <a class="nav-link nav-link-color" href="../php/index.php">🏠 Home</a>
+                                ';
+                            }
+                        ?>
                         <li class="nav-item">
                             <a class="nav-link nav-link-color active" aria-current="page" href="#">🌱 Produtos</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-color" href="../php/orcamento.php">Orçamento</a>
-                        </li>
+                        <?php
+                            if(isset($_COOKIE["USER"])){
+                                echo'
+                                <li class="nav-item">
+                                    <a class="nav-link nav-link-color" href="../php/orcamento.php">Orçamento</a>
+                                </li>
+                                ';
+                            }
+                        ?>
                         <li class="nav-item">
                             <a class="nav-link nav-link-color" href="../php/cultivo.php">Cultivo</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-color" href="../php/historico.php">Histórico</a>
-                        </li>
+                        <?php
+                            if(isset($_COOKIE["USER"])){
+                                echo'
+                                <li class="nav-item">
+                                    <a class="nav-link nav-link-color" href="../php/historico.php">Histórico</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link nav-link-color" href="./logout_user.php">Sair</a>
+                                </li>
+                                ';
+                            }else{
+                                echo'
+                                <li class="nav-item">
+                                    <button type="button" class="btn nav-link nav-link-color" data-bs-toggle="modal" data-bs-target="#login">
+                                        Login
+                                    </button>
+                                </li>
+                                ';
+                            }
+                        ?>
                         <li class="margin">
                             <form class="d-flex">
                                 <input class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Search"/>
                                 <button class="btn btn-outline-success nav-link-color borda" type="submit">Buscar</button>
                             </form>
                         </li>
+
                         </ul>
                     </div>
                 </div>
@@ -64,7 +98,7 @@
                     echo 
                     '
                     <div class="p-5 text-center">
-                        <div class="alert alert-success font" role="alert">
+                        <div class="alert font">
                             <div class="text-black">
                                 <table class="table table-bordered">
                                     <tr>
@@ -76,12 +110,16 @@
                                             </ul>
                                             <br>
                                             <h5 class="font">R$ '.number_format($resultado["preco"],2).' X <input type="number" value="" placeholder="Quantidade..."/></h5>
-                                            <div class="right">
+                                            ';
+                                            if(isset($_COOKIE["USER"])){
+                                                echo'
+                                                <div class="right">
                                                 <button type="button" name="selecionar" class="font btn btn-color">Selecionar</button>
                                             </div>
                                         </td>
                                     </tr>
-                    ';
+                                    ';
+                                            }
                 }
             }else{
                 echo mysqli_error($con);
@@ -98,5 +136,9 @@
             ';
         ?>
     </form>
+
+    <?php
+        include "./login.php";
+    ?>
 </body>
 </html>

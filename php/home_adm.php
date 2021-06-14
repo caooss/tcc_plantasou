@@ -1,11 +1,6 @@
 <?php
     if(empty($_COOKIE["ADM"])){
-      echo
-        '
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#login">
-          Login
-        </button>
-        ';
+      header ("Location: ../php/index.php");
     }else{
       setcookie('ADM', 1, time()+600);
     }
@@ -51,6 +46,9 @@
                   <li class="nav-item">
                     <a class="nav-link nav-link-color" href="./cultivo.php">Histórico</a>
                   </li>
+                  <li class="nav-item">
+                      <a class="nav-link nav-link-color" href="./logout_adm.php">Sair</a>
+                    </li>
                 </ul>
                 <!--<form class="d-flex">
                   <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

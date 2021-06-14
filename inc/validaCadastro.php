@@ -13,10 +13,9 @@
         $insert=mysqli_query($con, $sql);
 
         if($insert){
-            echo "<h1>Cadastro realizado com sucesso</h1>";
-            echo "<a href='../php/home_user.php'>voltar</a>";
+            header("Location: ../php/login.php");
         }else{
-            echo "Errou!!!!";
+            echo "";
         }
 
     }else{
@@ -32,7 +31,7 @@
                 if((((($email==$usuario['email']) && $email=="admin@admin.com")) && (($senha==$usuario['senha']) && $senha=="admin"))){
                     setcookie('ADM', 1, time()+600);
                     header("Location: ../php/home_adm.php");
-                }else if((($email==$usuario['email']) && ($senha==$usuario['senha']))){
+                }else if($email==$usuario['email'] && $senha==$usuario['senha']){
                     setcookie('USER', $usuario['cod_usuario'], time()+600);
                     header("Location: ../php/home_user.php");
                 }

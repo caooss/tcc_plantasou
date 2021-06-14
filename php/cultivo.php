@@ -23,21 +23,54 @@
                     </a>
                     
                         <ul class="navbar-nav nav-pills nav-link-color me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-color" href="../php/home_user.php">Home</a>
-                        </li>
+                        <?php
+                            if(isset($_COOKIE["USER"])){
+                                echo'
+                                <li class="nav-item">
+                                    <a class="nav-link nav-link-color" href="../php/home_user.php">Home</a>
+                                </li>
+                                ';
+                            }else{
+                                echo'
+                                <a class="nav-link nav-link-color" href="../php/index.php">🏠 Home</a>
+                                ';
+                            }
+                        ?>
                         <li class="nav-item">
                             <a class="nav-link nav-link-color" href="../php/produtos.php">Produtos</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-color" href="../php/orcamento.php">Orçamento</a>
-                        </li>
+                        <?php
+                            if(isset($_COOKIE["USER"])){
+                                echo'
+                                <li class="nav-item">
+                                    <a class="nav-link nav-link-color" href="../php/orcamento.php">Orçamento</a>
+                                </li>
+                                ';
+                            }
+                        ?>
                         <li class="nav-item">
                             <a class="nav-link nav-link-color active" aria-current="page" href="#">🌎 Cultivo</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-color" href="../php/historico.php">Histórico</a>
-                        </li>
+                        <?php
+                            if(isset($_COOKIE["USER"])){
+                                echo'
+                                <li class="nav-item">
+                                    <a class="nav-link nav-link-color" href="../php/historico.php">Histórico</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link nav-link-color" href="./logout_user.php">Sair</a>
+                                </li>
+                                ';
+                            }else{
+                                echo'
+                                <li class="nav-item">
+                                    <button type="button" class="btn nav-link nav-link-color" data-bs-toggle="modal" data-bs-target="#login">
+                                        Login
+                                    </button>
+                                </li>
+                                ';
+                            }
+                        ?>
                         <li class="margin">
                             <form class="d-flex">
                                 <input class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Search"/>
@@ -65,7 +98,7 @@
                 echo 
                 '
                 <div class="p-5 text-center">
-                    <div class="alert alert-success font" role="alert">
+                    <div class="alert font">
                         <table class="table table-bordered">
                             <tr>
                                 <td class="plantas_desc text-black"><h2>
@@ -91,6 +124,10 @@
         }
 
         include("../inc/disconnect.php");
+    ?>
+
+    <?php
+        include "./login.php";
     ?>
 </body>
 </html>
