@@ -40,13 +40,13 @@
                         </div>
 
                         <div class="modal-footer float-right">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                          <button type="submit" class="btn btn-primary">Entrar</button>
+                          <button type="button" class="btn btn-outline-success nav-link-color fechar" data-bs-dismiss="modal">Fechar</button>
+                          <button type="submit" class="btn btn-outline-success nav-link-color borda-modal">Entrar</button>
                         </div>
                       </form>
 
                       <div modal-footer float-left>
-                        <button type="button" class="btn btn-secundary btn-cadastrar" data-bs-toggle="modal" data-bs-target="#NovoUsuario">
+                        <button type="button" class="btn btn-cadastrar fechar" data-bs-toggle="modal" data-bs-target="#NovoUsuario">
                           Cadastrar
                         </button>
                       </div>

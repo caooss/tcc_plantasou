@@ -17,7 +17,6 @@
               <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <a class="navbar-brand plantasou" href="#">
-                    <!--<img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">-->
                     <img src="../imgs/logo_new.jpeg" class="align-self-center mr-3 rounded float-right" width="75" height="75" alt="...">
                     PlantaSou
                   </a>
@@ -38,10 +37,6 @@
                         </button>
                     </li>
                   </ul>
-                  <!--<form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                  </form>-->
                 </div>
               </div>
             </div>
@@ -56,11 +51,9 @@
                       <h1 class="titulo mb-3" align="center">PlantaSou?</h1>
                       <div class="container">
                         <p class="font text-justify">
-                          Grande parte da população brasileira não possui acesso aos alimentos saudáveis, muitas vezes por não terem conhecimento sobre o local onde podem ser 
-                          adquiridos os produtos e pela ideia de que existe um alto custo para eles.<br>
-                          Por isso, o PlantaSou foi elaborado pensando na necessidade de aumentar o consumo de alimentos orgânicos na sociedade, que cada vez mais tende a preferir 
-                          alimentos industrializados de fácil e rápido acesso.<br>
-                          O PlantaSou auxilia seus usuários no cultivo de seus próprios alimentos, desde a terra e o adubo, até os benefícios e características de cada 
+                          O PlantaSou foi elaborado pensando na necessidade de aumentar o consumo de alimentos orgânicos na sociedade, que cada vez mais tende a preferir 
+                          alimentos industrializados de fácil e rápido acesso. 
+                          Assim, auxiliamos nossos usuários no cultivo de seus próprios alimentos, desde a terra e o adubo, até os benefícios e características de cada 
                           fruta, legume e vegetal, tendo em vista que essa prática ajuda na diminuição de gastos na alimentação e coloca o consumidor mais próximo de sua comida.<br><br>
                         </p>
 

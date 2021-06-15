@@ -9,6 +9,8 @@
     <script src="../js/jquery-3.5.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../imgs/logo_new.ico">
+
 </head>
 <body>
     <div class="navbar-custom">
@@ -102,14 +104,14 @@
                         <table class="table table-bordered">
                             <tr>
                                 <td class="plantas_desc text-black"><h2>
-                                    '.$resultado["nome"].'</h2><br><br>
+                                    <b>'.$resultado["nome"].'</h2><br><br></b>
                                     <ul>
-                                        <li><h4>Clima:</h4>'.$resultado["clima"].'</li><br>
-                                        <li><h4>Espaço:</h4>'.$resultado["espaco"].'</li><br>
-                                        <li><h4>Plantio:</h4>'.$resultado["plantio"].'</li><br>
-                                        <li><h4>Luminosidade:</h4>'.$resultado["luminosidade"].'</li><br>
-                                        <li><h4>Irrigação:</h4>'.$resultado["irrigacao"].'</li><br>
-                                        <li><h4>Tempo para a colheita:</h4>'.$resultado["temp_colheita"].'</li><br>
+                                        <li><h4><b>Clima</b></h4>'.$resultado["clima"].'</li><br>
+                                        <li><h4><b>Espaço</b></h4>'.$resultado["espaco"].'</li><br>
+                                        <li><h4><b>Plantio</b></h4>'.$resultado["plantio"].'</li><br>
+                                        <li><h4><b>Luminosidade</b></h4>'.$resultado["luminosidade"].'</li><br>
+                                        <li><h4><b>Irrigação</b></h4>'.$resultado["irrigacao"].'</li><br>
+                                        <li><h4><b>Tempo para a colheita</b></h4>'.$resultado["temp_colheita"].'</li><br>
                                     </ul>
                                     <br>
                                 </td>

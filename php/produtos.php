@@ -9,6 +9,8 @@
     <script src="../js/jquery-3.5.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../imgs/logo_new.ico">
+
 </head>
 <body>
     <div class="navbar-custom">
@@ -102,24 +104,31 @@
                             <div class="text-black">
                                 <table class="table table-bordered">
                                     <tr>
+                                        <td>
+                                            <img src="../imgs/plantas/'.$resultado["imagem"].'" class="img-margin" width="250" height="250"/>
+                                        </td>
+
                                         <td class="plantas_desc text-black">
+                                            <b class="font-money">
                                             '.$resultado["nome"].'<br><br>
+                                            </b>
                                             <ul>
                                                 <li>'.$resultado["vitaminas"].'</li>
                                                 <li>'.$resultado["beneficios"].'</li>
                                             </ul>
                                             <br>
-                                            <h5 class="font">R$ '.number_format($resultado["preco"],2).' X <input type="number" value="" placeholder="Quantidade..."/></h5>
-                                            ';
+                                            <b class="font-money">R$ '.number_format($resultado["preco"],2).'';
+                                            
                                             if(isset($_COOKIE["USER"])){
-                                                echo'
-                                                <div class="right">
-                                                <button type="button" name="selecionar" class="font btn btn-color">Selecionar</button>
-                                            </div>
+                                                echo ' X <input type="number" value="" placeholder="Quantidade..."/></b>
+
+                                                <button type="button" name="selecionar" class="font btn btn-color button-margin">Selecionar</button>
+                                                ';
+                                            }
+                                            echo'
                                         </td>
                                     </tr>
                                     ';
-                                            }
                 }
             }else{
                 echo mysqli_error($con);

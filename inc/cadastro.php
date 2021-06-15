@@ -37,8 +37,8 @@
                 </div>
 
                 <div class="modal-footer float-right">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                  <button type="submit" class="btn btn-primary">Cadastrar</button>
+                  <button type="button" class="btn btn-outline-success nav-link-color fechar" data-bs-dismiss="modal">Fechar</button>
+                  <button type="submit" class="btn btn-outline-success nav-link-color borda-modal">Cadastrar</button>
                 </div>
                 <input type="hidden" name="hidden" value="1"/>
               </form>
