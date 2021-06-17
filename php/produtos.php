@@ -19,7 +19,6 @@
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <a class="navbar-brand plantasou" href="#">
-                            <!--<img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">-->
                             <img src="../imgs/logo_new.jpeg" class="align-self-center mr-3 rounded float-right" width="75" height="75" alt="...">
                             PlantaSou
                         </a>
@@ -32,9 +31,15 @@
                                     <a class="nav-link nav-link-color" href="../php/home_user.php">Home</a>
                                 </li>
                                 ';
+                            }else if(isset($_COOKIE["ADM"])){
+                                echo'
+                                <li class="nav-item">
+                                    <a class="nav-link nav-link-color" href="../php/home_adm.php">Home</a>
+                                </li>
+                                ';
                             }else{
                                 echo'
-                                <a class="nav-link nav-link-color" href="../php/index.php">🏠 Home</a>
+                                <a class="nav-link nav-link-color" href="../php/index.php">Home</a>
                                 ';
                             }
                         ?>
@@ -42,7 +47,7 @@
                             <a class="nav-link nav-link-color active" aria-current="page" href="#">🌱 Produtos</a>
                         </li>
                         <?php
-                            if(isset($_COOKIE["USER"])){
+                            if(isset($_COOKIE["USER"]) || isset($_COOKIE["ADM"])){
                                 echo'
                                 <li class="nav-item">
                                     <a class="nav-link nav-link-color" href="../php/orcamento.php">Orçamento</a>
@@ -61,6 +66,12 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link nav-link-color" href="./logout_user.php">Sair</a>
+                                </li>
+                                ';
+                            }else if(isset($_COOKIE["ADM"])){
+                                echo'
+                                <li class="nav-item">
+                                <a class="nav-link nav-link-color" href="./logout_adm.php">Sair</a>
                                 </li>
                                 ';
                             }else{
@@ -86,6 +97,21 @@
             </div>
         </nav>
     </div>
+    <?php
+        if(isset($_COOKIE["ADM"])){
+            echo'
+                <div class="p-5 text-center">
+                    <div class="alert font">
+                        <div class="text-black">
+                            <button type="button" class="btn nav-link nav-link-color" data-bs-toggle="modal" data-bs-target="#cadastro_produto">
+                                Adicionar
+                            </button>   
+                        </div>
+                    </div>
+                </div>
+            ';
+        }
+    ?>
 
     <form action="orcamento.php" method="post">
         <?php
@@ -117,7 +143,7 @@
                                                 <li>'.$resultado["beneficios"].'</li>
                                             </ul>
                                             <br>
-                                            <b class="font-money">R$ '.number_format($resultado["preco"],2).'';
+                                            <b class="font-money">R$ '.number_format($resultado["preco"],2).'/1g';
                                             
                                             if(isset($_COOKIE["USER"])){
                                                 echo ' X <input type="number" value="" placeholder="Quantidade..."/></b>
@@ -128,7 +154,11 @@
                                             echo'
                                         </td>
                                     </tr>
-                                    ';
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    ';
                 }
             }else{
                 echo mysqli_error($con);
@@ -136,18 +166,12 @@
 
             include("../inc/disconnect.php");
 
-            echo '
-                        </table>
-                    </div>
-                </div>
-            </div>
-                        
-            ';
         ?>
     </form>
 
     <?php
         include "./login.php";
+        include "./cadastro_produto.php";
     ?>
 </body>
 </html>

@@ -32,9 +32,15 @@
                                     <a class="nav-link nav-link-color" href="../php/home_user.php">Home</a>
                                 </li>
                                 ';
+                            }else if(isset($_COOKIE["ADM"])){
+                                echo'
+                                <li class="nav-item">
+                                    <a class="nav-link nav-link-color" href="../php/home_adm.php">Home</a>
+                                </li>
+                                ';
                             }else{
                                 echo'
-                                <a class="nav-link nav-link-color" href="../php/index.php">🏠 Home</a>
+                                <a class="nav-link nav-link-color" href="../php/index.php">Home</a>
                                 ';
                             }
                         ?>
@@ -42,7 +48,7 @@
                             <a class="nav-link nav-link-color" href="../php/produtos.php">Produtos</a>
                         </li>
                         <?php
-                            if(isset($_COOKIE["USER"])){
+                            if(isset($_COOKIE["USER"]) || isset($_COOKIE["ADM"])){
                                 echo'
                                 <li class="nav-item">
                                     <a class="nav-link nav-link-color" href="../php/orcamento.php">Orçamento</a>
@@ -61,6 +67,12 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link nav-link-color" href="./logout_user.php">Sair</a>
+                                </li>
+                                ';
+                            }else if(isset($_COOKIE["ADM"])){
+                                echo'
+                                <li class="nav-item">
+                                <a class="nav-link nav-link-color" href="./logout_adm.php">Sair</a>
                                 </li>
                                 ';
                             }else{
@@ -87,6 +99,22 @@
             </div>
         </nav>
     </div>
+    <?php
+        if(isset($_COOKIE["ADM"])){
+            echo'
+                <div class="p-5 text-center">
+                    <div class="alert font">
+                        <div class="text-black">
+                            <button type="button" class="btn nav-link nav-link-color" data-bs-toggle="modal" data-bs-target="#cadastro_cultivo">
+                                Adicionar
+                            </button>   
+                        </div>
+                    </div>
+                </div>
+            ';
+        }
+    ?>
+
 
     <?php
         include("../inc/conexao.php");
@@ -130,6 +158,7 @@
 
     <?php
         include "./login.php";
+        include "./cadastro_cultivo.php";
     ?>
 </body>
 </html>
