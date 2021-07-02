@@ -11,11 +11,7 @@
     <meta charset="UTF-8" dir="ltr">
     <title>PlantaSou</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../css/estilo.css">
-    <script src="../js/jquery-3.5.1.min.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+   
     <link rel="shortcut icon" href="../imgs/logo_new.ico">
 
 </head>
@@ -91,13 +87,6 @@
                                 ';
                             }
                         ?>
-                        <li class="margin">
-                            <form class="d-flex">
-                                <input class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Search"/>
-                                <button class="btn btn-outline-success nav-link-color borda" type="submit">Buscar</button>
-                            </form>
-                        </li>
-
                         </ul>
                     </div>
                 </div>
@@ -135,16 +124,55 @@
     }else{
         include ("../inc/conexao.php");
 
+        echo'
+            <table class="table table-borderless tabela w-75 p-3">
+                <thead>
+                    <tr class="centro">
+                        <th>Quantidade</th>
+                        <th>Nome</th>
+                        <th>Preço unitário</th>
+                        <th>Preço total</th>
+                        <th>Editar</th>
+                    </tr>
+                </thead>
+                <tbody>';
+
         foreach($_SESSION['itens'] as $idProduto => $quantidade){
-            $sql= $con->prepare("SELECT * FROM produto WHERE cod_produto=?");
+            /*$sql= $con->prepare("SELECT * FROM produto WHERE cod_produto=?");
             $sql->bind_param("i", $idProduto);
-            $sql->execute();
-            while(($seleciona=mysqli_fetch_assoc($sql))!= NULL){
-                echo
-                    $seleciona[0]['nome'].'<br/>.'
-                ;
-            }
+            $sql->execute();*/
+            $sql="SELECT * FROM produto WHERE cod_produto=$idProduto";
+            $query=mysqli_query($con, $sql);
+
+            
+
+                while(($seleciona=mysqli_fetch_assoc($query))!= NULL){
+                    $preco_total= $seleciona['preco']* $quantidade;
+                    echo'
+                        <tr class="centro">
+                            <th scope="row">'.$quantidade.'</th>
+                            <td>'.$seleciona['nome'].'</td>
+                            <td>'.$seleciona['preco'].'</td>
+                            <td>'.$preco_total.'</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-color dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Ação
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li><a class="dropdown-item" href="remover_produto.php?remover=tabela&id='.$idProduto.'">Remover</a></li>
+                                        <li><a class="dropdown-item" href="#">Mudar quantidade</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>    
+                        ';
+                }
+            
         }
+        echo'
+                </tbody>
+            </table>';
         
     }
 
@@ -153,5 +181,12 @@
     include "./login.php";
     include "./cadastro_produto.php";
 ?>
+
+<script src="../js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="../css/estilo.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/5.0.1/css/bootstrap.min.css">
+
 </body>
 </html>

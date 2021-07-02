@@ -146,11 +146,11 @@
                                             <b class="font-money">R$ '.number_format($resultado["preco"],2).'/1g';
                                             
                                             if(isset($_COOKIE["USER"])){
-                                                echo ' X <input type="number" value="" placeholder="Quantidade..."/></b>
-
-                                                <button type="button" name="selecionar" class="font btn btn-color button-margin"><a href="orcamento.php?add=tabela&id='.$resultado['cod_produto'].'">Selecionar</a></button>
-                                                ';
-                                            }
+                                                echo ' <form action="orcamento.php" method="POST">
+                                                            <button type="submit" name="selecionar" class="font btn btn-color button-margin cor"><a href="orcamento.php?add=tabela&id='.$resultado['cod_produto'].'" class="altera">Selecionar</a></button>
+                                                        </form>
+                                                        ';
+                                                }
                                             echo'
                                         </td>
                                     </tr>

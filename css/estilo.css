@@ -173,3 +173,25 @@ a:hover{
 .img-margin{
     margin-top: 13px;
 }
+
+.tabela{
+    margin-top: 20px;
+    margin-left: 170px;
+    background-color: #d6fccf;
+}
+
+.centro{
+    text-align: center;
+}
+
+a:link {
+    text-decoration: none;
+  }
+
+.altera{
+    color:white;
+}
+
+.altera:hover{
+    color:white;
+}

@@ -63,10 +63,17 @@
                       <h1 class="titulo mb-3" align="center">PlantaSou?</h1>
                       <div class="container">
                         <p class="font text-justify">
-                        O PlantaSou foi elaborado pensando na necessidade de aumentar o consumo de alimentos orgânicos na sociedade, que cada vez mais tende a preferir 
-                          alimentos industrializados de fácil e rápido acesso. 
-                          Assim, auxiliamos nossos usuários no cultivo de seus próprios alimentos, desde a terra e o adubo, até os benefícios e características de cada 
-                          fruta, legume e vegetal, tendo em vista que essa prática ajuda na diminuição de gastos na alimentação e coloca o consumidor mais próximo de sua comida.<br><br>
+                          <ul>
+                            <li>
+                            O PlantaSou foi elaborado pensando na necessidade de aumentar o consumo de alimentos orgânicos na sociedade, que cada vez mais tende a preferir 
+                              alimentos industrializados de fácil e rápido acesso. 
+                            </li>
+                            </br>
+                            <li>  
+                              Assim, auxiliamos nossos usuários no cultivo de seus próprios alimentos, desde a terra e o adubo, até os benefícios e características de cada 
+                              fruta, legume e vegetal, tendo em vista que essa prática ajuda na diminuição de gastos na alimentação e coloca o consumidor mais próximo de sua comida.<br><br>
+                            </li>
+                          </ul>
                         </p>
 
                         <p class="font-weight-bold font text-justify">
