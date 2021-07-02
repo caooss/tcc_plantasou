@@ -1,3 +1,10 @@
+<?php
+    if(empty($_COOKIE["USER"])){
+      header ("Location: ../php/index.php");
+    }else{
+      setcookie('USER', $_COOKIE["USER"], time()+600);
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -44,13 +51,13 @@
                             }
                         ?>
                         <li class="nav-item">
-                            <a class="nav-link nav-link-color active" aria-current="page" href="#">🌱 Produtos</a>
+                            <a class="nav-link nav-link-color" href="../php/produtos.php">Produtos</a>
                         </li>
                         <?php
                             if(isset($_COOKIE["USER"]) || isset($_COOKIE["ADM"])){
                                 echo'
                                 <li class="nav-item">
-                                    <a class="nav-link nav-link-color" href="../php/orcamento.php">Orçamento</a>
+                                    <a class="nav-link nav-link-color active" aria-current="page" href="#">💲 Orçamento</a>
                                 </li>
                                 ';
                             }
@@ -97,81 +104,54 @@
             </div>
         </nav>
     </div>
-    <?php
-        if(isset($_COOKIE["ADM"])){
-            echo'
+<?php
+    session_start();
+
+    if(!isset($_SESSION['itens'])){
+        $_SESSION['itens']= array();
+    }
+
+    if(isset($_GET['add']) && $_GET['add'] == "tabela"){
+        $idProduto = $_GET['id'];
+        if(!isset($_SESSION['itens'][$idProduto])){
+            $_SESSION['itens'][$idProduto] = 1;
+        }else{
+            $_SESSION['itens'][$idProduto] += 1;
+        }
+    }
+
+    if(count($_SESSION['itens'])== 0){
+        echo'
                 <div class="p-5 text-center">
                     <div class="alert font">
                         <div class="text-black">
-                            <button type="button" class="btn nav-link nav-link-color" data-bs-toggle="modal" data-bs-target="#cadastro_produto">
-                                Adicionar
-                            </button>   
+                            <p>Nenhum produto foi selecionado</p>
+                            </br>
+                            <p><a class="link" href="../php/produtos.php">Você poderá selecionar um produto na página Produtos</a></p>
                         </div>
                     </div>
                 </div>
-            ';
-        }
-    ?>
+        ';
+    }else{
+        include ("../inc/conexao.php");
 
-    <form action="orcamento.php" method="post">
-        <?php
-            include("../inc/conexao.php");
-
-            $sql="SELECT * FROM produto";
-
-            $query=mysqli_query($con, $sql);
-
-            if(mysqli_num_rows($query)>0){
-                while(($resultado=mysqli_fetch_assoc($query))!=NULL){
-                    echo 
-                    '
-                    <div class="p-5 text-center">
-                        <div class="alert font">
-                            <div class="text-black">
-                                <table class="table table-bordered">
-                                    <tr>
-                                        <td>
-                                            <img src="../imgs/plantas/'.$resultado["imagem"].'" class="img-margin" width="250" height="250"/>
-                                        </td>
-
-                                        <td class="plantas_desc text-black">
-                                            <b class="font-money">
-                                            '.$resultado["nome"].'<br><br>
-                                            </b>
-                                            <ul>
-                                                <li>'.$resultado["vitaminas"].'</li>
-                                                <li>'.$resultado["beneficios"].'</li>
-                                            </ul>
-                                            <br>
-                                            <b class="font-money">R$ '.number_format($resultado["preco"],2).'/1g';
-                                            
-                                            if(isset($_COOKIE["USER"])){
-                                                echo ' X <input type="number" value="" placeholder="Quantidade..."/></b>
-
-                                                <button type="button" name="selecionar" class="font btn btn-color button-margin"><a href="orcamento.php?add=tabela&id='.$resultado['cod_produto'].'">Selecionar</a></button>
-                                                ';
-                                            }
-                                            echo'
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    ';
-                }
-            }else{
-                echo mysqli_error($con);
+        foreach($_SESSION['itens'] as $idProduto => $quantidade){
+            $sql= $con->prepare("SELECT * FROM produto WHERE cod_produto=?");
+            $sql->bind_param("i", $idProduto);
+            $sql->execute();
+            while(($seleciona=mysqli_fetch_assoc($sql))!= NULL){
+                echo
+                    $seleciona[0]['nome'].'<br/>.'
+                ;
             }
+        }
+        
+    }
 
-            include("../inc/disconnect.php");
-
-        ?>
-    </form>
-
-    <?php
-        include "./login.php";
-        include "./cadastro_produto.php";
-    ?>
+?>
+<?php
+    include "./login.php";
+    include "./cadastro_produto.php";
+?>
 </body>
 </html>
