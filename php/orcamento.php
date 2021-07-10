@@ -4,6 +4,9 @@
     }else{
       setcookie('USER', $_COOKIE["USER"], time()+600);
     }
+    if(isset($_COOKIE["USER"])){
+        $usuario= $_COOKIE["USER"];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -22,7 +25,7 @@
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <a class="navbar-brand plantasou" href="#">
-                            <img src="../imgs/logo_new.jpeg" class="align-self-center mr-3 rounded float-right" width="75" height="75" alt="...">
+                            <img src="../imgs/logo_new.jpeg" class="align-self-center mr-3 rounded float-right" width="50" height="50" alt="...">
                             PlantaSou
                         </a>
                     
@@ -50,7 +53,7 @@
                             <a class="nav-link nav-link-color" href="../php/produtos.php">Produtos</a>
                         </li>
                         <?php
-                            if(isset($_COOKIE["USER"]) || isset($_COOKIE["ADM"])){
+                            if(isset($_COOKIE["USER"])){
                                 echo'
                                 <li class="nav-item">
                                     <a class="nav-link nav-link-color active" aria-current="page" href="#">💲 Orçamento</a>
@@ -86,7 +89,30 @@
                                 </li>
                                 ';
                             }
-                        ?>
+                            if(isset($_COOKIE["USER"]) || isset($_COOKIE["ADM"])){
+                                echo'
+                                    <li class="nav-item">
+                                        <a class="nav-link nav-link-color active_usuario">Seja bem-vindo(a) ';
+
+                                            if(isset($_COOKIE["USER"])){
+                                                include('../inc/conexao.php');
+                                                $sql="SELECT nome FROM usuario WHERE cod_usuario=$usuario";
+                                                $query=mysqli_query($con, $sql);
+                                                
+                                                if(mysqli_num_rows($query)>0){
+                                                    while(($nome=mysqli_fetch_assoc($query))!=NULL){
+                                                        echo $nome['nome'];
+                                                    }
+                                                } 
+                                            }
+                                            elseif(isset($_COOKIE["ADM"])){
+                                                echo "Administrador(a)";
+                                            }
+                                echo'
+                                        </a>
+                                    </li>';
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
@@ -129,7 +155,7 @@
                 <thead>
                     <tr class="centro">
                         <th>Quantidade</th>
-                        <th>Nome</th>
+                        <th>Nome do produto</th>
                         <th>Preço unitário</th>
                         <th>Preço total</th>
                         <th>Editar</th>
@@ -150,10 +176,12 @@
                     $preco_total= $seleciona['preco']* $quantidade;
                     echo'
                         <tr class="centro">
-                            <th scope="row">'.$quantidade.'</th>
+                            <th scope="row">
+                                <input type="number" class="centro" value="'.$quantidade.'" id="qtd"/>
+                            </th>
                             <td>'.$seleciona['nome'].'</td>
-                            <td>'.$seleciona['preco'].'</td>
-                            <td>'.$preco_total.'</td>
+                            <td>R$'.$seleciona['preco'].'</td>
+                            <td>R$'.$preco_total.'</td>
                             <td>
                                 <div class="dropdown">
                                     <button class="btn btn-color dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -161,7 +189,7 @@
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                         <li><a class="dropdown-item" href="remover_produto.php?remover=tabela&id='.$idProduto.'">Remover</a></li>
-                                        <li><a class="dropdown-item" href="#">Mudar quantidade</a></li>
+                                        <li><a class="dropdown-item" href="../inc/mudar_quantidade.php?mudar=tabela&id='.$idProduto.'">Mudar quantidade</a></li>
                                     </ul>
                                 </div>
                             </td>
@@ -175,13 +203,12 @@
             </table>';
         
     }
-
 ?>
 <?php
     include "./login.php";
     include "./cadastro_produto.php";
 ?>
-
+<script src="../js/quantidade.js"></script>
 <script src="../js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="../css/estilo.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

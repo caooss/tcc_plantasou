@@ -24,7 +24,7 @@
             <div class="container-fluid">
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <a class="navbar-brand plantasou" href="#">
-                    <img src="../imgs/logo_new.jpeg" class="align-self-center mr-3 rounded float-right" width="75" height="75" alt="...">
+                    <img src="../imgs/logo_new.jpeg" class="align-self-center mr-3 rounded float-right" width="50" height="50" alt="...">
                     PlantaSou
                 </a>
               
@@ -36,9 +36,6 @@
                     <a class="nav-link nav-link-color" href="./produtos.php">Produtos</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link nav-link-color" href="./orcamento.php">Orçamento</a>
-                  </li>
-                  <li class="nav-item">
                     <a class="nav-link nav-link-color" href="./cultivo.php">Cultivo</a>
                   </li>
                   <li class="nav-item">
@@ -46,7 +43,10 @@
                   </li>
                   <li class="nav-item">
                       <a class="nav-link nav-link-color" href="./logout_adm.php">Sair</a>
-                    </li>
+                  </li>
+                  <li>
+                    <a class="nav-link nav-link-color active_usuario ">Seja bem-vindo(a) Administrador(a)</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -60,11 +60,34 @@
                     <div class="text-black">
                       <h1 class="titulo mb-3" align="center">PlantaSou?</h1>
                       <div class="container">
-                        <p class="font text-justify">
-                        O PlantaSou foi elaborado pensando na necessidade de aumentar o consumo de alimentos orgânicos na sociedade, que cada vez mais tende a preferir 
-                          alimentos industrializados de fácil e rápido acesso. 
-                          Assim, auxiliamos nossos usuários no cultivo de seus próprios alimentos, desde a terra e o adubo, até os benefícios e características de cada 
-                          fruta, legume e vegetal, tendo em vista que essa prática ajuda na diminuição de gastos na alimentação e coloca o consumidor mais próximo de sua comida.<br><br>
+                      <p class="font text-justify">
+                          <ul>
+                            <li>
+                            O PlantaSou foi elaborado pensando na necessidade de aumentar o consumo de alimentos orgânicos na sociedade, que cada vez mais tende a preferir 
+                              alimentos industrializados de fácil e rápido acesso. 
+                            </li>
+                            </br>
+                            <li>  
+                              Assim, auxiliamos nossos usuários no cultivo de seus próprios alimentos, desde a terra e o adubo, até os benefícios e características de cada 
+                              fruta, legume e vegetal, tendo em vista que essa prática ajuda na diminuição de gastos na alimentação e coloca o consumidor mais próximo de sua comida.<br><br>
+                            </li>
+                          </ul>
+                        </p>
+
+                        <p>
+                            <table>
+                              <tr>
+                                <td><img src="../imgs/icone_colorido.png" width="100" height="100"/><td>
+                                <td> Quer possuir todos os benefícios que o PlantaSou oferece? <b>Cadastre-se já!!</b></br>
+                                     Com o cadastro, você pode:</br>
+                                      <ul>
+                                          <li>Fazer a seleção dos produtos na página <a class="link" href="./produtos.php">produtos</a>;</li>
+                                          <li>Obter uma página <a href="./orcamento.php">orçamento</a> para calcular seus gatos com a horta;</li>
+                                          <li>Possuir a página <a href="./historico.php">histórico</a> com seus orçamentos.</li>
+                                      </ul>
+                                </td>
+                              </tr>
+                            </table>
                         </p>
 
                         <p class="font-weight-bold font text-justify">
@@ -121,10 +144,11 @@
                               </tr>
                             </table>
                           </p>
-                        <p>
-                          Direito autoral dos ícones:
-                           <div>Ícones feitos por <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/br/" title="Flaticon">www.flaticon.com</a></div>
-                        </p>
+                          <p class="direito_autoral">
+                            Direito autoral dos ícones:
+                            <div class="direito_autoral">Ícones feitos por Vectto no <a href="https://www.iconfinder.com/" title="Iconfinder">www.iconfinder.com</a></div>
+                            <div class="direito_autoral">Ícones feitos por <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/br/" title="Flaticon">www.flaticon.com</a></div>
+                          </p>
                       </div>
                     </div>
                   </div>

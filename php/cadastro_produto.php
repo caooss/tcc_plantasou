@@ -46,13 +46,13 @@
                                 <select name="cod_cultivo">
                         ';
                         include('../inc/conexao.php');
-                        $sql="SELECT cod_cultivo FROM cultivo";
+                        $sql="SELECT cod_cultivo, nome FROM cultivo";
                         $query=mysqli_query($con, $sql);
 
                         if(mysqli_num_rows($query)>0){
                             while(($cod_do_cultivo=mysqli_fetch_assoc($query))!=NULL){
                                 echo'
-                                    <option value="'.$cod_do_cultivo["cod_cultivo"].'">'.$cod_do_cultivo["cod_cultivo"].'</option>
+                                    <option value="'.$cod_do_cultivo["cod_cultivo"].'">'.$cod_do_cultivo["nome"].'</option>
                                 ';
                             }
                         }
@@ -69,7 +69,7 @@
 
                         <div class="modal-footer float-right">
                           <button type="button" class="btn btn-outline-success nav-link-color fechar" data-bs-dismiss="modal">Fechar</button>
-                          <button type="submit" class="btn btn-outline-success nav-link-color borda-modal">Entrar</button>
+                          <button type="submit" class="btn btn-outline-success nav-link-color borda-modal">Adicionar</button>
                         </div>
                       </form>
                     ';

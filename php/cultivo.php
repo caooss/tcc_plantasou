@@ -1,3 +1,8 @@
+<?php
+    if(isset($_COOKIE["USER"])){
+        $usuario= $_COOKIE["USER"];
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -20,7 +25,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <a class="navbar-brand plantasou" href="#">
                         <!--<img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">-->
-                        <img src="../imgs/logo_new.jpeg" class="align-self-center mr-3 rounded float-right" width="75" height="75" alt="...">
+                        <img src="../imgs/logo_new.jpeg" class="align-self-center mr-3 rounded float-right" width="50" height="50" alt="...">
                         PlantaSou
                     </a>
                     
@@ -48,7 +53,7 @@
                             <a class="nav-link nav-link-color" href="../php/produtos.php">Produtos</a>
                         </li>
                         <?php
-                            if(isset($_COOKIE["USER"]) || isset($_COOKIE["ADM"])){
+                            if(isset($_COOKIE["USER"])){
                                 echo'
                                 <li class="nav-item">
                                     <a class="nav-link nav-link-color" href="../php/orcamento.php">Orçamento</a>
@@ -84,6 +89,35 @@
                                 </li>
                                 ';
                             }
+                            if(isset($_COOKIE["USER"]) || isset($_COOKIE["ADM"])){
+                                echo'
+                                    <li class="nav-item">
+                                        <a class="nav-link nav-link-color active_usuario ">Seja bem-vindo(a) ';
+
+                                            if(isset($_COOKIE["USER"])){
+                                                include('../inc/conexao.php');
+                                                $sql="SELECT nome FROM usuario WHERE cod_usuario=$usuario";
+                                                $query=mysqli_query($con, $sql);
+                                                
+                                                if(mysqli_num_rows($query)>0){
+                                                    while(($nome=mysqli_fetch_assoc($query))!=NULL){
+                                                        echo $nome['nome'];
+                                                    }
+                                                } 
+                                            }
+                                            elseif(isset($_COOKIE["ADM"])){
+                                                echo "Administrador(a)⠀⠀⠀⠀⠀⠀⠀⠀⠀";
+                                            }
+                                echo'
+                                        </a>
+                                    </li>';
+                            }
+                            else{
+                                echo'
+                                <li>
+                                <a class="nav-link nav-link-color active_usuario ">Seja bem-vindo(a) ao site ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</a>
+                                </li>';
+                            }
                         ?>
                         <li class="margin">
                             <form class="d-flex">
@@ -104,8 +138,8 @@
             echo'
                 <div class="p-5 text-center">
                     <div class="alert font">
-                        <div class="text-black">
-                            <button type="button" class="btn nav-link nav-link-color" data-bs-toggle="modal" data-bs-target="#cadastro_cultivo">
+                        <div class="text-black d-grid gap-2">
+                            <button type="button" class="btn nav-link nav-link-color adicionar" data-bs-toggle="modal" data-bs-target="#cadastro_cultivo">
                                 Adicionar
                             </button>   
                         </div>
@@ -135,7 +169,6 @@
                                     <b>'.$resultado["nome"].'</h2><br><br></b>
                                     <ul>
                                         <li><h4><b>Clima</b></h4>'.$resultado["clima"].'</li><br>
-                                        <li><h4><b>Espaço</b></h4>'.$resultado["espaco"].'</li><br>
                                         <li><h4><b>Plantio</b></h4>'.$resultado["plantio"].'</li><br>
                                         <li><h4><b>Luminosidade</b></h4>'.$resultado["luminosidade"].'</li><br>
                                         <li><h4><b>Irrigação</b></h4>'.$resultado["irrigacao"].'</li><br>

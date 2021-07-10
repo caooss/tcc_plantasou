@@ -80,7 +80,7 @@ a:hover{
     
     .nav-link-color {
     color: #ffffff;
-    font-size: 22px;
+    font-size: 16px;
     }
 
 .btn-color{
@@ -94,12 +94,12 @@ a:hover{
 }
 
 .font{
-    font-size: 25px;
+    font-size: 20px;
     font-family: calibri;
 }
 
 .font-money{
-    font-size: 30px;
+    font-size: 20px;
     font-family: calibri;
 }
 
@@ -117,7 +117,7 @@ a:hover{
 }
 
 .margin{
-    margin-left: 800px;
+    margin-left: 200px;
 }
 
 .borda{
@@ -195,3 +195,24 @@ a:link {
 .altera:hover{
     color:white;
 }
+
+.active_usuario{
+    background-color: #4c7032 !important;
+    color: #ffffff !important;
+}
+
+.direito_autoral{
+    font-size:15px;
+}
+
+.adicionar{
+    color:white;
+    font-size: 25px;
+    background-color: #4c7032;
+
+}
+
+.adicionar:hover{
+    color:white;
+}
+

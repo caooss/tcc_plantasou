@@ -32,11 +32,6 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label font">Espaço</label> 
-                            <textarea name="espaco" required></textarea>
-                        </div>
-
-                        <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label font">Plantio</label> 
                             <textarea name="plantio" required></textarea>
                         </div>
@@ -58,7 +53,7 @@
 
                         <div class="modal-footer float-right">
                           <button type="button" class="btn btn-outline-success nav-link-color fechar" data-bs-dismiss="modal">Fechar</button>
-                          <button type="submit" class="btn btn-outline-success nav-link-color borda-modal">Entrar</button>
+                          <button type="submit" class="btn btn-outline-success nav-link-color borda-modal">Adicionar</button>
                         </div>
                       </form>
                     ';
@@ -77,14 +72,13 @@
                         include('../inc/conexao.php');
                         $nome=$_POST['nome'];
                         $clima=$_POST['clima'];
-                        $espaco=$_POST['espaco'];
                         $plantio=$_POST['plantio'];
                         $luminosidade=$_POST['luminosidade'];
                         $irrigacao=$_POST['irrigacao'];
                         $temp_colheita=$_POST['temp_colheita'];
 
-                        $sql="INSERT INTO cultivo (nome, clima, espaco, plantio, luminosidade, irrigacao, temp_colheita)
-                              VALUES ('$nome', '$clima', '$espaco', '$plantio', '$luminosidade', '$irrigacao', '$temp_colheita')";
+                        $sql="INSERT INTO cultivo (nome, clima, plantio, luminosidade, irrigacao, temp_colheita)
+                              VALUES ('$nome', '$clima', '$plantio', '$luminosidade', '$irrigacao', '$temp_colheita')";
                         
                         $query=mysqli_query($con, $sql);
                         include('../inc/disconnect.php');
