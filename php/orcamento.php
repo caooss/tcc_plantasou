@@ -154,7 +154,7 @@
             <table class="table table-borderless tabela w-75 p-3">
                 <thead>
                     <tr class="centro">
-                        <th>Quantidade</th>
+                        <th colspan="2">Quantidade</th>
                         <th>Nome do produto</th>
                         <th>Preço unitário</th>
                         <th>Preço total</th>
@@ -170,28 +170,34 @@
             $sql="SELECT * FROM produto WHERE cod_produto=$idProduto";
             $query=mysqli_query($con, $sql);
 
-            
-
                 while(($seleciona=mysqli_fetch_assoc($query))!= NULL){
+                    
+                    include "../inc/mudar_quantidade.php";
+
+                    if(isset($_POST['qtd_recebida'])){
+                        $quantidade= $_POST['quantidade_nova'];
+                    }
+                   
                     $preco_total= $seleciona['preco']* $quantidade;
+
                     echo'
                         <tr class="centro">
+                            <td>
+                                <button type="button" class="btn nav-link nav-link-color btn-color" data-bs-toggle="modal" data-bs-target="#quantidade_p'.$idProduto.'">
+                                    Modificar
+                                </button>
+                            </td>
                             <th scope="row">
                                 <input type="number" class="centro" value="'.$quantidade.'" id="qtd"/>
                             </th>
                             <td>'.$seleciona['nome'].'</td>
                             <td>R$'.$seleciona['preco'].'</td>
-                            <td>R$'.$preco_total.'</td>
+                            <input type= "hidden" value="'.$seleciona['preco'].'" id="preco"/>
+                            <td><input type="number" class="centro" id="total" value="'.$preco_total.'"/></td>
                             <td>
-                                <div class="dropdown">
-                                    <button class="btn btn-color dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Ação
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><a class="dropdown-item" href="remover_produto.php?remover=tabela&id='.$idProduto.'">Remover</a></li>
-                                        <li><a class="dropdown-item" href="../inc/mudar_quantidade.php?mudar=tabela&id='.$idProduto.'">Mudar quantidade</a></li>
-                                    </ul>
-                                </div>
+                                <button class="btn btn-color" type="button" id="dropdownMenuButton1" aria-expanded="false">
+                                    <a class="btn-color" href="remover_produto.php?remover=tabela&id='.$idProduto.'">Remover</a>
+                                </button>
                             </td>
                         </tr>    
                         ';

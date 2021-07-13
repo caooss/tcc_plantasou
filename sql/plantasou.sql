@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 17, 2021 at 08:25 PM
+-- Generation Time: Jul 13, 2021 at 06:13 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `plantasou`
 --
+CREATE DATABASE IF NOT EXISTS `plantasou` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `plantasou`;
 
 -- --------------------------------------------------------
 
@@ -33,21 +35,21 @@ CREATE TABLE IF NOT EXISTS `cultivo` (
   `cod_cultivo` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
   `clima` varchar(4000) DEFAULT NULL,
-  `espaco` varchar(4000) DEFAULT NULL,
   `plantio` varchar(4000) DEFAULT NULL,
   `luminosidade` varchar(4000) DEFAULT NULL,
   `irrigacao` varchar(4000) DEFAULT NULL,
   `temp_colheita` varchar(4000) DEFAULT NULL,
   PRIMARY KEY (`cod_cultivo`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cultivo`
 --
 
-INSERT INTO `cultivo` (`cod_cultivo`, `nome`, `clima`, `espaco`, `plantio`, `luminosidade`, `irrigacao`, `temp_colheita`) VALUES
-(1, 'Abóbora', 'A temperatura ideal para germinação vai de 25 ºC a 30 ºC e o bom desenvolvimento dos frutos, de 18 ºC a 30 ºC. A abóbora é muito sensível ao frio e não suporta geadas. São adaptadas às temperaturas de primavera, verão e outono de Norte a Sul do Brasil.', 'As covas devem ter dimensões aproximadas de 40 cm de comprimento, 30 cm de largura e 25 cm de profundidade, já os sulcos devem ter cerca de 30 cm de largura e 25 de profundidade.', 'Para um cultivo mais produtivo, recomenda-se que o terreno seja plano e extenso para que as abóboras cresçam sem restrições. Elas se desenvolvem bem em solos com pH entre 6 e 6,5. O plantio pode ser feito de duas maneiras: depositando as sementes diretamente na terra ou cultivando mudas, depositadas em copinhos ou vasos de papel ou plástico. Para o método com sementes, o correto é colocar de duas a três por cova, entre 1 cm e 3 cm de profundidade. Se optar por mudas, o aconselhável é transplantá-las para a terra após o surgimento de duas folhas.', 'As abóboras crescem melhor em locais ensolarados, mas podem ser cultivadas com sombra parcial, desde que haja uma alta luminosidade.', 'Irrigue de forma a manter o solo sempre úmido, sem que fique encharcado. Plantas adultas podem ser resistentes a curtos períodos de seca.\r\nA abóbora geralmente cresce bastante, assim uma vara pode ser fincada verticalmente no local onde as sementes são semeadas para marcar o centro da futura planta, permitindo direcionar a irrigação e evitar o desperdício de água.', 'O tempo estimado desde o momento do plantio da abóbora até a colheita é de aproximadamente cinco meses. As morangas demoram de 110 a 120 dias. É claro que isso depende dos fatores climáticos e da quantidade de água recebida.'),
-(2, 'Tomate', 'Por ser um alimento com origem em áreas quentes, não suporta temperaturas muito frias, a temperatura ideal é entre 20 ºC e 26 ºC e não deve ultrapassar 35 ºC.', 'Os tomates podem ser plantados em pequenos vasos e plantas, não necessitando de grandes áreas para que a planta se desenvolva com saúde e vigor. No caso de plantação em pequenas hortas, é possível produzir tomates maiores e em grandes quantidades, mas para isso é preciso estar atento a algumas orientações básicas de como plantar tomate orgânico.', 'Na hora de plantar os tomates é preciso muita atenção por parte do produtor. É recomendado realizar pequenas mudas do tomateiro antes de colocá-lo no solo. Em uma sementeira, coloque de duas a cinco sementes em cada buraco, com cerca de 1cm de profundidade. Caso opte por tomates menores ou do tipo anão, faça o plantio diretamente no vaso ou na jardineira escolhida, nessa situação não há necessidade de transportar o cultivo.', 'Precisa de alta luminosidade e recebe luz solar por no mínimo 6 horas.', 'Deve estar sempre bem irrigado, duas vezes ao dia seria o suficiente.', 'O período de colheita irá variar de acordo com o tipo de tomate plantado e com sua forma de desenvolvimento. Tomates com crescimento regular do tipo determinado, que crescem em moitas e dão frutos em menos tempo, poderão ser colhidos entre 7 e 8 semanas. Já os tomates maiores, com crescimento do tipo indeterminado, podem demorar entre 10 e 16 semanas para amadurecerem.');
+INSERT INTO `cultivo` (`cod_cultivo`, `nome`, `clima`, `plantio`, `luminosidade`, `irrigacao`, `temp_colheita`) VALUES
+(1, 'Abóbora Japonesa', 'A temperatura ideal para germinação vai de 20 ºC a 28ºC e o bom desenvolvimento dos frutos, de 18 ºC a 30 ºC. A abóbora é muito sensível ao frio e não suporta geadas.', 'As covas devem ter dimensões aproximadas de 40 cm de comprimento, 30 cm de largura e 25 cm de profundidade, já os sulcos devem ter cerca de 30 cm de largura e 25 de profundidade.\r\nO distanciamento aconselhado é de 2 a 3 metros entre linhas e de 1 a 2 metros entre cada planta na mesma fileira.', 'As abóboras crescem melhor em locais ensolarados, mas podem ser cultivadas com sombra parcial, desde que haja uma alta luminosidade.', 'Irrigue de forma a manter o solo sempre úmido, sem que fique encharcado. Plantas adultas podem ser resistentes a curtos períodos de seca.\r\nA abóbora geralmente cresce bastante, assim uma vara pode ser fincada verticalmente no local onde as sementes são semeadas para marcar o centro da futura planta, permitindo direcionar a irrigação e evitar o desperdício de água.', 'O tempo estimado desde o momento do plantio da abóbora até a colheita é de aproximadamente cinco meses. As morangas demoram de 110 a 120 dias. É claro que isso depende dos fatores climáticos e da quantidade de água recebida.'),
+(2, 'Tomate', 'Por ser um alimento com origem em áreas quentes, não suporta temperaturas muito frias, a temperatura ideal é entre 20 ºC e 26 ºC e não deve ultrapassar 35 ºC.', 'Os tomates podem ser plantados em pequenos vasos e plantas, não necessitando de grandes áreas para que a planta se desenvolva com saúde e vigor. No caso de plantação em pequenas hortas, é possível produzir tomates maiores e em grandes quantidades, mas para isso é preciso estar atento a algumas orientações básicas de como plantar tomate orgânico.\r\nNa hora de plantar os tomates é preciso muita atenção por parte do produtor. É recomendado realizar pequenas mudas do tomateiro antes de colocá-lo no solo. Em uma sementeira, coloque de duas a cinco sementes em cada buraco, com cerca de 1cm de profundidade. Caso opte por tomates menores ou do tipo anão, faça o plantio diretamente no vaso ou na jardineira escolhida, nessa situação não há necessidade de transportar o cultivo.', 'Precisa de alta luminosidade e recebe luz solar por no mínimo 6 horas.', 'Deve estar sempre bem irrigado, duas vezes ao dia seria o suficiente.', 'O período de colheita irá variar de acordo com o tipo de tomate plantado e com sua forma de desenvolvimento. Tomates com crescimento regular do tipo determinado, que crescem em moitas e dão frutos em menos tempo, poderão ser colhidos entre 7 e 8 semanas. Já os tomates maiores, com crescimento do tipo indeterminado, podem demorar entre 10 e 16 semanas para amadurecerem.'),
+(3, 'Caju', 'Tropical, com temperatura média de 27ºC.', 'Recomenda-se distância mínima de sete metros entre as covas, cujas medidas devem ser de 40x40x40 centímetros, o espaçamento indicado é de dez metros.\r\nEmbora se desenvolva em qualquer tipo de solo, o leve é o mais adequado para o cultivo. A planta também tolera solos mais argilosos, mas nesse caso é importante que o terreno tenha boa drenagem.', 'O cajueiro se desenvolve bem em sol pleno.', 'Em locais bem secos, pelo menos no primeiro ano você deve fazer uma irrigação no plantio do caju. A cada 15 dias, irriga-se aproximadamente 15 litros de água por planta.', 'Um ano após o plantio.');
 
 -- --------------------------------------------------------
 
@@ -85,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `produto` (
   `imagem` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`cod_produto`),
   KEY `cod_cultivo` (`cod_cultivo`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `produto`
@@ -93,7 +95,8 @@ CREATE TABLE IF NOT EXISTS `produto` (
 
 INSERT INTO `produto` (`cod_produto`, `nome`, `vitaminas`, `beneficios`, `preco`, `cod_cultivo`, `imagem`) VALUES
 (2, 'Abóbora Japonesa', 'É rico em vitamina A e C, possui fibras, potássio, magnésio, cálcio, vitamina E, ferro e vitaminas B1, B3, B5 e B6.', 'Benéfico para a visão', 1.89, 1, '0641ab8e01b7f3b5fe5c340082784021.png'),
-(8, 'Tomate', 'Com uma alta quantidade de vitaminas A e C, o fruto melhora bastante a visão e ainda pode reduzir o risco de desenvolver cataratas. Devido à presença de vitamina K e cálcio, o tomate ajuda a fortalecer e reparar os ossos.', 'O  tomate é rico em licopeno, um antioxidante que ajuda a proteger a pele dos danos causados pela luz do sol. O consumo frequente do alimento ajuda na textura e na saúde da sua pele, já que ajuda a minimizar poros dilatados, curar a acne e erupções cutâneas ou tratar pequenas queimaduras.', 5.33, 1, 'a6c049eb3e152678f4305e8cfb7d64f3.jpg');
+(8, 'Tomate', 'Com uma alta quantidade de vitaminas A e C, o fruto melhora bastante a visão e ainda pode reduzir o risco de desenvolver cataratas. Devido à presença de vitamina K e cálcio, o tomate ajuda a fortalecer e reparar os ossos.', 'O  tomate é rico em licopeno, um antioxidante que ajuda a proteger a pele dos danos causados pela luz do sol. O consumo frequente do alimento ajuda na textura e na saúde da sua pele, já que ajuda a minimizar poros dilatados, curar a acne e erupções cutâneas ou tratar pequenas queimaduras.', 0.1, 2, 'a6c049eb3e152678f4305e8cfb7d64f3.jpg'),
+(9, 'Caju', 'O caju é um alimento rico em fibras e vitamina C, além de possuir fósforo, magnésio, potássio, zinco, ferro, cobre e cálcio.', 'Ele é interessante para melhorar a imunidade, proteger a visão, ajudar na saúde do coração e até mesmo no controle do diabetes.', 5, 3, '340133f33ae76107c32c5ee4d927769bjpeg');
 
 -- --------------------------------------------------------
 
@@ -108,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `senha` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   PRIMARY KEY (`cod_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `usuario`
@@ -119,7 +122,8 @@ INSERT INTO `usuario` (`cod_usuario`, `nome`, `senha`, `email`) VALUES
 (2, 'Rafael', '123456', 'rafael@gmail.com'),
 (3, 'Lorena', '1234', 'lorena@gmail.com'),
 (4, 'Luiza', '123l', 'luiza@gmail.com'),
-(5, 'Pirolla', '123', 'pirolla@gmail.com');
+(5, 'Pirolla', '123', 'pirolla@gmail.com'),
+(6, 'Pirolla', '12345', 'pirolla@gmail.com');
 
 --
 -- Constraints for dumped tables
