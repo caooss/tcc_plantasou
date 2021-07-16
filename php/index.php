@@ -29,7 +29,7 @@
                       <a class="nav-link nav-link-color" href="./produtos.php">Produtos</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link nav-link-color" href="./cultivo.php">Cultivo</a>
+                      <a class="nav-link nav-link-color" href="./cultivo.php">Cultivos</a>
                     </li>
                     <li class="nav-item">
                         <button type="button" class="btn nav-link nav-link-color" data-bs-toggle="modal" data-bs-target="#login">
@@ -70,12 +70,12 @@
                         <p>
                             <table>
                               <tr>
-                                <td><img src="../imgs/icone_colorido.png" width="100" height="100"/><td>
+                                <td><a data-bs-toggle="modal" data-bs-target="#NovoUsuario" href="#"><img src="../imgs/icone_colorido.png" width="100" height="100"/></a><td>
                                 <td> Quer possuir todos os benefícios que o PlantaSou oferece? <b><a data-bs-toggle="modal" data-bs-target="#NovoUsuario" href="#">Cadastre-se já!!</a></b></br>
                                      Com o cadastro, você pode:</br>
                                       <ul>
                                           <li>Fazer a seleção dos produtos na página <a class="link" href="./produtos.php">produtos</a>;</li>
-                                          <li>Obter uma página <a href="./orcamento.php">orçamento</a> para calcular seus gatos com a horta;</li>
+                                          <li>Obter a página <a href="./orcamento.php">orçamento</a> para calcular seus gatos com a horta;</li>
                                           <li>Possuir a página <a href="./historico.php">histórico</a> com seus orçamentos.</li>
                                       </ul>
                                 </td>
@@ -121,7 +121,7 @@
                                 </td>
                                 
                                 <td>
-                                  Na página <a href="./cultivo.php">cultivo</a>, estarão presentes as informações detalhadas de cada etapa da cultivação dos alimentos indicados na plataforma.
+                                  Na página <a href="./cultivo.php">cultivos</a>, estarão presentes as informações detalhadas de cada etapa da cultivação dos alimentos indicados na plataforma.
                                 </td>
                               </tr>
                               <tr>

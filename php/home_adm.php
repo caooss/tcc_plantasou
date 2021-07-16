@@ -2,7 +2,7 @@
     if(empty($_COOKIE["ADM"])){
       header ("Location: ../php/index.php");
     }else{
-      setcookie('ADM', 1, time()+600);
+      setcookie('ADM', 1, time()+1800);
     }
 ?>
 
@@ -36,13 +36,13 @@
                     <a class="nav-link nav-link-color" href="./produtos.php">Produtos</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link nav-link-color" href="./cultivo.php">Cultivo</a>
+                    <a class="nav-link nav-link-color" href="./cultivo.php">Cultivos</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link nav-link-color" href="./historico.php">Histórico</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link nav-link-color" href="./logout_adm.php">Sair</a>
+                      <a class="nav-link nav-link-color" href="./logout_adm.php"><img src="../imgs/out.png" width="15" height="15"/> Sair</a>
                   </li>
                   <li>
                     <a class="nav-link nav-link-color active_usuario ">Seja bem-vindo(a) Administrador(a)</a>
@@ -82,7 +82,7 @@
                                      Com o cadastro, você pode:</br>
                                       <ul>
                                           <li>Fazer a seleção dos produtos na página <a class="link" href="./produtos.php">produtos</a>;</li>
-                                          <li>Obter uma página <a href="./orcamento.php">orçamento</a> para calcular seus gatos com a horta;</li>
+                                          <li>Obter a página <a href="./orcamento.php">orçamento</a> para calcular seus gatos com a horta;</li>
                                           <li>Possuir a página <a href="./historico.php">histórico</a> com seus orçamentos.</li>
                                       </ul>
                                 </td>
@@ -128,7 +128,7 @@
                                 </td>
                                 
                                 <td>
-                                  Na página <a href="./cultivo.php">cultivo</a>, estarão presentes as informações detalhadas de cada etapa da cultivação dos alimentos indicados na plataforma.
+                                  Na página <a href="./cultivo.php">cultivos</a>, estarão presentes as informações detalhadas de cada etapa da cultivação dos alimentos indicados na plataforma.
                                 </td>
                               </tr>
                               <tr>

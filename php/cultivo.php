@@ -62,7 +62,7 @@
                             }
                         ?>
                         <li class="nav-item">
-                            <a class="nav-link nav-link-color active" aria-current="page" href="#">🌎 Cultivo</a>
+                            <a class="nav-link nav-link-color active" aria-current="page" href="#"><img src="../imgs/crescer-planta.png" width="20" height="20"/> Cultivos</a>
                         </li>
                         <?php
                             if(isset($_COOKIE["USER"])){
@@ -71,13 +71,13 @@
                                     <a class="nav-link nav-link-color" href="../php/historico.php">Histórico</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link nav-link-color" href="./logout_user.php">Sair</a>
+                                    <a class="nav-link nav-link-color" href="./logout_user.php"><img src="../imgs/out.png" width="15" height="15"/> Sair</a>
                                 </li>
                                 ';
                             }else if(isset($_COOKIE["ADM"])){
                                 echo'
                                 <li class="nav-item">
-                                <a class="nav-link nav-link-color" href="./logout_adm.php">Sair</a>
+                                    <a class="nav-link nav-link-color" href="./logout_adm.php"><img src="../imgs/out.png" width="15" height="15"/> Sair</a>
                                 </li>
                                 ';
                             }else{
@@ -173,6 +173,11 @@
                                         <li><h4><b>Luminosidade</b></h4>'.$resultado["luminosidade"].'</li><br>
                                         <li><h4><b>Irrigação</b></h4>'.$resultado["irrigacao"].'</li><br>
                                         <li><h4><b>Tempo para a colheita</b></h4>'.$resultado["temp_colheita"].'</li><br>
+
+                                        <button class="btn btn-color" type="button" aria-expanded="false">
+                                            <a class="btn-color" href="remover_cultivo.php?id='.$resultado['cod_cultivo'].'">Remover</a>
+                                        </button>
+                                        <br>
                                     </ul>
                                     <br>
                                 </td>

@@ -56,7 +56,7 @@
                             if(isset($_COOKIE["USER"])){
                                 echo'
                                 <li class="nav-item">
-                                    <a class="nav-link nav-link-color active" aria-current="page" href="#"><img src="../imgs/moeda.png" width="20" height="20"/> Orçamento</a>
+                                    <a class="nav-link nav-link-color" href="../php/orcamento.php">Orçamento</a>
                                 </li>
                                 ';
                             }
@@ -68,7 +68,7 @@
                             if(isset($_COOKIE["USER"])){
                                 echo'
                                 <li class="nav-item">
-                                    <a class="nav-link nav-link-color" href="../php/historico.php">Histórico</a>
+                                    <a class="nav-link nav-link-color active" aria-current="page" href="#"><img src="../imgs/livro.png" width="20" height="20"/> Histórico</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link nav-link-color" href="./logout_user.php"><img src="../imgs/out.png" width="15" height="15"/> Sair</a>
@@ -119,132 +119,9 @@
             </div>
         </nav>
     </div>
-<?php
-    session_start();
 
-    if(!isset($_SESSION['itens'])){
-        $_SESSION['itens']= array();
-    }
 
-    if(isset($_GET['add']) && $_GET['add'] == "tabela"){
-        $idProduto = $_GET['id'];
-        if(!isset($_SESSION['itens'][$idProduto])){
-            $_SESSION['itens'][$idProduto] = 1;
-        }else{
-            $_SESSION['itens'][$idProduto] += 1;
-        }
-    }
 
-    if(count($_SESSION['itens'])== 0){
-        echo'
-                <div class="p-5 text-center">
-                    <div class="alert font">
-                        <div class="text-black">
-                            <p>Nenhum produto foi selecionado</p>
-                            </br>
-                            <p><a class="link" href="../php/produtos.php">Você poderá selecionar um produto na página Produtos</a></p>
-                        </div>
-                    </div>
-                </div>
-        ';
-    }else{
-        include ("../inc/conexao.php");
-
-        echo'
-            <table class="table table-borderless tabela w-75 p-3">
-                <thead>
-                    <tr class="centro">
-                        <th colspan="2">Quantidade</th>
-                        <th>Nome do produto</th>
-                        <th>Preço unitário</th>
-                        <th>Preço total</th>
-                        <th>Editar</th>
-                    </tr>
-                </thead>
-                <tbody>';
-
-        $preco_final=0;
-        foreach($_SESSION['itens'] as $idProduto => $quantidade){
-            /*$sql= $con->prepare("SELECT * FROM produto WHERE cod_produto=?");
-            $sql->bind_param("i", $idProduto);
-            $sql->execute();*/
-            $sql="SELECT * FROM produto WHERE cod_produto=$idProduto";
-            $query=mysqli_query($con, $sql);
-
-            $mudar= 0;
-                while(($seleciona=mysqli_fetch_assoc($query))!= NULL){
-                    
-                    include "../inc/mudar_quantidade.php";
-                    
-                    if(isset($_POST['qtd_recebida'])){
-                        $mudar= $_POST['quantidade_nova'];
-                    }
-
-                    if(($mudar!= 0) && ($idProduto == $_POST['id_recebido'])){
-                        $_SESSION['qtd'][$idProduto]= $mudar;
-                        $_SESSION['itens'][$idProduto]= $mudar;
-                        /*$quantidade= $mudar;*/
-                        $_SESSION['preco_total'][$idProduto]=$seleciona['preco']* $_SESSION['qtd'][$idProduto];
-                        echo'
-                        <tr class="centro">
-                            <td>
-                                <button type="button" class="btn nav-link nav-link-color btn-color" data-bs-toggle="modal" data-bs-target="#quantidade_p'.$idProduto.'">
-                                    Modificar
-                                </button>
-                            </td>
-                            <td scope="row">
-                                '.$_SESSION['qtd'][$idProduto].'
-                            </td>
-                            <td>'.$seleciona['nome'].'</td>
-                            <td>R$ '.$seleciona['preco'].'</td>
-                            <input type= "hidden" value="'.$seleciona['preco'].'" id="preco"/>
-                            <td>R$ '.$_SESSION['preco_total'][$idProduto].'</td>
-                            <td>
-                                <button class="btn btn-color" type="button" aria-expanded="false">
-                                    <a class="btn-color" href="remover_orcamento.php?remover=tabela&id='.$idProduto.'">Remover</a>
-                                </button>
-                            </td>
-                        </tr>    
-                        ';
-                    }else{
-                        $_SESSION['preco_total'][$idProduto]=$seleciona['preco']* $quantidade;
-
-                        echo'
-                            <tr class="centro">
-                                <td>
-                                    <button type="button" class="btn nav-link nav-link-color btn-color" data-bs-toggle="modal" data-bs-target="#quantidade_p'.$idProduto.'">
-                                        Modificar
-                                    </button>
-                                </td>
-                                <td scope="row">
-                                    '.$quantidade.'
-                                </td>
-                                <td>'.$seleciona['nome'].'</td>
-                                <td>R$ '.$seleciona['preco'].'</td>
-                                <input type= "hidden" value="'.$seleciona['preco'].'" id="preco"/>
-                                <td>R$ '.$_SESSION['preco_total'][$idProduto].'</td>
-                                <td>
-                                    <button class="btn btn-color" type="button" id="dropdownMenuButton1" aria-expanded="false">
-                                        <a class="btn-color" href="remover_orcamento.php?remover=tabela&id='.$idProduto.'">Remover</a>
-                                    </button>
-                                </td>
-                            </tr>    
-                            ';
-                    }
-                   
-                   $preco_final+=$_SESSION['preco_total'][$idProduto];
-                }
-            
-        }
-        echo'
-                    <tr class="centro font">
-                        <th colspan="6">Total: R$ '.$preco_final.'</th>
-                    </tr>
-                </tbody>
-            </table>';
-        
-    }
-?>
 <?php
     include "./login.php";
     include "./cadastro_produto.php";

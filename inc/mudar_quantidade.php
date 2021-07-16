@@ -12,10 +12,11 @@
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-addon">
-                      <i>Quantidade</i>
+                      <img src="../imgs/quantidade.png" width="40" height="40"/>
                     </div>
-                    <input type="text" name="quantidade_nova" class="form-control"/>
-                    <input type="hidden" value="1" name="quantidade_nova"/>
+                    <p>⠀</p><input type="text" name="quantidade_nova" class="form-control"/>
+                    <input type="hidden" value="1" name="qtd_recebida"/>
+                    <input type="hidden" value="'.$idProduto.'" name="id_recebido"/>
                   </div>
                 </div>
 
