@@ -164,6 +164,9 @@
                 <tbody>';
 
         $preco_final=0;
+
+        $_SESSION['dados']=array();
+
         foreach($_SESSION['itens'] as $idProduto => $quantidade){
             /*$sql= $con->prepare("SELECT * FROM produto WHERE cod_produto=?");
             $sql->bind_param("i", $idProduto);
@@ -196,9 +199,9 @@
                                 '.$_SESSION['qtd'][$idProduto].'
                             </td>
                             <td>'.$seleciona['nome'].'</td>
-                            <td>R$ '.$seleciona['preco'].'</td>
-                            <input type= "hidden" value="'.$seleciona['preco'].'" id="preco"/>
-                            <td>R$ '.$_SESSION['preco_total'][$idProduto].'</td>
+                            <td>R$ '.number_format($seleciona['preco'],2).'</td>
+                            <input type= "hidden" value="'.number_format($seleciona['preco'],2).'" id="preco"/>
+                            <td>R$ '.number_format($_SESSION['preco_total'][$idProduto],2).'</td>
                             <td>
                                 <button class="btn btn-color" type="button" aria-expanded="false">
                                     <a class="btn-color" href="remover_orcamento.php?remover=tabela&id='.$idProduto.'">Remover</a>
@@ -207,7 +210,8 @@
                         </tr>    
                         ';
                     }else{
-                        $_SESSION['preco_total'][$idProduto]=$seleciona['preco']* $quantidade;
+                        $_SESSION['qtd'][$idProduto]= $quantidade;
+                        $_SESSION['preco_total'][$idProduto]=$seleciona['preco']* $_SESSION['qtd'][$idProduto];
 
                         echo'
                             <tr class="centro">
@@ -217,12 +221,12 @@
                                     </button>
                                 </td>
                                 <td scope="row">
-                                    '.$quantidade.'
+                                    '.$_SESSION['qtd'][$idProduto].'
                                 </td>
                                 <td>'.$seleciona['nome'].'</td>
-                                <td>R$ '.$seleciona['preco'].'</td>
-                                <input type= "hidden" value="'.$seleciona['preco'].'" id="preco"/>
-                                <td>R$ '.$_SESSION['preco_total'][$idProduto].'</td>
+                                <td>R$ '.number_format($seleciona['preco'],2).'</td>
+                                <input type= "hidden" value="'.number_format($seleciona['preco'],2).'" id="preco"/>
+                                <td>R$ '.number_format($_SESSION['preco_total'][$idProduto],2).'</td>
                                 <td>
                                     <button class="btn btn-color" type="button" id="dropdownMenuButton1" aria-expanded="false">
                                         <a class="btn-color" href="remover_orcamento.php?remover=tabela&id='.$idProduto.'">Remover</a>
@@ -234,11 +238,23 @@
                    
                    $preco_final+=$_SESSION['preco_total'][$idProduto];
                 }
-            
+
+                array_push($_SESSION['dados'],
+                array(
+                    'usuario' => $usuario,
+                    'id_produto' => $idProduto,
+                    'quantidade' => $_SESSION['qtd'][$idProduto],
+                    'data' => date("d-m-Y"),
+                    'total' => $_SESSION['preco_total'][$idProduto]
+                )
+                );//array_push
         }
         echo'
                     <tr class="centro font">
-                        <th colspan="6">Total: R$ '.$preco_final.'</th>
+                        <th colspan="6">Total: R$ '.number_format($preco_final,2).'</th>
+                        <td colspan="6">
+                            <a href="../php/historico.php">Salvar</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>';

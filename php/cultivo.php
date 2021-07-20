@@ -172,11 +172,16 @@
                                         <li><h4><b>Plantio</b></h4>'.$resultado["plantio"].'</li><br>
                                         <li><h4><b>Luminosidade</b></h4>'.$resultado["luminosidade"].'</li><br>
                                         <li><h4><b>Irrigação</b></h4>'.$resultado["irrigacao"].'</li><br>
-                                        <li><h4><b>Tempo para a colheita</b></h4>'.$resultado["temp_colheita"].'</li><br>
+                                        <li><h4><b>Tempo para a colheita</b></h4>'.$resultado["temp_colheita"].'</li><br>';
 
-                                        <button class="btn btn-color" type="button" aria-expanded="false">
-                                            <a class="btn-color" href="remover_cultivo.php?id='.$resultado['cod_cultivo'].'">Remover</a>
-                                        </button>
+                                        if(isset($_COOKIE["ADM"])){
+                                            echo ' 
+                                            <button class="btn btn-color" type="button" aria-expanded="false">
+                                                <a class="btn-color" href="remover_cultivo.php?id='.$resultado['cod_cultivo'].'">Remover</a>
+                                            </button>
+                                                    ';
+                                            }
+                                        echo '
                                         <br>
                                     </ul>
                                     <br>

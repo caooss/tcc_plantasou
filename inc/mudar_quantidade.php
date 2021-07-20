@@ -14,7 +14,7 @@
                     <div class="input-group-addon">
                       <img src="../imgs/quantidade.png" width="40" height="40"/>
                     </div>
-                    <p>⠀</p><input type="text" name="quantidade_nova" class="form-control"/>
+                    <p>⠀</p><input type="number" name="quantidade_nova" class="form-control"/>
                     <input type="hidden" value="1" name="qtd_recebida"/>
                     <input type="hidden" value="'.$idProduto.'" name="id_recebido"/>
                   </div>

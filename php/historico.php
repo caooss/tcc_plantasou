@@ -120,6 +120,80 @@
         </nav>
     </div>
 
+    <?php
+        session_start();
+        include("../inc/conexao.php");
+
+        if(isset($_SESSION['dados'])){
+
+            echo "<pre>";
+            var_dump($_SESSION['dados']);
+            echo "</pre>";
+
+            foreach($_SESSION['dados'] as $historico){
+                $cod_usuario=$historico['usuario'];
+                $cod_produto=$historico['id_produto'];
+                $quantidade_produto=$historico['quantidade'];
+                $data_=$historico['data'];
+                $total=$historico['total'];
+
+                intval($cod_usuario);
+                intval($quantidade_produto);
+
+                $sql="INSERT INTO historico (cod_usuario, cod_produto, quantidade_produto, data_, total) 
+                    VALUES ($cod_usuario, $cod_produto, $quantidade_produto, '$data_', $total)";
+
+                $query=mysqli_query($con, $sql);
+
+                
+            }
+            unset($_SESSION['dados']);
+        }
+
+
+        $sql="SELECT * FROM historico h INNER JOIN produto p ON h.cod_produto=p.cod_produto WHERE cod_usuario=$usuario";
+        $query=mysqli_query($con, $sql);
+
+        $preco_final=0;
+        if(mysqli_num_rows($query)>0){
+            echo'
+            <table class="table table-borderless tabela w-75 p-3">
+                <thead>
+                    <tr class="centro">
+                        <th>Quantidade</th>
+                        <th>Nome do produto</th>
+                        <th>Preço unitário</th>
+                        <th>Preço total</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>';
+            while(($historico_user=mysqli_fetch_assoc($query))!=NULL){
+                echo '
+                <tbody>
+                    <tr class="centro">
+                        <td>'.$historico_user["quantidade_produto"].'</td>
+                        <td>'.$historico_user["nome"].'</td>
+                        <td>'.number_format($historico_user["preco"],2).'</td>
+                        <td>'.number_format($historico_user["total"],2).'</td>
+                        <td>'.$historico_user["data_"].'</td>
+                    </tr>
+                </tbody>
+                ';
+                $preco_final+=$historico_user["total"];
+           }
+           echo'
+           </table>
+            <table class="table table-borderless tabela w-75 p-3">
+                <tfoot>
+                    <tr class="centro font">
+                        <th colspan="6">Total: R$ '.number_format($preco_final,2).'</th>
+                    </tr>
+                </tfoot>
+            </table>';
+        }
+
+    ?>
+
 
 
 <?php
