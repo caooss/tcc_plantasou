@@ -187,8 +187,10 @@
                                                         ';
                                                 }
                                             elseif(isset($_COOKIE["ADM"])){
+                                                $produto=$resultado["cod_produto"];
+                                                /**/
                                                 echo'
-                                                    <button type="button" class="btn btn-color" data-bs-toggle="modal" data-bs-target="#produto_editar" id="mudar">
+                                                    <button type="button" class="btn nav-link nav-link-color btn-color" data-bs-toggle="modal" data-bs-target="#produto_editar'.$produto.'">
                                                         Editar
                                                     </button>
                                                     <button class="btn btn-color" type="button" aria-expanded="false">
@@ -208,86 +210,15 @@
             }else{
                 echo mysqli_error($con);
             }
-
+            include "./cadastro_produto.php";
             include("../inc/disconnect.php");
 
         ?>
     </form>
 
-    <div class="modal fade" id="produto_editar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Editar um produto</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <?php
-                    echo '
-                      <form action="cadastro_produto.php" method="POST" enctype="multipart/form-data">
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Produto</label> 
-                            <input type="text" name="nome" id="nome" class="form-control" placeholder="Produto..." required/>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Vitaminas</label> 
-                            <input type="text" name="vitaminas" id="vitaminas" class="form-control" placeholder="Vitaminas..."/ required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Benefícios</label> 
-                            <input type="text" name="beneficios" id="beneficios" class="form-control" placeholder="Benefícios..."/ required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Preço</label> 
-                            <input type="number" step="any" name="preco" id="preco" class="form-control" placeholder="Preço..."/ required>
-                        </div>';
-
-                        echo '
-                            <div class="mb-3">
-                                <select name="cod_cultivo">
-                        ';
-                        include('../inc/conexao.php');
-                        $sql="SELECT cod_cultivo, nome FROM cultivo";
-                        $query=mysqli_query($con, $sql);
-
-                        if(mysqli_num_rows($query)>0){
-                            while(($cod_do_cultivo=mysqli_fetch_assoc($query))!=NULL){
-                                echo'
-                                    <option value="'.$cod_do_cultivo["cod_cultivo"].'">'.$cod_do_cultivo["nome"].'</option>
-                                ';
-                            }
-                        }
-                        echo'
-                                </select>
-                            <div>
-                        ';
-
-                        echo'
-                        <div class="mb-3 mx-auto">
-                            <label for="exampleFormControlInput1" class="form-label">Imagem</label>
-                            <input type="file" class="form-control" id="exampleFormControlInput1" required name="imagem">
-                        </div>
-
-                        <div class="modal-footer float-right">
-                          <button type="button" class="btn btn-outline-success nav-link-color fechar" data-bs-dismiss="modal">Fechar</button>
-                          <button type="submit" class="btn btn-outline-success nav-link-color borda-modal">Adicionar</button>
-                        </div>
-                      </form>
-                    ';
-                    ?>
-                </div>
-            </div>
-          </div>
-        </div>';
-
-        <script src="../js/editar_produto.js"></script>
-
     <?php
         include "./login.php";
-        include "./cadastro_produto.php";
+        include "./editar_produto.php";
     ?>
 </body>
 </html>

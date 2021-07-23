@@ -10,7 +10,7 @@
 </head>
 <body>
 
-
+        
         <div class="modal fade" id="cadastro_produto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -112,13 +112,6 @@
                     }
                     
                 ?>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
 
 </body>
 </html>
