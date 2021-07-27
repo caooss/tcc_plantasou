@@ -39,9 +39,6 @@
                     <a class="nav-link nav-link-color" href="./cultivo.php">Cultivos</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link nav-link-color" href="./historico.php">Histórico</a>
-                  </li>
-                  <li class="nav-item">
                       <a class="nav-link nav-link-color" href="./logout_adm.php"><img src="../imgs/out.png" width="15" height="15"/> Sair</a>
                   </li>
                   <li>

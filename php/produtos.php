@@ -132,6 +132,10 @@
             </div>
         </nav>
     </div>
+
+    <br>
+    <h1 class="centro">Produtos</h1>
+
     <?php
         if(isset($_COOKIE["ADM"])){
             echo'
@@ -210,15 +214,15 @@
             }else{
                 echo mysqli_error($con);
             }
-            include "./cadastro_produto.php";
             include("../inc/disconnect.php");
-
         ?>
     </form>
 
     <?php
-        include "./login.php";
         include "./editar_produto.php";
+        
+        include "./cadastro_produto.php";
+        include "./login.php";
     ?>
 </body>
 </html>

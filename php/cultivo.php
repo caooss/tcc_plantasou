@@ -133,6 +133,10 @@
             </div>
         </nav>
     </div>
+
+    <br>
+    <h1 class="centro">Cultivo</h1>
+
     <?php
         if(isset($_COOKIE["ADM"])){
             echo'
@@ -175,7 +179,11 @@
                                         <li><h4><b>Tempo para a colheita</b></h4>'.$resultado["temp_colheita"].'</li><br>';
 
                                         if(isset($_COOKIE["ADM"])){
+                                            $cod_cultivo=$resultado['cod_cultivo'];
                                             echo ' 
+                                            <button type="button" class="btn nav-link nav-link-color btn-color" data-bs-toggle="modal" data-bs-target="#cultivo_editar'.$cod_cultivo.'">
+                                                Editar
+                                            </button>
                                             <button class="btn btn-color" type="button" aria-expanded="false">
                                                 <a class="btn-color" href="remover_cultivo.php?id='.$resultado['cod_cultivo'].'">Remover</a>
                                             </button>
@@ -202,6 +210,7 @@
     <?php
         include "./login.php";
         include "./cadastro_cultivo.php";
+        include "./editar_cultivo.php";
     ?>
 </body>
 </html>

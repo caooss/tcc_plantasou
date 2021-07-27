@@ -120,6 +120,9 @@
         </nav>
     </div>
 
+    <br>
+    <h1 class="centro">Histórico</h1>
+
     <?php
         session_start();
         include("../inc/conexao.php");

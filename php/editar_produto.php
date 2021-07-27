@@ -8,7 +8,6 @@
                 <div class="modal-body">
                 <?php
                     if(empty($_POST)){
-                        echo $produto;
                         include('../inc/conexao.php');
                         $sql="SELECT * FROM produto WHERE cod_produto=$produto";
                         $query=mysqli_query($con, $sql);
@@ -36,7 +35,6 @@
                                         <label for="exampleFormControlInput1" class="form-label">Preço</label> 
                                         <input type="number" step="any" name="preco" class="form-control" placeholder="Preço..." value="'.$edit["preco"].'"/ required>
                                     </div>';
-                                    $produto=$edit["cod_produto"];
 
                                     echo '
                                     <div class="mb-3">
@@ -72,7 +70,7 @@
 
                             <div class="modal-footer float-right">
                                 <button type="button" class="btn btn-outline-success nav-link-color fechar" data-bs-dismiss="modal">Fechar</button>
-                                <button type="submit" class="btn btn-outline-success nav-link-color borda-modal">Editar</button>
+                                <button type="submit" class="btn btn-outline-success nav-link-color borda-modal">Modificar</button>
                             </div>
 
                             <input type="hidden" name="editar" value="'.$produto.'"/>
@@ -83,7 +81,27 @@
 </div>';
                     }else{
                         include('../inc/conexao.php');
-                        if(isset($_FILES['imagem'])){
+                        if($_FILES['imagem']['size'] == 0){
+                            $nome=$_POST['nome'];
+                            $vitaminas=$_POST['vitaminas'];
+                            $beneficios=$_POST['beneficios'];
+                            $preco=$_POST['preco'];
+                            $cod_cultivo=$_POST['cod_cultivo'];
+                            $produto=$_POST['editar'];
+
+                            $sqlEdit="UPDATE produto SET
+                            nome='$nome',
+                            vitaminas='$vitaminas',
+                            beneficios='$beneficios',
+                            preco=$preco,
+                            cod_cultivo=$cod_cultivo
+                            WHERE cod_produto=$produto";
+
+                            $queryEdit=mysqli_query($con, $sqlEdit);
+
+                            header("Location: ../php/produtos.php");
+                            
+                        }else{
                             $nome=$_POST['nome'];
                             $vitaminas=$_POST['vitaminas'];
                             $beneficios=$_POST['beneficios'];
@@ -91,6 +109,7 @@
                             $cod_cultivo=$_POST['cod_cultivo'];
                             $imagem=$_FILES['imagem'];
                             $produto=$_POST['editar'];
+
 
                             $extensao=strtolower(substr($imagem['name'], -4)); //pega a extensão
                             $novo_nome=md5(time()).$extensao; //define um nome novo para o arquivo
@@ -104,33 +123,13 @@
                             beneficios='$beneficios',
                             preco=$preco,
                             cod_cultivo=$cod_cultivo,
-                            imagem='$novo_nome',
+                            imagem='$novo_nome'
                             WHERE cod_produto=$produto";
 
                             $queryEdit=mysqli_query($con, $sqlEdit);
 
-                            /*header("Location: ../php/produtos.php");*/
-                        }else{
-                            $nome=$_POST['nome'];
-                            $vitaminas=$_POST['vitaminas'];
-                            $beneficios=$_POST['beneficios'];
-                            $preco=$_POST['preco'];
-                            $cod_cultivo=$_POST['cod_cultivo'];
-                            $produto=$_POST['editar'];
-
-                            $sqlEdit="UPDATE produto SET
-                            nome='$nome',
-                            vitaminas='$vitaminas',
-                            beneficios='$beneficios',
-                            preco=$preco,
-                            cod_cultivo=$cod_cultivo,
-                            WHERE cod_produto=$produto";
-
-                            $queryEdit=mysqli_query($con, $sqlEdit);
-
-                            /*header("Location: ../php/produtos.php");*/
+                            header("Location: ../php/produtos.php");
                         }
                         
                     }
-                    $produto=$produto;
                     ?>

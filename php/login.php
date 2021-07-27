@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>PlantaSou</title>
-        <link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap.min.css" />
-        <link rel="stylesheet" href="../css/estilo.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-        <link rel="shortcut icon" href="../imgs/logo_new.ico">
-</head>
-<body>
+
         <div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel__" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -35,7 +25,7 @@
                             <div class="input-group-addon">
                               <i class="material-icons">lock</i>
                             </div>
-                            <input type="password" name="senha" class="form-control" placeholder="123456789"/>
+                            <input type="password" name="senha" class="form-control" placeholder="*********"/>
                           </div>
                         </div>
 
@@ -93,7 +83,3 @@
         </div>
       </div>
     </div>
-    
-
-</body>
-</html>

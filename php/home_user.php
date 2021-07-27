@@ -97,7 +97,7 @@
                             <table>
                               <tr>
                                 <td><img src="../imgs/icone_colorido.png" width="100" height="100"/><td>
-                                <td>Parabéns, agora você faz parte do PlantaSou!!</br>
+                                <td><b>Parabéns</b>, agora você faz parte do PlantaSou!!</br>
                                      Como usuário, você pode:</br>
                                       <ul>
                                           <li>Fazer a seleção dos produtos na página <a class="link" href="./produtos.php">produtos</a>;</li>
