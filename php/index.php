@@ -11,6 +11,7 @@
     </head>
     <body>
 
+    <div class ="sticky">
         <div class="navbar-custom">
           <nav class="navbar navbar-expand-lg navbar-dark ">
             <div class="media">
@@ -20,7 +21,6 @@
                     <img src="../imgs/logo_new.jpeg" class="align-self-center mr-3 rounded float-right" width="50" height="50" alt="...">
                     PlantaSou
                   </a>
-                
                   <ul class="navbar-nav nav-pills nav-link-color me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                       <a class="nav-link nav-link-color active" aria-current="page" href="#">🏠 Home</a>
@@ -45,28 +45,47 @@
             </div>
           </nav>
         </div>
+    </div>
 
-        <div class="bg">
-            <div class="p-5">
-                <div class="alert font">
+    <div class="parallax"></div>
+    
+      <div class="bg" style="background-color: #d6fccf;">
+            <div class="p-5 altura">
+                <div class="font">
                   <div class="d-flex justify-content-center align-items-center h-100">
                     <div class="text-black">
-                      <h1 class="titulo mb-3" align="center">PlantaSou?</h1>
-                      <div class="container">
-                      <p class="font text-justify">
-                          <ul>
-                            <li>
-                            O PlantaSou foi elaborado pensando na necessidade de aumentar o consumo de alimentos orgânicos na sociedade, que cada vez mais tende a preferir 
-                              alimentos industrializados de fácil e rápido acesso. 
-                            </li>
-                            </br>
-                            <li>  
-                              Assim, auxiliamos nossos usuários no cultivo de seus próprios alimentos, desde a terra e o adubo, até os benefícios e características de cada 
-                              fruta, legume e vegetal, tendo em vista que essa prática ajuda na diminuição de gastos na alimentação e coloca o consumidor mais próximo de sua comida.<br><br>
-                            </li>
-                          </ul>
-                        </p>
+                      <div style="color: #777;background-color:#d6fccf;text-align:center;padding:50px 80px;text-align: justify;">
+                        <h1 class="titulo mb-3" align="center">PlantaSou?</h1>
+                        <div class="container">
+                        <p class="font text-justify">
+                            <ul>
+                              <li>
+                              O PlantaSou foi elaborado pensando na necessidade de aumentar o consumo de alimentos orgânicos na sociedade, que cada vez mais tende a preferir 
+                                alimentos industrializados de fácil e rápido acesso. 
+                              </li>
+                              </br>
+                              <li>  
+                                Assim, auxiliamos nossos usuários no cultivo de seus próprios alimentos, desde a terra e o adubo, até os benefícios e características de cada 
+                                fruta, legume e vegetal, tendo em vista que essa prática ajuda na diminuição de gastos na alimentação e coloca o consumidor mais próximo de sua comida.<br><br>
+                              </li>
+                            </ul>
+                          </p>
+                      </div> 
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>   
+
+      <div class="parallax_2"></div>
                         
+      <div class="bg">
+            <div class="p-5 altura">
+                <div class="font">
+                  <div class="d-flex justify-content-center align-items-center h-100">
+                    <div class="text-black">
+                      <div style="color: #777;background-color:#d6fccf;text-align:center;padding:50px 80px;text-align: justify;">
+                        <div class="container">
                         <p>
                             <table>
                               <tr>
@@ -82,7 +101,6 @@
                               </tr>
                             </table>
                         </p>
-
                         <p class="font-weight-bold font text-justify">
                           Orientações sobre as páginas
                         </p>
@@ -141,14 +159,15 @@
                         <p class="direito_autoral">
                           Direito autoral dos ícones:
                           <div class="direito_autoral">Ícones feitos por Vectto no <a href="https://www.iconfinder.com/" title="Iconfinder">www.iconfinder.com</a></div>
-                           <div class="direito_autoral">Ícones feitos por <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/br/" title="Flaticon">www.flaticon.com</a></div>
+                          <div class="direito_autoral">Ícones feitos por <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/br/" title="Flaticon">www.flaticon.com</a></div>
                         </p>
-                      </div>
-                    </div>
-                  </div>
+                    </div> 
                 </div>
+              </div>
             </div>
-        
+          </div>
+      </div>
+
           <div class="footer">
             Email: equipeplantasou@gmail.com
           </div>

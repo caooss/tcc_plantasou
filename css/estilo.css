@@ -34,13 +34,18 @@ button{
 }
 
 .orcamento{
-    border: 5px solid white
+    border: 5px solid white;
 }
 
 .right{
     text-align: right;
 }
 
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
 .navbar-custom{
     background-color: #4c7032;
 }
@@ -58,7 +63,7 @@ a:hover{
 }
 
 .footer{
-    position:fixed;
+
     left: 0px;
     bottom:0px;
     width:100%;
@@ -215,5 +220,35 @@ a:link {
 .adicionar:hover{
     color:white;
 }
+
+.parallax {
+    background-image: url("../imgs/fundos/cima.jpeg");
+  
+    /* Set a specific height */
+    min-height: 500px; 
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .parallax_2 {
+    background-image: url("../imgs/fundos/baixo.jpeg");
+  
+    /* Set a specific height */
+    min-height: 500px; 
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .altura{
+     
+  }
 
 

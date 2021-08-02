@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 20, 2021 at 10:22 PM
+-- Generation Time: Jul 30, 2021 at 09:04 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -40,14 +40,15 @@ CREATE TABLE IF NOT EXISTS `cultivo` (
   `irrigacao` varchar(4000) DEFAULT NULL,
   `temp_colheita` varchar(4000) DEFAULT NULL,
   PRIMARY KEY (`cod_cultivo`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cultivo`
 --
 
 INSERT INTO `cultivo` (`cod_cultivo`, `nome`, `clima`, `plantio`, `luminosidade`, `irrigacao`, `temp_colheita`) VALUES
-(4, 'Abóbora Japonesa', 'A temperatura ideal para germinação vai de 20 ºC a 28ºC e o bom desenvolvimento dos frutos, de 18 ºC a 30 ºC. A abóbora é muito sensível ao frio e não suporta geadas.', 'As covas devem ter dimensões aproximadas de 40 cm de comprimento, 30 cm de largura e 25 cm de profundidade, já os sulcos devem ter cerca de 30 cm de largura e 25 de profundidade.\r\nO distanciamento aconselhado é de 2 a 3 metros entre linhas e de 1 a 2 metros entre cada planta na mesma fileira.', 'As abóboras crescem melhor em locais ensolarados, mas podem ser cultivadas com sombra parcial, desde que haja uma alta luminosidade.', 'Irrigue de forma a manter o solo sempre úmido, sem que fique encharcado. Plantas adultas podem ser resistentes a curtos períodos de seca.\r\nA abóbora geralmente cresce bastante, assim uma vara pode ser fincada verticalmente no local onde as sementes são semeadas para marcar o centro da futura planta, permitindo direcionar a irrigação e evitar o desperdício de água.', 'O tempo estimado desde o momento do plantio da abóbora até a colheita é de aproximadamente cinco meses. As morangas demoram de 110 a 120 dias. É claro que isso depende dos fatores climáticos e da quantidade de água recebida.');
+(4, 'Abóbora Japonesa', 'A temperatura ideal para germinação vai de 20 ºC a 28ºC e o bom desenvolvimento dos frutos, de 18 ºC a 30 ºC. A abóbora é muito sensível ao frio e não suporta geadas.', 'As covas devem ter dimensões aproximadas de 40 cm de comprimento, 30 cm de largura e 25 cm de profundidade, já os sulcos devem ter cerca de 30 cm de largura e 25 de profundidade.\r\nO distanciamento aconselhado é de 2 a 3 metros entre linhas e de 1 a 2 metros entre cada planta na mesma fileira.', 'As abóboras crescem melhor em locais ensolarados, mas podem ser cultivadas com sombra parcial, desde que haja uma alta luminosidade.', 'Irrigue de forma a manter o solo sempre úmido, sem que fique encharcado. Plantas adultas podem ser resistentes a curtos períodos de seca.\r\nA abóbora geralmente cresce bastante, assim uma vara pode ser fincada verticalmente no local onde as sementes são semeadas para marcar o centro da futura planta, permitindo direcionar a irrigação e evitar o desperdício de água.', 'O tempo estimado desde o momento do plantio da abóbora até a colheita é de aproximadamente cinco meses. As morangas demoram de 110 a 120 dias. É claro que isso depende dos fatores climáticos e da quantidade de água recebida.'),
+(5, 'Tomate_teste', 'aaaeee', 'bbbddd', 'cccccc', 'dddbbb', 'eeeaaa');
 
 -- --------------------------------------------------------
 
@@ -63,20 +64,25 @@ CREATE TABLE IF NOT EXISTS `historico` (
   `quantidade_produto` int(11) DEFAULT NULL,
   `data_` varchar(20) DEFAULT NULL,
   `total` float DEFAULT NULL,
+  `cod_tabela` int(11) NOT NULL,
   PRIMARY KEY (`cod_historico`),
   KEY `cod_usuario` (`cod_usuario`),
   KEY `cod_produto` (`cod_produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `historico`
 --
 
-INSERT INTO `historico` (`cod_historico`, `cod_usuario`, `cod_produto`, `quantidade_produto`, `data_`, `total`) VALUES
-(1, 2, 12, 5, '20-07-2021', 25),
-(2, 2, 11, 2, '20-07-2021', 3.78),
-(18, 2, 11, 50, '20-07-2021', 94.5),
-(19, 2, 12, 50, '20-07-2021', 250);
+INSERT INTO `historico` (`cod_historico`, `cod_usuario`, `cod_produto`, `quantidade_produto`, `data_`, `total`, `cod_tabela`) VALUES
+(1, 2, 12, 5, '20-07-2021', 25, 1),
+(4, 2, 11, 2, '20-07-2021', 3.78, 1),
+(18, 2, 11, 50, '20-07-2021', 94.5, 2),
+(19, 2, 12, 50, '20-07-2021', 250, 2),
+(28, 2, 11, 1, '30-07-2021', 1.89, 3),
+(29, 2, 12, 1, '30-07-2021', 5, 3),
+(30, 2, 11, 2, '30-07-2021', 3.78, 4),
+(31, 2, 12, 2, '30-07-2021', 10, 4);
 
 -- --------------------------------------------------------
 
@@ -103,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `produto` (
 
 INSERT INTO `produto` (`cod_produto`, `nome`, `vitaminas`, `beneficios`, `preco`, `cod_cultivo`, `imagem`) VALUES
 (11, 'Abóbora Japonesa', 'aaaaaa', 'aaaaaa', 1.89, 4, '69f008040fdd6057f2e988a9b3b0956f.png'),
-(12, 'Tomate', 'bbbbbbb', 'bbbbbbb', 5, 4, '484b19ed7bdcc1d694646966cf6c884e.jpg');
+(12, 'Tomate', 'blablabla', 'albalbalbaaaaa', 5, 4, 'c8f81d13e4081dfa2eb366d7a41c35ce.jpg');
 
 -- --------------------------------------------------------
 
