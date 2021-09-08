@@ -47,7 +47,7 @@ button{
     width: 100%;
   }
 .navbar-custom{
-    background-color: #4c7032;
+    background-color: #ffffff;
 }
 
 a{
@@ -55,12 +55,10 @@ a{
 }
 
 a:hover{
-    color: #654321;
+    color: #000000;
 }
 
-.active{
-    background-color:#000000;
-}
+
 
 .footer{
 
@@ -70,27 +68,33 @@ a:hover{
     background-color: #4c7032;
     text-align: center;
     height: 40px;
-    color: white;
+    color: #ffffff;
 }
 
-.nav-pills > li > a.active {
+.nav-pills > a.active {
     /*background-color: #9dbfb0 !important;*/
-    background-color: rgb(98, 136, 70) !important;
-    color: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #4c7032 !important;
     }
     
-    .nav-pills > li > a:hover {
-    color: #ffffff !important;
+    .nav-pills > a:hover {
+    color: #4c7032 !important;
     }
-    
+    /*Cor da letra do menu*/
     .nav-link-color {
-    color: #ffffff;
+    color: #4c7032 !important;
     font-size: 16px;
     }
 
+/* botão de editar e excluir da página produtos*/
 .btn-color{
-    background-color: #5E7561 !important;
-    color: #ffffff !important;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.btn-color:hover{
+    color:#ffffff;
+    background-color: black;
 }
 
 .table-color{
@@ -100,7 +104,7 @@ a:hover{
 
 .font{
     font-size: 20px;
-    font-family: calibri;
+    font-family: 'Book Antiqua';
 }
 
 .font-money{
@@ -108,8 +112,21 @@ a:hover{
     font-family: calibri;
 }
 
+/*Título do 'PlantaSou?'*/
 .titulo{
     font-size: 38px;
+}
+
+/* Título das orientações das páginas*/
+
+.titulo2{
+    font-size: 28px;
+}
+
+/* 'cadastre-se já'*/
+
+.cadastro{
+    font-size: 23px;
 }
 
 .btn-excluir{
@@ -118,27 +135,37 @@ a:hover{
 }
 
 .plantasou{
-    font-size: 22px;
+    font-size: 20px;
+    font-family: 'calibri';
+    color:#4c7032 !important;
 }
 
 .margin{
     margin-left: 190px;
 }
 
+/* borda do buscar*/
 .borda{
-    border-color: #ffffff;
+    border-color: #000000;
+    color: black !important;
 }
 
+.borda:hover{
+    color:#ffffff !important;
+}
+
+/*botão "entrar" no modal do login*/
 .borda-modal{
-    border-color: #4c7032;
-    color: #4c7032;
+    border-color: #000000;
+    color: #000000;
 }
 
 .borda-modal:hover{
-    background-color: #4c7032;
+    background-color: #000000;
     color: #ffffff;
 }
 
+/* botão do modal do login*/
 .fechar{
     border-color: #000000;
     color: #000000;
@@ -149,8 +176,9 @@ a:hover{
     color: #ffffff;
 }
 
+/* fundo do botão "pesquisar" */
 .borda:hover{
-    background-color: rgb(98, 136, 70);
+    background-color: #000000;
 }
 
 .card-custom{
@@ -162,18 +190,21 @@ a:hover{
 }
 
 .modal-header{
-    background-color: #4c7032;
+    background-color: #000000;
     color: #ffffff;
 }
 
 .modal-body{
-    background-color: #d6fccf;
+    background-color: #ffffff;
 }
 
-.button-margin{
-    margin-left: 800px;
-    margin-bottom: 10px;
+.cor_x{
+    background-color:#ffffff;
 }
+
+/*.button-margin{
+    margin-top: 35px;
+}*/
 
 .img-margin{
     margin-top: 13px;
@@ -182,7 +213,8 @@ a:hover{
 .tabela{
     margin-top: 20px;
     margin-left: 170px;
-    background-color: #d6fccf;
+    background-color: #ffffff;
+    margin-top: 100px;
 }
 
 .centro{
@@ -194,16 +226,18 @@ a:link {
   }
 
 .altera{
-    color:white;
+    color:black;
 }
 
 .altera:hover{
-    color:white;
+    color:#ffffff;
 }
 
+/* Mensagem de boas vindas*/
 .active_usuario{
-    background-color: #4c7032 !important;
-    color: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #4c7032 !important;
+    text-align: center;
 }
 
 .direito_autoral{
@@ -211,19 +245,16 @@ a:link {
 }
 
 .adicionar{
-    color:white;
+    color:black;
     font-size: 25px;
-    background-color: #4c7032;
+    background-color: #ffffff;
 
 }
 
-.adicionar:hover{
-    color:white;
-}
 
 .parallax {
-    background-image: url("../imgs/fundos/cima.jpeg");
-  
+    background-image: url("../imgs/fundos/montanha.jpeg");
+
     /* Set a specific height */
     min-height: 500px; 
   
@@ -235,7 +266,7 @@ a:link {
   }
 
   .parallax_2 {
-    background-image: url("../imgs/fundos/baixo.jpeg");
+    background-image: url("../imgs/fundos/mesa.jpeg");
   
     /* Set a specific height */
     min-height: 500px; 
@@ -247,8 +278,127 @@ a:link {
     background-size: cover;
   }
 
-  .altura{
-     
+  @font-face {
+      font-family: 'Sophia';
+      src: url(../fonte/Sophia.ttf);
+  }
+  .fonte{
+     font-family: 'Sophia';
+     color:white;
+     text-align: center;
+     line-height:550px;
+     font-size: 120px;
+  }
+  .fonte2{
+    font-family: 'Book Antiqua';
+    color:white;
+    text-align: center;
+    font-size: 25px;
+    margin-top: -260px;
+ }
+
+ .topnav {
+    overflow: hidden;
+    background-color: #f1f1f1;
+  }
+  
+  .topnav a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    border-bottom: 3px solid transparent;
+  }
+  
+  .topnav a:hover {
+    border-bottom: 3px solid rgb(0, 0, 0);
+  }
+  
+  .topnav a.active {
+    border-bottom: 3px solid rgb(0, 0, 0);
   }
 
+.fonte3{
+    font-family: 'Book Antiqua';
+}
 
+.letra{
+    font-family:'Book Antiqua';
+}
+
+.tamanho{
+    width: 450px;
+    height: 550px;
+}
+
+/*título para todas as páginas*/
+
+.paginas{
+    font-family:'Book Antiqua';
+}
+
+/* tamanho dos cards da página 'produtos'*/
+
+.tamanho2{
+    width: 450px;
+    height: 750px;
+}
+
+/*Posição dos botões da página cultivos*/
+
+.posicao_imagem{
+    margin-left:100px;
+}
+
+.posicao_nome{
+    margin-left:110px;
+}
+
+.posicao_botao{
+    margin-right:50px;
+    margin-top: 36px;
+}
+
+/*posição dos botões da página produtos do admin*/
+
+.posicao_bot{
+    margin-top: -40px;
+    margin-bottom: 40px;
+    margin-left: 271px;
+}
+
+/*posição dos botões na página produtos do user*/
+
+.posicao{
+    margin-top: -40px;
+    margin-bottom: 40px;
+    margin-left: 327px;
+}
+
+/*posição dos botões na página cultivos do admin*/
+
+.direcao_b{
+  margin-left: 105px;
+}
+
+.direcao_b2{
+    margin-left: -900px;
+  }
+  
+/*fundo do alert da página orçamento*/
+
+.fundoo{
+    background-color: #ffffff;
+    color:black;
+    border: solid 10px;
+    border-color: #d6fccf;
+    font-size: 23px;
+}
+
+.fundoo2{
+    color: black;
+    text-decoration-line: underline !important;
+}

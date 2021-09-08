@@ -3,7 +3,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Cadastro</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close cor_x" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <?php
@@ -37,8 +37,8 @@
                 </div>
 
                 <div class="modal-footer float-right">
-                  <button type="button" class="btn btn-outline-success nav-link-color fechar" data-bs-dismiss="modal">Fechar</button>
-                  <button type="submit" class="btn btn-outline-success nav-link-color borda-modal">Cadastrar</button>
+                  <button type="button" class="btn btn-outline-success fechar" data-bs-dismiss="modal">Fechar</button>
+                  <button type="submit" class="btn btn-outline-success borda-modal">Cadastrar</button>
                 </div>
                 <input type="hidden" name="hidden" value="1"/>
               </form>

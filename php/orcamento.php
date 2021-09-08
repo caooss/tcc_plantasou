@@ -19,29 +19,22 @@
 
 </head>
 <body>
-    <div class="navbar-custom">
-        <nav class="navbar navbar-expand-lg navbar-dark ">
-            <div class="media">
-                <div class="container-fluid">
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <a class="navbar-brand plantasou" href="#">
-                            <img src="../imgs/logo_new.jpeg" class="align-self-center mr-3 rounded float-right" width="50" height="50" alt="...">
-                            PlantaSou
-                        </a>
-                    
-                        <ul class="navbar-nav nav-pills nav-link-color me-auto mb-2 mb-lg-0">
+        <nav class="navbar navbar-light bg-light topnav">
+            <div class="container-fluid">
+            <a class="navbar-brand plantasou">
+                <p class="plantasou">
+                    <img src="../imgs/logo_new.png" class="align-self-center mr-3 rounded float-left" width="50" height="50" alt="..."></img>
+                    PlantaSou
+                </p>
+            </a>
                         <?php
                             if(isset($_COOKIE["USER"])){
                                 echo'
-                                <li class="nav-item">
                                     <a class="nav-link nav-link-color" href="../php/home_user.php">Home</a>
-                                </li>
                                 ';
                             }else if(isset($_COOKIE["ADM"])){
                                 echo'
-                                <li class="nav-item">
                                     <a class="nav-link nav-link-color" href="../php/home_adm.php">Home</a>
-                                </li>
                                 ';
                             }else{
                                 echo'
@@ -49,76 +42,59 @@
                                 ';
                             }
                         ?>
-                        <li class="nav-item">
                             <a class="nav-link nav-link-color" href="../php/produtos.php">Produtos</a>
-                        </li>
                         <?php
                             if(isset($_COOKIE["USER"])){
                                 echo'
-                                <li class="nav-item">
                                     <a class="nav-link nav-link-color active" aria-current="page" href="#"><img src="../imgs/moeda.png" width="20" height="20"/> Orçamento</a>
-                                </li>
                                 ';
                             }
                         ?>
-                        <li class="nav-item">
                             <a class="nav-link nav-link-color" href="../php/cultivo.php">Cultivos</a>
-                        </li>
                         <?php
                             if(isset($_COOKIE["USER"])){
                                 echo'
-                                <li class="nav-item">
                                     <a class="nav-link nav-link-color" href="../php/historico.php">Histórico</a>
-                                </li>
-                                <li class="nav-item">
                                     <a class="nav-link nav-link-color" href="./logout_user.php"><img src="../imgs/out.png" width="15" height="15"/> Sair</a>
-                                </li>
                                 ';
                             }else if(isset($_COOKIE["ADM"])){
                                 echo'
-                                <li class="nav-item">
                                     <a class="nav-link nav-link-color" href="./logout_adm.php"><img src="../imgs/out.png" width="15" height="15"/> Sair</a>
-                                </li>
                                 ';
                             }else{
                                 echo'
-                                <li class="nav-item">
                                     <button type="button" class="btn nav-link nav-link-color" data-bs-toggle="modal" data-bs-target="#login">
                                         Login
                                     </button>
-                                </li>
                                 ';
                             }
-                            if(isset($_COOKIE["USER"]) || isset($_COOKIE["ADM"])){
-                                echo'
-                                    <li class="nav-item">
-                                        <a class="nav-link nav-link-color active_usuario">Seja bem-vindo(a) ';
-
-                                            if(isset($_COOKIE["USER"])){
-                                                include('../inc/conexao.php');
-                                                $sql="SELECT nome FROM usuario WHERE cod_usuario=$usuario";
-                                                $query=mysqli_query($con, $sql);
-                                                
-                                                if(mysqli_num_rows($query)>0){
-                                                    while(($nome=mysqli_fetch_assoc($query))!=NULL){
-                                                        echo $nome['nome'];
-                                                    }
-                                                } 
-                                            }
-                                            elseif(isset($_COOKIE["ADM"])){
-                                                echo "Administrador(a)";
-                                            }
-                                echo'
-                                        </a>
-                                    </li>';
-                            }
                             ?>
-                        </ul>
-                    </div>
-                </div>
             </div>
         </nav>
-    </div>
+
+        <?php
+            if(isset($_COOKIE["USER"]) || isset($_COOKIE["ADM"])){
+                echo'
+                        <a class="nav-link nav-link-color active_usuario">Seja bem-vindo(a) ';
+
+                            if(isset($_COOKIE["USER"])){
+                                include('../inc/conexao.php');
+                                $sql="SELECT nome FROM usuario WHERE cod_usuario=$usuario";
+                                $query=mysqli_query($con, $sql);
+                                
+                                if(mysqli_num_rows($query)>0){
+                                    while(($nome=mysqli_fetch_assoc($query))!=NULL){
+                                        echo $nome['nome'];
+                                    }
+                                } 
+                            }
+                            elseif(isset($_COOKIE["ADM"])){
+                                echo "Administrador(a)";
+                            }
+                echo'
+                        </a>';
+            }
+        ?>
 
     <br>
     <h1 class="centro">Orçamento</h1>
@@ -142,11 +118,11 @@
     if(count($_SESSION['itens'])== 0){
         echo'
                 <div class="p-5 text-center">
-                    <div class="alert font">
+                    <div class="alert fundoo font">
                         <div class="text-black">
-                            <p>Nenhum produto foi selecionado</p>
+                            <p>Nenhum produto foi selecionado!</p>
                             </br>
-                            <p><a class="link" href="../php/produtos.php">Você poderá selecionar um produto na página Produtos</a></p>
+                            <p><a class="fundoo2" href="../php/produtos.php">Você poderá selecionar um produto na página Produtos</a></p>
                         </div>
                     </div>
                 </div>
@@ -155,14 +131,14 @@
         include ("../inc/conexao.php");
 
         echo'
-            <table class="table table-borderless tabela w-75 p-3">
+            <table class="table-sm tabela w-75 p-3 table-bordered border-dark" cellspacing="0" rules="none">
                 <thead>
                     <tr class="centro">
-                        <th colspan="2">Quantidade</th>
-                        <th>Nome do produto</th>
-                        <th>Preço unitário</th>
-                        <th>Preço total</th>
-                        <th>Editar</th>
+                        <td colspan="2"><b>Quantidade</b></td>
+                        <td><b>Nome do produto</b></td>
+                        <td><b>Preço unitário</b></td>
+                        <td><b>Preço total</b></td>
+                        <td><b>Editar</b></td>
                     </tr>
                 </thead>
                 <tbody>';
@@ -195,8 +171,8 @@
                         echo'
                         <tr class="centro">
                             <td>
-                                <button type="button" class="btn nav-link nav-link-color btn-color" data-bs-toggle="modal" data-bs-target="#quantidade_p'.$idProduto.'">
-                                    Modificar
+                                <button type="button" class="btn cor_bot btn-outline-dark collapsed" data-bs-toggle="modal" data-bs-target="#quantidade_p'.$idProduto.'">
+                                    Mudar quantidade
                                 </button>
                             </td>
                             <td scope="row">
@@ -220,11 +196,11 @@
                         echo'
                             <tr class="centro">
                                 <td>
-                                    <button type="button" class="btn nav-link nav-link-color btn-color" data-bs-toggle="modal" data-bs-target="#quantidade_p'.$idProduto.'">
-                                        Modificar
+                                    <button type="button" class="btn cor_bot btn-outline-dark collapsed" data-bs-toggle="modal" data-bs-target="#quantidade_p'.$idProduto.'">
+                                        Mudar quantidade
                                     </button>
                                 </td>
-                                <td scope="row">
+                                <td scope="row"">
                                     '.$_SESSION['qtd'][$idProduto].'
                                 </td>
                                 <td>'.$seleciona['nome'].'</td>
@@ -232,8 +208,8 @@
                                 <input type= "hidden" value="'.number_format($seleciona['preco'],2).'" id="preco"/>
                                 <td>R$ '.number_format($_SESSION['preco_total'][$idProduto],2).'</td>
                                 <td>
-                                    <button class="btn btn-color" type="button" id="dropdownMenuButton1" aria-expanded="false">
-                                        <a class="btn-color" href="remover_orcamento.php?remover=tabela&id='.$idProduto.'">Remover</a>
+                                    <button class="btn btn-outline-dark collapsed" type="button" id="dropdownMenuButton1" aria-expanded="false">
+                                        <a class="btn-outline-dark collapsed" href="remover_orcamento.php?remover=tabela&id='.$idProduto.'">Remover</a>
                                     </button>
                                 </td>
                             </tr>    
@@ -255,7 +231,7 @@
         }
         echo'
                     <tr class="centro font">
-                        <th colspan="6">Total: R$ '.number_format($preco_final,2).'</th>
+                        <td colspan="6"><b>Total: R$ '.number_format($preco_final,2).'</b></td>
                         <td colspan="6">
                             <a href="../php/historico.php">Salvar</a>
                         </td>

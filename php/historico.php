@@ -19,106 +19,82 @@
 
 </head>
 <body>
-    <div class="navbar-custom">
-        <nav class="navbar navbar-expand-lg navbar-dark ">
-            <div class="media">
-                <div class="container-fluid">
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <a class="navbar-brand plantasou" href="#">
-                            <img src="../imgs/logo_new.jpeg" class="align-self-center mr-3 rounded float-right" width="50" height="50" alt="...">
-                            PlantaSou
-                        </a>
-                    
-                        <ul class="navbar-nav nav-pills nav-link-color me-auto mb-2 mb-lg-0">
-                        <?php
-                            if(isset($_COOKIE["USER"])){
-                                echo'
-                                <li class="nav-item">
-                                    <a class="nav-link nav-link-color" href="../php/home_user.php">Home</a>
-                                </li>
-                                ';
-                            }else if(isset($_COOKIE["ADM"])){
-                                echo'
-                                <li class="nav-item">
-                                    <a class="nav-link nav-link-color" href="../php/home_adm.php">Home</a>
-                                </li>
-                                ';
-                            }else{
-                                echo'
-                                <a class="nav-link nav-link-color" href="../php/index.php">Home</a>
-                                ';
-                            }
-                        ?>
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-color" href="../php/produtos.php">Produtos</a>
-                        </li>
-                        <?php
-                            if(isset($_COOKIE["USER"])){
-                                echo'
-                                <li class="nav-item">
-                                    <a class="nav-link nav-link-color" href="../php/orcamento.php">Orçamento</a>
-                                </li>
-                                ';
-                            }
-                        ?>
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-color" href="../php/cultivo.php">Cultivos</a>
-                        </li>
-                        <?php
-                            if(isset($_COOKIE["USER"])){
-                                echo'
-                                <li class="nav-item">
-                                    <a class="nav-link nav-link-color active" aria-current="page" href="#"><img src="../imgs/livro.png" width="20" height="20"/> Histórico</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link nav-link-color" href="./logout_user.php"><img src="../imgs/out.png" width="15" height="15"/> Sair</a>
-                                </li>
-                                ';
-                            }else if(isset($_COOKIE["ADM"])){
-                                echo'
-                                <li class="nav-item">
-                                    <a class="nav-link nav-link-color" href="./logout_adm.php"><img src="../imgs/out.png" width="15" height="15"/> Sair</a>
-                                </li>
-                                ';
-                            }else{
-                                echo'
-                                <li class="nav-item">
-                                    <button type="button" class="btn nav-link nav-link-color" data-bs-toggle="modal" data-bs-target="#login">
-                                        Login
-                                    </button>
-                                </li>
-                                ';
-                            }
-                            if(isset($_COOKIE["USER"]) || isset($_COOKIE["ADM"])){
-                                echo'
-                                    <li class="nav-item">
-                                        <a class="nav-link nav-link-color active_usuario">Seja bem-vindo(a) ';
+    <nav class="navbar navbar-light bg-light topnav">
+        <div class="container-fluid">
+        <a class="navbar-brand plantasou">
+          <p class="plantasou">
+            <img src="../imgs/logo_new.png" class="align-self-center mr-3 rounded float-left" width="50" height="50" alt="..."></img>
+            PlantaSou
+          </p>
+        </a>
+            <?php
+                if(isset($_COOKIE["USER"])){
+                    echo'
+                        <a class="nav-link nav-link-color" href="../php/home_user.php">Home</a>
+                    ';
+                }else if(isset($_COOKIE["ADM"])){
+                    echo'
+                        <a class="nav-link nav-link-color" href="../php/home_adm.php">Home</a>
+                    ';
+                }else{
+                    echo'
+                    <a class="nav-link nav-link-color" href="../php/index.php">Home</a>
+                    ';
+                }
+            ?>
+                <a class="nav-link nav-link-color" href="../php/produtos.php">Produtos</a>
+            <?php
+                if(isset($_COOKIE["USER"])){
+                    echo'
+                        <a class="nav-link nav-link-color" href="../php/orcamento.php">Orçamento</a>
+                    ';
+                }
+            ?>
+                <a class="nav-link nav-link-color" href="../php/cultivo.php">Cultivos</a>
+            <?php
+                if(isset($_COOKIE["USER"])){
+                    echo'
+                        <a class="nav-link nav-link-color active" aria-current="page" href="#"><img src="../imgs/livro.png" width="20" height="20"/> Histórico</a>
+                        <a class="nav-link nav-link-color" href="./logout_user.php"><img src="../imgs/out.png" width="15" height="15"/> Sair</a>
+                    ';
+                }else if(isset($_COOKIE["ADM"])){
+                    echo'
+                        <a class="nav-link nav-link-color" href="./logout_adm.php"><img src="../imgs/out.png" width="15" height="15"/> Sair</a>
+                    ';
+                }else{
+                    echo'
+                        <button type="button" class="btn nav-link nav-link-color" data-bs-toggle="modal" data-bs-target="#login">
+                            Login
+                        </button>
+                    ';
+                }
+                ?>
+        </div>
+    </nav>
 
-                                            if(isset($_COOKIE["USER"])){
-                                                include('../inc/conexao.php');
-                                                $sql="SELECT nome FROM usuario WHERE cod_usuario=$usuario";
-                                                $query=mysqli_query($con, $sql);
-                                                
-                                                if(mysqli_num_rows($query)>0){
-                                                    while(($nome=mysqli_fetch_assoc($query))!=NULL){
-                                                        echo $nome['nome'];
-                                                    }
-                                                } 
-                                            }
-                                            elseif(isset($_COOKIE["ADM"])){
-                                                echo "Administrador(a)";
-                                            }
-                                echo'
-                                        </a>
-                                    </li>';
-                            }
-                            ?>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </div>
+    <?php
+        if(isset($_COOKIE["USER"]) || isset($_COOKIE["ADM"])){
+            echo'
+                    <a class="nav-link nav-link-color active_usuario">Seja bem-vindo(a) ';
+
+                        if(isset($_COOKIE["USER"])){
+                            include('../inc/conexao.php');
+                            $sql="SELECT nome FROM usuario WHERE cod_usuario=$usuario";
+                            $query=mysqli_query($con, $sql);
+                            
+                            if(mysqli_num_rows($query)>0){
+                                while(($nome=mysqli_fetch_assoc($query))!=NULL){
+                                    echo $nome['nome'];
+                                }
+                            } 
+                        }
+                        elseif(isset($_COOKIE["ADM"])){
+                            echo "Administrador(a)";
+                        }
+            echo'
+                    </a>';
+        }
+    ?>
 
     <br>
     <h1 class="centro">Histórico</h1>
@@ -165,6 +141,8 @@
 
         $stmt=$conPDO->query("SELECT cod_tabela FROM historico GROUP BY cod_tabela");
         $number=$stmt->rowCount();
+
+
 
         for ($i=1; $i <= $number; $i++) { 
 
