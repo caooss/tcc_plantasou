@@ -73,13 +73,8 @@
                                     header("Location: ../php/home_user.php");
                                 }
                             }
+                            echo "Bom dia que Deus te elimine!";
                         }
                     }
                     
                 ?>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>

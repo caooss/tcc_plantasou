@@ -33,7 +33,7 @@
         <a class="nav-link nav-link-color" href="./produtos.php">Produtos</a>
         <a class="nav-link nav-link-color" href="../php/orcamento.php">Orçamento</a>
         <a class="nav-link nav-link-color" href="./cultivo.php">Cultivos</a>
-        <a class="nav-link nav-link-color" href="../php/historico.php">Histórico</a>
+        <a class="nav-link nav-link-color" href="../php/historico?num=0.php">Histórico</a>
         <a class="nav-link nav-link-color" href="./logout_user.php"><img src="../imgs/out.png" width="15" height="15"/> Sair</a>
       </div>
     </nav>

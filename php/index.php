@@ -5,7 +5,7 @@
         <title>PlantaSou</title>
 
         <link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap.min.css" />
-        <link rel="stylesheet" href="../css/estilo.css">
+        <link rel="stylesheet" href="../css/estilo.css"/>
         <link rel="shortcut icon" href="../imgs/logo_new.ico">
 
     </head>

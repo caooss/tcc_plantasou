@@ -54,7 +54,7 @@
                         <?php
                             if(isset($_COOKIE["USER"])){
                                 echo'
-                                    <a class="nav-link nav-link-color" href="../php/historico.php">Histórico</a>
+                                    <a class="nav-link nav-link-color" href="../php/historico.php?num=0">Histórico</a>
                                     <a class="nav-link nav-link-color" href="./logout_user.php"><img src="../imgs/out.png" width="15" height="15"/> Sair</a>
                                 ';
                             }else if(isset($_COOKIE["ADM"])){
@@ -215,10 +215,12 @@
     </form>
 
     <?php
+        include "./login.php";
+
         include "./editar_produto.php";
         
         include "./cadastro_produto.php";
-        include "./login.php";
+        
     ?>
 </body>
 </html>

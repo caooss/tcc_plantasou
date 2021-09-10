@@ -321,6 +321,10 @@ a:link {
     border-bottom: 3px solid rgb(0, 0, 0);
   }
 
+  a.plantasou{
+    border-bottom: none !important;
+  }
+
 .fonte3{
     font-family: 'Book Antiqua';
 }
@@ -401,4 +405,11 @@ a:link {
 .fundoo2{
     color: black;
     text-decoration-line: underline !important;
+}
+
+/*fonte da página orçamento e histórico*/
+
+.fonte_{
+    font-family:'Book Antiqua';
+    font-size: 18px;
 }

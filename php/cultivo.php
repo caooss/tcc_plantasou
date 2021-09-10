@@ -17,10 +17,6 @@
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <link rel="shortcut icon" href="../imgs/logo_new.ico">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     
 
 </head>
@@ -60,7 +56,7 @@
         <?php
             if(isset($_COOKIE["USER"])){
                 echo'
-                    <a class="nav-link nav-link-color" href="../php/historico.php">Histórico</a>
+                    <a class="nav-link nav-link-color" href="../php/historico.php?num=0">Histórico</a>
                     <a class="nav-link nav-link-color" href="./logout_user.php"><img src="../imgs/out.png" width="15" height="15"/> Sair</a>
                 ';
             }else if(isset($_COOKIE["ADM"])){
@@ -204,7 +200,7 @@
                                         </td>
                                         <td>
                                             <button type="button" class="btn btn-color btn-outline-dark direcao_b2" aria-expanded="false">
-                                                <a class="btn-color" href="remover_cultivo.php?id='.$resultado['cod_cultivo'].'">Remover</a>
+                                                <a class="btn-color" href="remover_cultivo.php?id='.$cod_cultivo.'">Remover</a>
                                             </button>
                                         </td>
                                     <tr>
@@ -231,7 +227,7 @@
         include "./cadastro_cultivo.php";
         include "./editar_cultivo.php";
     ?>
-    <script src="../js/teste.js"></script>
+
     
 </body>
 </html>

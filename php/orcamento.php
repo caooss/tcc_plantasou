@@ -54,7 +54,7 @@
                         <?php
                             if(isset($_COOKIE["USER"])){
                                 echo'
-                                    <a class="nav-link nav-link-color" href="../php/historico.php">Histórico</a>
+                                    <a class="nav-link nav-link-color" href="../php/historico.php?num=0">Histórico</a>
                                     <a class="nav-link nav-link-color" href="./logout_user.php"><img src="../imgs/out.png" width="15" height="15"/> Sair</a>
                                 ';
                             }else if(isset($_COOKIE["ADM"])){
@@ -231,9 +231,10 @@
         }
         echo'
                     <tr class="centro font">
-                        <td colspan="6"><b>Total: R$ '.number_format($preco_final,2).'</b></td>
+                        <td colspan="5"><b>Total: R$ '.number_format($preco_final,2).'</b></td>
                         <td colspan="6">
-                            <a href="../php/historico.php">Salvar</a>
+                            <a href="../php/excluir_orcamento.php">Excluir Tabela</a> │ 
+                            <a href="../php/historico.php?num=1">Salvar</a>
                         </td>
                     </tr>
                 </tbody>

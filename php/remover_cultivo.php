@@ -1,10 +1,10 @@
 <?php
-    include('../inc/conexao.php');
+    include('../inc/conexao_pdo.php');
 
     $id=$_GET['id'];
-    $sql= "DELETE FROM cultivo WHERE cod_cultivo=$id";
 
-    $query= mysqli_query($con, $sql);
+    $stmt=$conPDO->query("DELETE FROM cultivo WHERE cod_cultivo=$id");
+    $stmt->execute;
 
     header("location: ./cultivo.php");
 ?>

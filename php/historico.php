@@ -97,17 +97,16 @@
     ?>
 
     <br>
-    <h1 class="centro">Histórico</h1>
+    <h1 class="centro letra">Histórico</h1>
 
     <?php
         session_start();
         include("../inc/conexao.php");
 
-        if(isset($_SESSION['dados'])){
+        $num=0;
+        $num=$_GET['num'];
 
-            /*echo "<pre>";
-            var_dump($_SESSION['dados']);
-            echo "</pre>";*/
+        if((isset($_SESSION['dados'])) && $num==1){
 
             $sqlMax="SELECT MAX(cod_tabela) FROM historico";
                 $queryMax=mysqli_query($con, $sqlMax);
@@ -152,14 +151,14 @@
             $preco_final=0;
             if(mysqli_num_rows($query)>0){
                 echo'
-                <table class="table table-borderless tabela w-75 p-3">
+                <table class=" fonte_ table-sm tabela w-75 p-3 table-bordered border-dark" cellspacing="0" rules="none">
                     <thead>
                         <tr class="centro">
-                            <th>Quantidade</th>
-                            <th>Nome do produto</th>
-                            <th>Preço unitário</th>
-                            <th>Preço total</th>
-                            <th>Data</th>
+                            <td><b>Quantidade</b></td>
+                            <td><b>Nome do produto</b></td>
+                            <td><b>Preço unitário</b></td>
+                            <td><b>Preço total</b></td>
+                            <td><b>Data</b></td>
                         </tr>
                     </thead>
                 ';
@@ -174,14 +173,21 @@
                                 <td>'.$historico_user["data_"].'</td>
                             </tr>
                         </tbody>
+                        
                     
                     ';
                     $preco_final+=$historico_user["total"];
+                    $idTabela=$historico_user["cod_tabela"];
             }
             echo'
                     <tfoot>
                         <tr class="centro font">
-                            <th colspan="5">Total: R$ '.number_format($preco_final,2).'</th>
+                            <th colspan="4">Total: R$ '.number_format($preco_final,2).'</th>
+                            <td>
+                                <button class="btn btn-outline-dark collapsed" type="button" aria-expanded="false">
+                                    <a class="btn-outline-dark collapsed" href="remover_historico.php?id='.$idTabela.'">Remover</a>
+                                </button>
+                            </td>
                         </tr>
                     </tfoot>
                 </table>';
