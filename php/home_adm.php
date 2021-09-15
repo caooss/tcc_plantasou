@@ -28,7 +28,17 @@
           </p>
         </a>
         <a class="nav-link nav-link-color active" aria-current="page" href="#">🏠 Home</a>
-        <a class="nav-link nav-link-color" href="./produtos.php">Produtos</a>
+        
+        <div class="nav-link dropdown show">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
+            <img src="../imgs/tomates.png" width="20" height="20"/> Produtos
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="../php/produtos.php">Produtos</a>
+            <a class="dropdown-item" href="../php/cadastro_produto.php">Cadastro Produto</a>
+          </div>
+        </div>
+
         <a class="nav-link nav-link-color" href="./cultivo.php">Cultivos</a>
         <a class="nav-link nav-link-color" href="./logout_user.php"><img src="../imgs/out.png" width="15" height="15"/> Sair</a>
       </div>
@@ -178,5 +188,6 @@
         <script src="../js/jquery-3.5.1.min.js"></script>
         <script src="../js/popper.min.js"></script>
         <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/teste.js"></script>
     </body>
 </html>

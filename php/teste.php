@@ -14,4 +14,5 @@
         echo $row->cod_tabela."<br>";
         echo $row->COUNT(*)."<br>";
     }*/
+    <a class="nav-link nav-link-color active dropdown-toggle" aria-current="page" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"><img src="../imgs/tomates.png" width="20" height="20"/> Produtos</a>
 ?>

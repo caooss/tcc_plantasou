@@ -12,9 +12,6 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/estilo.css">
-    <script src="../js/jquery-3.5.1.min.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
     <link rel="shortcut icon" href="../imgs/logo_new.ico">
 
 </head>
@@ -42,7 +39,25 @@
                                 ';
                             }
                         ?>
-                        <a class="nav-link nav-link-color active" aria-current="page" href="#"><img src="../imgs/tomates.png" width="20" height="20"/> Produtos</a>
+                        <?php
+                          if(isset($_COOKIE["ADM"])){
+                            echo'
+                            <div class="nav-link dropdown show">
+                                <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
+                                    <img src="../imgs/tomates.png" width="20" height="20"/> Produtos
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="../php/produtos.php">Produtos</a>
+                                    <a class="dropdown-item" href="../php/cadastro_produto.php">Cadastro Produto</a>
+                                </div>
+                            </div>
+                            ';
+                          }else{
+                            echo'
+                                <a class="nav-link nav-link-color active" aria-current="page" href="#"><img src="../imgs/tomates.png" width="20" height="20"/> Produtos</a>
+                            ';
+                          }
+                        ?>
                         <?php
                             if(isset($_COOKIE["USER"])){
                                 echo'
@@ -111,19 +126,20 @@
     <h1 class="centro paginas">Produtos</h1>
 
     <?php
-        if(isset($_COOKIE["ADM"])){
+        /*if(isset($_COOKIE["ADM"])){
             echo'
                 <div class="p-5 text-center">
                     <div class="alert font">
                         <div class="text-black d-grid gap-2">
-                            <button type="button" class="btn adicionar" data-bs-toggle="modal" data-bs-target="#cadastro_produto">
-                                Adicionar
-                            </button>   
+                            <a href="../php/cadastro_produto" class="btn adicionar">Adicionar</a>
                         </div>
                     </div>
                 </div>
             ';
-        }
+            /*<button type="button" class="btn adicionar" data-bs-toggle="modal" data-bs-target="#cadastro_produto">
+                Adicionar
+            </button>
+        }*/
     ?>
 
     <form action="orcamento.php" method="post">
@@ -219,8 +235,13 @@
 
         include "./editar_produto.php";
         
-        include "./cadastro_produto.php";
+        /*include "./cadastro_produto.php";*/
         
     ?>
+
+    <script src="../js/jquery-3.5.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
 </body>
 </html>

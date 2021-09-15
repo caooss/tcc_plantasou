@@ -46,7 +46,25 @@
                 ';
             }
         ?>
-        <a class="nav-link nav-link-color" href="../php/produtos.php">Produtos</a>
+        <?php
+            if(isset($_COOKIE["ADM"])){
+            echo'
+                <div class="nav-link dropdown show">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
+                        <img src="../imgs/tomates.png" width="20" height="20"/> Produtos
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="../php/produtos.php">Produtos</a>
+                        <a class="dropdown-item" href="../php/cadastro_produto.php">Cadastro Produto</a>
+                    </div>
+                </div>
+            ';
+            }else{
+            echo'
+                <a class="nav-link nav-link-color" aria-current="page" href="#"><img src="../imgs/tomates.png" width="20" height="20"/> Produtos</a>
+            ';
+            }
+        ?>
         <?php
             if(isset($_COOKIE["USER"])){
                 echo'

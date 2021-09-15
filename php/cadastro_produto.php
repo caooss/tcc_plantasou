@@ -11,14 +11,121 @@
 <body>
 
         
-        <div class="modal fade" id="cadastro_produto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!--<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Cadastre um novo produto</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-body">
+              <div class="modal-body">-->
+
+      <nav class="navbar navbar-light bg-light topnav">
+        <div class="container-fluid">
+            <a class="navbar-brand plantasou">
+                <p class="plantasou">
+                    <img src="../imgs/logo_new.png" class="align-self-center mr-3 rounded float-left" width="50" height="50" alt="..."></img>
+                    PlantaSou
+                </p>
+            </a>
+                        <?php
+                            if(isset($_COOKIE["USER"])){
+                                echo'
+                                    <a class="nav-link nav-link-color" href="../php/home_user.php">Home</a>
+                                ';
+                            }else if(isset($_COOKIE["ADM"])){
+                                echo'
+                                    <a class="nav-link nav-link-color" href="../php/home_adm.php">Home</a>
+                                ';
+                            }else{
+                                echo'
+                                <a class="nav-link nav-link-color" href="../php/index.php">Home</a>
+                                ';
+                            }
+                        ?>
+                        <?php
+                          if(isset($_COOKIE["ADM"])){
+                            echo'
+                              <div class="nav-link dropdown show">
+                                  <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
+                                      <img src="../imgs/tomates.png" width="20" height="20"/> Produtos
+                                  </a>
+                                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                      <a class="dropdown-item" href="../php/produtos.php">Produtos</a>
+                                      <a class="dropdown-item" href="../php/cadastro_produto.php">Cadastro Produto</a>
+                                  </div>
+                              </div>
+                            ';
+                          }else{
+                            echo'
+                                <a class="nav-link nav-link-color active" aria-current="page" href="#"><img src="../imgs/tomates.png" width="20" height="20"/> Produtos</a>
+                            ';
+                          }
+                        ?>
+                        
+                        <?php
+                            if(isset($_COOKIE["USER"])){
+                                echo'
+                                    <a class="nav-link nav-link-color" href="../php/orcamento.php">Orçamento</a>
+                                ';
+                            }
+                        ?>
+                            <a class="nav-link nav-link-color" href="../php/cultivo.php">Cultivos</a>
+                        <?php
+                            if(isset($_COOKIE["USER"])){
+                                echo'
+                                    <a class="nav-link nav-link-color" href="../php/historico.php?num=0">Histórico</a>
+                                    <a class="nav-link nav-link-color" href="./logout_user.php"><img src="../imgs/out.png" width="15" height="15"/> Sair</a>
+                                ';
+                            }else if(isset($_COOKIE["ADM"])){
+                                echo'
+                                    <a class="nav-link nav-link-color" href="./logout_adm.php"><img src="../imgs/out.png" width="15" height="15"/> Sair</a>
+                                ';
+                            }else{
+                                echo'
+                                    <button type="button" class="btn nav-link nav-link-color" data-bs-toggle="modal" data-bs-target="#login">
+                                        Login
+                                    </button>
+                                ';
+                            }
+                        ?>
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Search"/>
+                            <button class="btn btn-outline-success nav-link-color borda" type="submit">Buscar</button>
+                        </form>
+          </div>
+      </nav>
+
+        <?php
+            if(isset($_COOKIE["USER"]) || isset($_COOKIE["ADM"])){
+                echo'
+                        <a class="nav-link nav-link-color active_usuario">Seja bem-vindo(a) ';
+
+                            if(isset($_COOKIE["USER"])){
+                                include('../inc/conexao.php');
+                                $sql="SELECT nome FROM usuario WHERE cod_usuario=$usuario";
+                                $query=mysqli_query($con, $sql);
+                                
+                                if(mysqli_num_rows($query)>0){
+                                    while(($nome=mysqli_fetch_assoc($query))!=NULL){
+                                        echo $nome['nome'];
+                                    }
+                                } 
+                            }
+                            elseif(isset($_COOKIE["ADM"])){
+                                echo "Administrador(a)";
+                            }
+                echo'
+                        </a>';
+            }
+            else{
+                echo'
+                <center>
+                    <a class="nav-link nav-link-color active_usuario ">Seja bem-vindo(a) ao site </a>
+                </center>
+                ';
+            }
+        ?>
                 <?php
                   if(empty($_POST)){
                     echo '
@@ -78,13 +185,13 @@
                   echo '
                   <script src="../js/jquery-3.5.1.min.js"></script>
                   <script src="../js/popper.min.js"></script>
-                  <script src="../js/bootstrap.min.js"></script>
+                  <script src="../js/bootstrap.min.js"></script>';
 
-              </div>
+              /*</div>
             </div>
           </div>
         </div>
-          ';
+          ';*/
                     
                     }else{
                         include('../inc/conexao.php');
