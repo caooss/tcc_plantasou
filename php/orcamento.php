@@ -97,7 +97,7 @@
         ?>
 
     <br>
-    <h1 class="centro">Orçamento</h1>
+    <h1 class="centro letra">Orçamento</h1>
 
 <?php
     session_start();

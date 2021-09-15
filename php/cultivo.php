@@ -17,6 +17,8 @@
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <link rel="shortcut icon" href="../imgs/logo_new.ico">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     
 
 </head>
@@ -227,7 +229,7 @@
         include "./cadastro_cultivo.php";
         include "./editar_cultivo.php";
     ?>
-
+    <script src="../js/teste.js"></script>
     
 </body>
 </html>

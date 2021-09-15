@@ -6,5 +6,5 @@
     $stmt=$conPDO->query("DELETE FROM historico WHERE cod_tabela=$id");
     $stmt->execute;
 
-    header("location: ./historico.php");
+    header("location: ./historico?num=0.php");
 ?>

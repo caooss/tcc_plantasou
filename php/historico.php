@@ -141,7 +141,21 @@
         $stmt=$conPDO->query("SELECT cod_tabela FROM historico GROUP BY cod_tabela");
         $number=$stmt->rowCount();
 
+        $user=$conPDO->query("SELECT cod_usuario FROM historico WHERE cod_usuario=$usuario");
+        $n=$user->rowCount();
 
+        if($n==0){
+            echo'
+                <div class="p-5 text-center">
+                    <div class="alert fundoo font">
+                        <div class="text-black">
+                            <p>Nenhum Orçamento foi salvo!</p>
+                            </br>
+                            <p><a class="fundoo2" href="../php/orcamento.php">Você poderá salvar um orçamento na página Orçamento</a></p>
+                        </div>
+                    </div>
+                </div>';
+        }
 
         for ($i=1; $i <= $number; $i++) { 
 
@@ -185,7 +199,7 @@
                             <th colspan="4">Total: R$ '.number_format($preco_final,2).'</th>
                             <td>
                                 <button class="btn btn-outline-dark collapsed" type="button" aria-expanded="false">
-                                    <a class="btn-outline-dark collapsed" href="remover_historico.php?id='.$idTabela.'">Remover</a>
+                                    <a class="btn-outline-dark collapsed" href="remover_historico.php?id='.$idTabela.'">Remover Tabela</a>
                                 </button>
                             </td>
                         </tr>
