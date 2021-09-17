@@ -14,7 +14,8 @@
     <meta charset="UTF-8" dir="ltr">
     <title>PlantaSou</title>
 
-   
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/estilo.css">
     <link rel="shortcut icon" href="../imgs/logo_new.ico">
 
 </head>
@@ -242,16 +243,11 @@
         
     }
 ?>
-<?php
-    include "./login.php";
-    include "./cadastro_produto.php";
-?>
-<script src="../js/quantidade.js"></script>
-<script src="../js/bootstrap.bundle.min.js"></script>
-<link rel="stylesheet" href="../css/estilo.css">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/5.0.1/css/bootstrap.min.css">
+
+    <script src="../js/jquery-3.5.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/teste.js"></script>
 
 </body>
 </html>

@@ -202,9 +202,10 @@ a:hover{
     background-color:#ffffff;
 }
 
-/*.button-margin{
-    margin-top: 35px;
-}*/
+/*margin para a página de cadastro_produto*/
+.margin_text{
+    text-align: left !important;
+}
 
 .img-margin{
     margin-top: 13px;
@@ -415,8 +416,16 @@ a:link {
     font-size: 18px;
 }
 
+textarea{
+    overflow: auto;
+}
+
 /*--------------------*/
 
 .dropdown a:hover{
-    color: #000000;
+    color: #4c7032;
+}
+
+.dropdown a{
+    color: #4c7032;
 }

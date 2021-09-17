@@ -61,7 +61,7 @@
             ';
             }else{
             echo'
-                <a class="nav-link nav-link-color" aria-current="page" href="#"><img src="../imgs/tomates.png" width="20" height="20"/> Produtos</a>
+                <a class="nav-link nav-link-color" aria-current="page" href="../php/produtos.php">Produtos</a>
             ';
             }
         ?>
@@ -72,7 +72,25 @@
                 ';
             }
         ?>
-        <a class="nav-link nav-link-color active" aria-current="page" href="#"><img src="../imgs/crescer-planta.png" width="20" height="20"/> Cultivos</a>
+        <?php
+            if(isset($_COOKIE["ADM"])){
+            echo'
+                <div class="nav-link dropdown show">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
+                    <img src="../imgs/crescer-planta.png" width="20" height="20"/> Cultivos
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="../php/cultivo.php">Cultivos</a>
+                        <a class="dropdown-item" href="../php/cadastro_cultivo.php">Cadastro Cultivos</a>
+                    </div>
+                </div>
+            ';
+            }else{
+            echo'
+                <a class="nav-link nav-link-color active" aria-current="page" href="#"><img src="../imgs/crescer-planta.png" width="20" height="20"/> Cultivos</a>
+            ';
+            }
+        ?>
         <?php
             if(isset($_COOKIE["USER"])){
                 echo'
@@ -131,7 +149,10 @@
     <?php
         if(isset($_COOKIE["ADM"])){
             echo'
-                <div class="p-5 text-center">
+                
+            ';
+
+            /*<div class="p-5 text-center">
                     <div class="alert font">
                         <div class="text-black d-grid gap-2">
                             <button type="button" class="btn adicionar" data-bs-toggle="modal" data-bs-target="#cadastro_cultivo">
@@ -139,8 +160,7 @@
                             </button>   
                         </div>
                     </div>
-                </div>
-            ';
+                </div>*/
         }
     ?>
 
@@ -244,8 +264,8 @@
     ?>
     <?php
         include "./login.php";
-        include "./cadastro_cultivo.php";
         include "./editar_cultivo.php";
+        /*include "./cadastro_cultivo.php";*/
     ?>
     <script src="../js/teste.js"></script>
     

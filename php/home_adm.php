@@ -39,7 +39,16 @@
           </div>
         </div>
 
-        <a class="nav-link nav-link-color" href="./cultivo.php">Cultivos</a>
+        <div class="nav-link dropdown show">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
+            <img src="../imgs/crescer-planta.png" width="20" height="20"/> Cultivos
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="../php/cultivo.php">Cultivos</a>
+                <a class="dropdown-item" href="../php/cadastro_cultivo.php">Cadastro Cultivos</a>
+            </div>
+        </div>
+        
         <a class="nav-link nav-link-color" href="./logout_user.php"><img src="../imgs/out.png" width="15" height="15"/> Sair</a>
       </div>
     </nav>

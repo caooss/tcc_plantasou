@@ -15,3 +15,6 @@ window.onclick = function(e) {
     }
   }
 }
+
+$('textarea').autoResize();
+document.getElementById("textarea").scrollTop = document.getElementById("textarea").scrollHeight 

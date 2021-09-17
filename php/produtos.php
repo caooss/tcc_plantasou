@@ -65,7 +65,25 @@
                                 ';
                             }
                         ?>
-                            <a class="nav-link nav-link-color" href="../php/cultivo.php">Cultivos</a>
+                        <?php
+                            if(isset($_COOKIE["ADM"])){
+                            echo'
+                                <div class="nav-link dropdown show">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
+                                    <img src="../imgs/crescer-planta.png" width="20" height="20"/> Cultivos
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="../php/cultivo.php">Cultivos</a>
+                                        <a class="dropdown-item" href="../php/cadastro_cultivo.php">Cadastro Cultivos</a>
+                                    </div>
+                                </div>
+                            ';
+                            }else{
+                            echo'
+                                <a class="nav-link nav-link-color" aria-current="page" href="../php/cultivo.php">Cultivos</a>
+                            ';
+                            }
+                        ?>
                         <?php
                             if(isset($_COOKIE["USER"])){
                                 echo'
@@ -209,7 +227,7 @@
                                             <button type="button" class="btn btn-color btn-outline-dark" data-bs-toggle="modal" data-bs-target="#produto_editar'.$produto.'">Editar</button>
                                         </td>
                                         <td>
-                                            <button type="button" class="btn btn-color btn-outline-dark" aria-expanded="false" href="remover_produto.php?id='.$resultado['cod_produto'].'">Remover</button>
+                                            <button type="button" class="btn btn-color btn-outline-dark" aria-expanded="false"><a href="../php/remover_produto.php?id='.$resultado['cod_produto'].'">Remover</a></button>
                                         </td>
                                     </tr>
                                     </table>
@@ -242,6 +260,7 @@
     <script src="../js/jquery-3.5.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/teste.js"></script>
 
 </body>
 </html>

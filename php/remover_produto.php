@@ -1,10 +1,16 @@
 <?php
-    include('../inc/conexao.php');
+    include('../inc/conexao_pdo.php');
 
     $id=$_GET['id'];
-    $sql= "DELETE FROM produto WHERE cod_produto=$id";
+    $id=intval($id);
 
-    $query= mysqli_query($con, $sql);
+    $stmt=$conPDO->query("DELETE FROM produto WHERE cod_produto=$id");
+    $stmt->execute;
+
+    echo $id;
+    if(!$stmt){
+        echo "Deu ruim";
+    }
 
     header("location: ./produtos.php");
 ?>

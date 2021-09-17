@@ -70,7 +70,25 @@
                                 ';
                             }
                         ?>
-                            <a class="nav-link nav-link-color" href="../php/cultivo.php">Cultivos</a>
+                        <?php
+                            if(isset($_COOKIE["ADM"])){
+                            echo'
+                                <div class="nav-link dropdown show">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
+                                    <img src="../imgs/crescer-planta.png" width="20" height="20"/> Cultivos
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="../php/cultivo.php">Cultivos</a>
+                                        <a class="dropdown-item" href="../php/cadastro_cultivo.php">Cadastro Cultivos</a>
+                                    </div>
+                                </div>
+                            ';
+                            }else{
+                            echo'
+                                <a class="nav-link nav-link-color" aria-current="page" href="#"><img src="../imgs/crescer-planta.png" width="20" height="20"/> Cultivos</a>
+                            ';
+                            }
+                        ?>
                         <?php
                             if(isset($_COOKIE["USER"])){
                                 echo'
@@ -129,63 +147,65 @@
                 <?php
                   if(empty($_POST)){
                     echo '
-                      <form action="cadastro_produto.php" method="POST" enctype="multipart/form-data">
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Produto</label> 
-                            <input type="text" name="nome" class="form-control" placeholder="Produto..." required/>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Vitaminas</label> 
-                            <input type="text" name="vitaminas" class="form-control" placeholder="Vitaminas..."/ required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Benefícios</label> 
-                            <input type="text" name="beneficios" class="form-control" placeholder="Benefícios..."/ required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Preço</label> 
-                            <input type="number" step="any" name="preco" class="form-control" placeholder="Preço..."/ required>
-                        </div>';
-
-                        echo '
+                    <center>
+                        <form action="cadastro_produto.php" method="POST" enctype="multipart/form-data" class="w-75 p-5">
                             <div class="mb-3">
-                                <select name="cod_cultivo">
-                        ';
-                        include('../inc/conexao.php');
-                        $sql="SELECT cod_cultivo, nome FROM cultivo";
-                        $query=mysqli_query($con, $sql);
+                                <label for="exampleFormControlInput1" class="form-label font">Produto</label> 
+                                <input type="text" name="nome" class="form-control" placeholder="Produto..." required/>
+                            </div>
 
-                        if(mysqli_num_rows($query)>0){
-                            while(($cod_do_cultivo=mysqli_fetch_assoc($query))!=NULL){
-                                echo'
-                                    <option value="'.$cod_do_cultivo["cod_cultivo"].'">'.$cod_do_cultivo["nome"].'</option>
-                                ';
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label font">Vitaminas</label> 
+                                <input type="text" name="vitaminas" class="form-control" placeholder="Vitaminas..."/ required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label font">Benefícios</label> 
+                                <input type="text" name="beneficios" class="form-control" placeholder="Benefícios..."/ required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label font">Preço</label> 
+                                <input type="number" step="any" name="preco" class="form-control" placeholder="Preço..."/ required>
+                            </div>';
+
+                            echo '
+                                <div class="mb-3">
+                                    <select name="cod_cultivo">
+                            ';
+                            include('../inc/conexao.php');
+                            $sql="SELECT cod_cultivo, nome FROM cultivo";
+                            $query=mysqli_query($con, $sql);
+
+                            if(mysqli_num_rows($query)>0){
+                                while(($cod_do_cultivo=mysqli_fetch_assoc($query))!=NULL){
+                                    echo'
+                                        <option value="'.$cod_do_cultivo["cod_cultivo"].'">'.$cod_do_cultivo["nome"].'</option>
+                                    ';
+                                }
                             }
-                        }
-                        echo'
-                                </select>
-                            <div>
-                        ';
+                            echo'
+                                    </select>
+                                <div>
+                            ';
 
-                        echo'
-                        <div class="mb-3 mx-auto">
-                            <label for="exampleFormControlInput1" class="form-label">Imagem</label>
-                            <input type="file" class="form-control" id="exampleFormControlInput1" required name="imagem">
-                        </div>
+                            echo'
+                            <div class="mb-3 mx-auto">
+                                <label for="exampleFormControlInput1" class="form-label">Imagem</label>
+                                <input type="file" class="form-control" id="exampleFormControlInput1" required name="imagem">
+                            </div>
 
-                        <div class="modal-footer float-right">
-                          <button type="button" class="btn btn-outline-success nav-link-color fechar" data-bs-dismiss="modal">Fechar</button>
-                          <button type="submit" class="btn btn-outline-success nav-link-color borda-modal">Adicionar</button>
-                        </div>
-                      </form>
+                            <div class="modal-footer float-right">
+                            <button type="button" class="btn btn-outline-success nav-link-color fechar" data-bs-dismiss="modal">Fechar</button>
+                            <button type="submit" class="btn btn-outline-success nav-link-color borda-modal">Adicionar</button>
+                            </div>
+                        </form>
+                    </center>
                     ';
-                  echo '
+                  /*echo '
                   <script src="../js/jquery-3.5.1.min.js"></script>
                   <script src="../js/popper.min.js"></script>
-                  <script src="../js/bootstrap.min.js"></script>';
+                  <script src="../js/bootstrap.min.js"></script>';*/
 
               /*</div>
             </div>

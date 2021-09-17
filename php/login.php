@@ -1,4 +1,3 @@
-
         <div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel__" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -41,10 +40,11 @@
                         </button>
                       </div>
                     ';
-                  echo '
+                  /*echo '
                   <script src="../js/jquery-3.5.1.min.js"></script>
                   <script src="../js/popper.min.js"></script>
-                  <script src="../js/bootstrap.min.js"></script>
+                  <script src="../js/bootstrap.min.js"></script>;'*/
+                  echo'
 
                   </div>
             </div>
@@ -73,7 +73,7 @@
                                     header("Location: ../php/home_user.php");
                                 }
                             }
-                            echo "Bom dia que Deus te elimine!";
+                            echo "Bom dia, parece que algo deu errado em...";
                         }
                     }
                     
