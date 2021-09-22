@@ -210,10 +210,11 @@
                                 <td>R$ '.number_format($_SESSION['preco_total'][$idProduto],2).'</td>
                                 <td>
                                     <button class="btn btn-outline-dark collapsed" type="button" id="dropdownMenuButton1" aria-expanded="false">
-                                        <a class="btn-outline-dark collapsed" href="remover_orcamento.php?remover=tabela&id='.$idProduto.'">Remover</a>
+                                        <a onclick="confirmacao_o('.$idProduto.')">Excluir</a>
                                     </button>
                                 </td>
-                            </tr>    
+                            </tr>
+                </tbody>
                             ';
                     }
                    
@@ -231,14 +232,19 @@
                 );//array_push
         }
         echo'
+                <tfoot>
                     <tr class="centro font">
-                        <td colspan="5"><b>Total: R$ '.number_format($preco_final,2).'</b></td>
-                        <td colspan="6">
-                            <a href="../php/excluir_orcamento.php">Excluir Tabela</a> │ 
-                            <a href="../php/historico.php?num=1">Salvar</a>
+                        <th colspan="5"><b>Total: R$ '.number_format($preco_final,2).'</b></th>
+                        <td>
+                            <button type="button" class="btn btn-color btn-outline-dark" aria-expanded="false">
+                                <a onclick="confirmacao_ot()">Remover Tabela</a>
+                            </button>
+                            <button type="button" class="btn btn-color btn-outline-dark" aria-expanded="false">
+                                <a onclick="salvar_ot()">Salvar Tabela</a>
+                            </button>
                         </td>
                     </tr>
-                </tbody>
+                </tfoot>
             </table>';
         
     }

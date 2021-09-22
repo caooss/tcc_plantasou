@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/estilo.css">
     <link rel="shortcut icon" href="../imgs/logo_new.ico">
+    <script src="../js/teste.js"></script>
 
 </head>
 <body>
@@ -227,7 +228,7 @@
                                             <button type="button" class="btn btn-color btn-outline-dark" data-bs-toggle="modal" data-bs-target="#produto_editar'.$produto.'">Editar</button>
                                         </td>
                                         <td>
-                                            <button type="button" class="btn btn-color btn-outline-dark" aria-expanded="false"><a href="../php/remover_produto.php?id='.$resultado['cod_produto'].'">Remover</a></button>
+                                            <button type="button" class="btn btn-color btn-outline-dark" aria-expanded="false"><a onclick="confirmacao_p('.$resultado['cod_produto'].')">Remover</a></button>
                                         </td>
                                     </tr>
                                     </table>
@@ -260,7 +261,6 @@
     <script src="../js/jquery-3.5.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/teste.js"></script>
 
 </body>
 </html>

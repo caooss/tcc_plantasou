@@ -16,3 +16,5 @@
     }*/
     <a class="nav-link nav-link-color active dropdown-toggle" aria-current="page" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"><img src="../imgs/tomates.png" width="20" height="20"/> Produtos</a>
 ?>
+
+<button type="button" class="btn btn-color btn-outline-dark" aria-expanded="false"><a href="../php/remover_produto.php?id='.$resultado['cod_produto'].'" onclick="confirmacao()">Remover</a></button>

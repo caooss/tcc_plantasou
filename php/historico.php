@@ -200,7 +200,7 @@
                             <th colspan="4">Total: R$ '.number_format($preco_final,2).'</th>
                             <td>
                                 <button class="btn btn-outline-dark collapsed" type="button" aria-expanded="false">
-                                    <a class="btn-outline-dark collapsed" href="remover_historico.php?id='.$idTabela.'">Remover Tabela</a>
+                                    <a onclick="confirmacao_h('.$idTabela.')">Remover Tabela</a>
                                 </button>
                             </td>
                         </tr>

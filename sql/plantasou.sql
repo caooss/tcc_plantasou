@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Sep 17, 2021 at 08:52 PM
+-- Generation Time: Sep 22, 2021 at 08:44 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -105,14 +105,14 @@ CREATE TABLE IF NOT EXISTS `produto` (
   `imagem` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`cod_produto`),
   KEY `cod_cultivo` (`cod_cultivo`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `produto`
 --
 
 INSERT INTO `produto` (`cod_produto`, `nome`, `vitaminas`, `beneficios`, `preco`, `cod_cultivo`, `imagem`) VALUES
-(11, 'Abóbora Japonesa', 'Abóbora é um vegetal com poucas calorias e rica em potássio, vitamina C e betacaroteno;', 'Ela benéfica para a visão, coração, pele e imunidade.', 1.89, 4, '69f008040fdd6057f2e988a9b3b0956f.jpg'),
+(11, 'Abóbora Japonesa', 'Abóbora é um vegetal com poucas calorias e rica em potássio, vitamina C e betacaroteno;', 'Ela benéfica para a visão, coração, pele e imunidade.', 1.89, 4, '69f008040fdd6057f2e988a9b3b0956f.jpeg'),
 (12, 'Tomate', 'Com uma alta quantidade de vitaminas A, C, K e cálcio;', 'É rico em licopeno, um antioxidante que ajuda a proteger a pele dos danos causados pela luz do sol. O consumo frequente do alimento ajuda na textura e na saúde da sua pele, já que ajuda a minimizar poros dilatados, curar a acne e erupções cutâneas ou tratar pequenas queimaduras. Devido à presença de vitamina K e cálcio, o tomate ajuda a fortalecer e reparar os ossos.', 5, 5, 'c8f81d13e4081dfa2eb366d7a41c35ce.jpeg'),
 (13, 'Alho-poró', 'É rica em fibras, carotenóides, vitamina E, A, C e minerais como selênio, cálcio, zinco, cobre e manganês, além de ter poucas calorias;', 'Ela ajuda na visão, na digestão e no fortalecimento dos ossos.', 2.9, 6, '102b3273f1c6c867309fe6bb2b198c65.jpeg'),
 (14, 'Mexerica', 'É pobre em gorduras e fonte de vitaminas C, A e B6. Além disso, contém tiamina, folato, potássio, cálcio, ferro e magnésio.', 'Previne envelhecimento precoce, reduz inflamações, alivia a prisão de ventre, aumenta a imunidade, afasta doenças hepáticas e previne anemia.', 3, 7, '2ace5144c5d6b6898603e4e8a6b69069.jpeg');

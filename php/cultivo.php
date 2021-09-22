@@ -16,6 +16,7 @@
     <script src="../js/jquery-3.5.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/teste.js"></script>
     <link rel="shortcut icon" href="../imgs/logo_new.ico">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
@@ -240,7 +241,7 @@
                                         </td>
                                         <td>
                                             <button type="button" class="btn btn-color btn-outline-dark direcao_b2" aria-expanded="false">
-                                                <a class="btn-color" href="remover_cultivo.php?id='.$cod_cultivo.'">Remover</a>
+                                                <a onclick="confirmacao_c('.$cod_cultivo.')">Remover</a>
                                             </button>
                                         </td>
                                     <tr>
@@ -267,7 +268,6 @@
         include "./editar_cultivo.php";
         /*include "./cadastro_cultivo.php";*/
     ?>
-    <script src="../js/teste.js"></script>
     
 </body>
 </html>
