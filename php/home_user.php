@@ -187,7 +187,7 @@
         </div>
 
         <?php
-          include "../inc/login.inc";
+          include "../inc/validaCadastro.php";
           include "../inc/cadastro.php";
         ?>
 

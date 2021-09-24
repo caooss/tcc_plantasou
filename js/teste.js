@@ -1,3 +1,8 @@
+function validar(){
+  alert("Eu sou um alert!");
+  return false;
+}
+
 /*alert("Eu sou um alert!");*/
 
 $("a").click(function() {
@@ -76,6 +81,16 @@ function confirmacao_h(id){
   if(resultado){
     alert("Tabela excluido com sucesso!");
     location.href="../php/remover_historico.php?id="+id;
+  }else{
+    /*location.href="../php/produtos.php";*/
+  }
+}
+
+function confirmacao_ph(cod_p, cod_t){
+  var resultado=confirm("Você deseja mesmo remover este item?");
+  if(resultado){
+    alert("Item excluido com sucesso!");
+    location.href="../php/remover_produto_historico.php?id_p="+cod_p+"&&id_t="+cod_t;
   }else{
     /*location.href="../php/produtos.php";*/
   }

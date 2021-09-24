@@ -1,26 +1,37 @@
 <?php
     include('../inc/conexao.php');
+    include('../inc/conexao_pdo.php');
 
     $hidden=$_POST['hidden'];
-    
+
     if($hidden==1){
         $nome=$_POST['nome'];
         $email=$_POST['email'];
         $senha=$_POST['senha'];
 
-        $sql="INSERT INTO usuario (nome, senha, email) VALUE ('$nome', '$senha', '$email')";
+        $stmt=$conPDO->query("SELECT email FROM usuario WHERE email='$email'");
+        $stmt->execute();
 
-        $insert=mysqli_query($con, $sql);
+        if($stmt){
+            header('Location: ./erro_email.php');
+        }else{
+            echo "email cadastrado";
+        }
 
-        if($insert){
+        /*$sql="INSERT INTO usuario (nome, senha, email) VALUE ('$nome', '$senha', '$email')";
+
+        $insert=mysqli_query($con, $sql);*/
+
+        /*if($sql){
             header("Location: ../php/index.php");
         }else{
-            echo "";
-        }
+            echo "Deu ruim";
+        }*/
 
     }else{
         $email=$_POST['email'];
         $senha=$_POST['senha'];
+        echo $email, $senha;
 
         $sql="SELECT * FROM usuario";
 
@@ -31,11 +42,13 @@
                 if((((($email==$usuario['email']) && $email=="admin@admin.com")) && (($senha==$usuario['senha']) && $senha=="admin"))){
                     setcookie('ADM', 1, time()+1800);
                     header("Location: ../php/home_adm.php");
-                }else if($email==$usuario['email'] && $senha==$usuario['senha']){
+                }else if(($email==$usuario['email']) && ($senha==$usuario['senha'])){
                     setcookie('USER', $usuario['cod_usuario'], time()+1800);
+                    echo "deu ruim";
                     header("Location: ../php/home_user.php");
                 }
             }
+            echo "Bom dia, parece que algo deu errado em...";
         }
     }
 

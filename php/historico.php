@@ -174,6 +174,7 @@
                             <td><b>Preço unitário</b></td>
                             <td><b>Preço total</b></td>
                             <td><b>Data</b></td>
+                            <td><b>Editar</b></td>
                         </tr>
                     </thead>
                 ';
@@ -186,6 +187,11 @@
                                 <td>'.number_format($historico_user["preco"],2).'</td>
                                 <td>'.number_format($historico_user["total"],2).'</td>
                                 <td>'.$historico_user["data_"].'</td>
+                                <td>
+                                    <button type="button" class="btn btn-color btn-outline-dark" aria-expanded="false">
+                                        <a onclick="confirmacao_ph('.$historico_user['cod_produto'].', '.$historico_user['cod_tabela'].')">Remover</a>
+                                    </button>
+                                </td>
                             </tr>
                         </tbody>
                         
@@ -197,7 +203,7 @@
             echo'
                     <tfoot>
                         <tr class="centro font">
-                            <th colspan="4">Total: R$ '.number_format($preco_final,2).'</th>
+                            <th colspan="5">Total: R$ '.number_format($preco_final,2).'</th>
                             <td>
                                 <button class="btn btn-outline-dark collapsed" type="button" aria-expanded="false">
                                     <a onclick="confirmacao_h('.$idTabela.')">Remover Tabela</a>

@@ -38,7 +38,7 @@
 
                 <div class="modal-footer float-right">
                   <button type="button" class="btn btn-outline-success fechar" data-bs-dismiss="modal">Fechar</button>
-                  <button type="submit" class="btn btn-outline-success borda-modal">Cadastrar</button>
+                  <button type="submit" class="btn btn-outline-success borda-modal" onclick=return validar()>Cadastrar</button>
                 </div>
                 <input type="hidden" name="hidden" value="1"/>
               </form>
