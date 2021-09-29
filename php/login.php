@@ -73,7 +73,7 @@
                                     header("Location: ../php/home_user.php");
                                 }
                             }
-                            echo "Bom dia, parece que algo deu errado em...";
+                            header("Location: ../inc/erro_login.php");
                         }
                     }
                     

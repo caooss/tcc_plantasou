@@ -9,13 +9,22 @@
         $email=$_POST['email'];
         $senha=$_POST['senha'];
 
+        /*$stmt="SELECT email FROM usuario WHERE email='$email'";
+        $query=mysqli_query($con, $stmt);*/
         $stmt=$conPDO->query("SELECT email FROM usuario WHERE email='$email'");
-        $stmt->execute();
+        $qtd=$stmt->rowCount();
 
-        if($stmt){
-            header('Location: ./erro_email.php');
+        if($qtd>0){
+            header('Location: ./erro_cadastro.php');
         }else{
-            echo "email cadastrado";
+            $sql=$conPDO->query("INSERT INTO usuario (nome, senha, email) VALUE ('$nome', '$senha', '$email')");
+            $sql->execute;
+
+            if($sql){
+                header("Location: ../php/index.php");
+            }else{
+                echo "Deu ruim";
+            }
         }
 
         /*$sql="INSERT INTO usuario (nome, senha, email) VALUE ('$nome', '$senha', '$email')";
