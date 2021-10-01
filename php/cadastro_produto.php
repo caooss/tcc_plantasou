@@ -196,12 +196,6 @@
                   <script src="../js/popper.min.js"></script>
                   <script src="../js/bootstrap.min.js"></script>
                   <script src="../js/teste.js"></script>';
-
-            /*</div>
-        </div>
-        </div>
-    </div>
-        ';*/
                 
                 }else{
                     include('../inc/conexao.php');

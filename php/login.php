@@ -56,8 +56,10 @@
                     
                     }else{
                         include('../inc/conexao.php');
+                        include('../inc/conexao_pdo.php');
                         $email=$_POST['email'];
                         $senha=$_POST['senha'];
+                        $q=0;
 
                         $sql="SELECT * FROM usuario";
 
@@ -68,12 +70,22 @@
                                 if((((($email==$usuario['email']) && $email=="admin@admin.com")) && (($senha==$usuario['senha']) && $senha=="admin"))){
                                     setcookie('ADM', 1, time()+1800);
                                     header("Location: ../php/home_adm.php");
+                                    break;
                                 }else if(($email==$usuario['email']) && ($senha==$usuario['senha'])){
                                     setcookie('USER', $usuario['cod_usuario'], time()+1800);
                                     header("Location: ../php/home_user.php");
+                                    break;
+                                }else{
+                                    $q++;
                                 }
                             }
-                            header("Location: ../inc/erro_login.php");
+                            
+                        }
+                        $stmt=$conPDO->query("SELECT cod_usuario FROM usuario");
+                        $qtd=$stmt->rowCount();
+                        
+                        if($q==$qtd){
+                          header("Location: ../inc/erro_login.php");
                         }
                     }
                     

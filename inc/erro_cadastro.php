@@ -11,6 +11,22 @@
         <script src="../js/bootstrap.min.js"></script>
         <link rel="shortcut icon" href="../imgs/logo_new.ico">
         <title>ERROR</title>
+        <style>
+            body::after{
+                content: "";
+                background:url("../imgs/fundos/samambaia.png");
+                opacity: 0.5;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                position: absolute;
+                z-index: -1;
+                background-repeat: no-repeat;
+                background-size:100%;
+            }
+        </style>
+
     </head>
     <body>
         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -25,12 +41,14 @@
             </symbol>
     </svg>
 
-    <div class="alert alert-danger d-flex align-items-center alert_perigo" role="alert">
-        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-            <div>
-                E-mail duplicado <a href="../php/index.php">Voltar</a>
-            </div>
-    </div>
-
+        <div class="div_erro text-center letra">
+            <div class="alert alert-success posicao_alert" role="alert">
+                <h4 class="alert-heading">Ops!!</h4>
+                <hr>
+                <p>
+                    E-mail duplicado <a href="../php/index.php">Voltar</a>
+                </p>
+            </div>        
+        </div>
     </body>
 </html>

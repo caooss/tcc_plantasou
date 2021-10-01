@@ -235,9 +235,7 @@
                                     <table>
                                         <tr>
                                         <td>
-                                            <button type="button" class="btn btn-color btn-outline-dark direcao_b" data-bs-toggle="modal" data-bs-target="#cultivo_editar'.$cod_cultivo.'">
-                                                Editar
-                                            </button>
+                                            <button type="button" class="btn btn-color btn-outline-dark direcao_b" aria-expanded="false"><a href="editar_cultivo.php?cod='.$cod_cultivo.'" class="altera">Editar</a></button>
                                         </td>
                                         <td>
                                             <button type="button" class="btn btn-color btn-outline-dark direcao_b2" aria-expanded="false">
@@ -265,7 +263,7 @@
     ?>
     <?php
         include "./login.php";
-        include "./editar_cultivo.php";
+        /*include "./editar_cultivo.php";*/
         /*include "./cadastro_cultivo.php";*/
     ?>
     

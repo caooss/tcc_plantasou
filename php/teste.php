@@ -18,3 +18,5 @@
 ?>
 
 <button type="button" class="btn btn-color btn-outline-dark" aria-expanded="false"><a href="../php/remover_produto.php?id='.$resultado['cod_produto'].'" onclick="confirmacao()">Remover</a></button>
+
+<button type="button" class="btn btn-color btn-outline-dark" data-bs-toggle="modal" data-bs-target="#produto_editar'.$produto.'">Editar</button> /*produtos*/

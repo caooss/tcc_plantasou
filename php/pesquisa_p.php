@@ -55,7 +55,7 @@
                             ';
                           }else{
                             echo'
-                                <a class="nav-link nav-link-color active" aria-current="page" href="#"><img src="../imgs/tomates.png" width="20" height="20"/> Produtos</a>
+                                <a class="nav-link nav-link-color active" aria-current="page" href="../php/produtos.php"><img src="../imgs/tomates.png" width="20" height="20"/> Produtos</a>
                             ';
                           }
                         ?>
@@ -103,7 +103,7 @@
                                 ';
                             }
                         ?>
-                        <form action="../php/pesquisa_p.php" class="d-flex" method="POST">
+                        <form action="#" class="d-flex" method="POST">
                             <input class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Search" name="pesquisa"/>
                             <button class="btn btn-outline-success nav-link-color borda" type="submit">Buscar</button>
                         </form>
@@ -142,104 +142,82 @@
         ?>
 
     <br>
-    <h1 class="centro paginas">Produtos</h1>
-
-
-    <form action="orcamento.php" method="post">
-        <?php
-            include("../inc/conexao.php");
-
-            $sql="SELECT * FROM produto";
-            
-
-            $query=mysqli_query($con, $sql);
-
-            echo'
-            <center>
-                <table>
-            ';
-
-            if(mysqli_num_rows($query)>0){
-                while(($resultado=mysqli_fetch_assoc($query))!=NULL){
-                    if($resultado["cod_produto"] % 2 == 1){
-                        echo'<tr>
-                            <td>';    
-                    }
-                    echo 
-                    '
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <div class="card mb-5 tamanho2 text-center">
-                            <div class="font">
-                                <img src="../imgs/plantas/'.$resultado["imagem"].'" width="448px" height="250px"/>
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        <b class="letra">
-                                            '.$resultado["nome"].'<br><br>
-                                        </b>
-                                    </h5>
-                                    <p class="card-text">
-                                        <ul>
-                                            <li>'.$resultado["vitaminas"].'</li>
-                                            <li>'.$resultado["beneficios"].'</li>
-                                        </ul>
-                                    </p>
-                                    <b class="font-money">R$ '.number_format($resultado["preco"],2).'/1g
-                                </div>
-                            </div>
-                        </div>';
-                        if(isset($_COOKIE["USER"])){
-                            echo '
-                            <div class="posicao"> 
-                                <table>
-                                    <td>
-                                        <form action="orcamento.php" method="POST">
-                                            <button type="submit" name="selecionar" class="font btn button-margin btn-outline-dark"><a href="orcamento.php?add=tabela&id='.$resultado['cod_produto'].'" class="altera">Selecionar</a></button>
-                                        </form>
-                                    </td>
-                                </table>
-                            <div>  
-                                ';
-                            }
-                            elseif(isset($_COOKIE["ADM"])){
-                                $produto=$resultado["cod_produto"];
-                                echo'
-                                <center>
-                                    <table class="posicao_bot">
-                                    <tr>
-                                        <td>
-                                            <button type="button" class="btn btn-color btn-outline-dark" aria-expanded="false"><a href="editar_produto.php?cod='.$produto.'" class="altera">Editar</a></button>
-                                        </td>
-                                        <td>
-                                            <button type="button" class="btn btn-color btn-outline-dark" aria-expanded="false"><a onclick="confirmacao_p('.$resultado['cod_produto'].')">Remover</a></button>
-                                        </td>
-                                    </tr>
-                                    </table>
-                                </center>
-                                    ';
-                            }
-                }
-
-                echo'
-                    </td>
-                </tr>
-                </table>
-                </center>';
-            }else{
-                echo mysqli_error($con);
-            }
-            include("../inc/disconnect.php");
-        ?>
-    </form>
 
     <?php
-        include "./login.php";
+        $pesquisa=$_POST["pesquisa"];
+        echo'<h1 class="centro paginas">Resultado encontrado a partir de: '.$pesquisa.'</h1>';
 
-        /*include "./editar_produto.php";*/
-        
-        /*include "./cadastro_produto.php";*/
-        
+        include "../inc/conexao_pdo.php";
+
+        $stmt=$conPDO->query("SELECT * FROM produto WHERE nome LIKE '%$pesquisa%' LIMIT 20");
+        $stmt->execute();
+
+        while($resultado=$stmt->fetch(PDO::FETCH_OBJ)){
+            if($resultado->cod_produto % 2 == 1){
+                echo'<tr>
+                    <td>';    
+            }
+            echo 
+            '
+            <td></td>
+            <td></td>
+            <td>
+                <div class="card mb-5 tamanho2 text-center">
+                    <div class="font">
+                        <img src="../imgs/plantas/'.$resultado->imagem.'" width="448px" height="250px"/>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <b class="letra">
+                                    '.$resultado->nome.'<br><br>
+                                </b>
+                            </h5>
+                            <p class="card-text">
+                                <ul>
+                                    <li>'.$resultado->vitaminas.'</li>
+                                    <li>'.$resultado->beneficios.'</li>
+                                </ul>
+                            </p>
+                            <b class="font-money">R$ '.number_format($resultado->preco,2).'/1g
+                        </div>
+                    </div>
+                </div>';
+                if(isset($_COOKIE["USER"])){
+                    echo '
+                    <div class="posicao"> 
+                        <table>
+                            <td>
+                                <form action="orcamento.php" method="POST">
+                                    <button type="submit" name="selecionar" class="font btn button-margin btn-outline-dark"><a href="orcamento.php?add=tabela&id='.$resultado['cod_produto'].'" class="altera">Selecionar</a></button>
+                                </form>
+                            </td>
+                        </table>
+                    <div>  
+                        ';
+                    }
+                    elseif(isset($_COOKIE["ADM"])){
+                        $produto=$resultado->cod_produto;
+                        echo'
+                        <center>
+                            <table class="posicao_bot">
+                            <tr>
+                                <td>
+                                    <button type="button" class="btn btn-color btn-outline-dark" aria-expanded="false"><a href="editar_produto.php?cod='.$produto.'" class="altera">Editar</a></button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-color btn-outline-dark" aria-expanded="false"><a onclick="confirmacao_p('.$resultado->cod_produto.')">Remover</a></button>
+                                </td>
+                            </tr>
+                            </table>
+                        </center>
+                            ';
+                    }
+        }
+
+        echo'
+            </td>
+        </tr>
+        </table>
+        </center>';
     ?>
 
     <script src="../js/jquery-3.5.1.min.js"></script>
