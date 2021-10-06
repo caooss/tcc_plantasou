@@ -40,12 +40,15 @@
             </symbol>
     </svg>
 
-    <div class="div_erro text-center letra">
+    <div class="div_erro text-center letra posicao_card rounded">
         <div class="alert alert-success posicao_alert" role="alert">
-            <h4 class="alert-heading">Ops!!</h4>
+            <h4 class="alert-heading" style="font-size: 30px">Ops!!</h4>
             <hr>
             <p>
-                Esse e-mail ou senha é inexistente, por favor, faça o seu cadastro. <a href="../php/index.php">Voltar</a>
+                Esse e-mail ou senha é inexistente, por favor, faça o seu cadastro. 
+            </p>
+            <p>
+                <a href="../php/index.php">Voltar</a>
             </p>
         </div>        
     </div>

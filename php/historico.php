@@ -189,7 +189,7 @@
                                 <td>'.$historico_user["data_"].'</td>
                                 <td>
                                     <button type="button" class="btn btn-color btn-outline-dark" aria-expanded="false">
-                                        <a onclick="confirmacao_ph('.$historico_user['cod_produto'].', '.$historico_user['cod_tabela'].')">Remover</a>
+                                        <a onclick="confirmacao_ph('.$historico_user['cod_produto'].', '.$historico_user['cod_tabela'].')">Excluir</a>
                                     </button>
                                 </td>
                             </tr>

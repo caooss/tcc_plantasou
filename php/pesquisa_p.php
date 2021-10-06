@@ -5,16 +5,15 @@
     }
 ?>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" dir="ltr">
+    <meta charset="UTF-8">
     <title>PlantaSou</title>
-
-    <link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../css/estilo.css">
-    <link rel="shortcut icon" href="../imgs/logo_new.ico">
-    <script src="../js/teste.js"></script>
-
+        <link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../css/estilo.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link rel="shortcut icon" href="../imgs/logo_new.ico">
+        <script src="../js/teste.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-light bg-light topnav">
@@ -152,6 +151,11 @@
         $stmt=$conPDO->query("SELECT * FROM produto WHERE nome LIKE '%$pesquisa%' LIMIT 20");
         $stmt->execute();
 
+        echo'
+            <center>
+                <table>
+            ';
+
         while($resultado=$stmt->fetch(PDO::FETCH_OBJ)){
             if($resultado->cod_produto % 2 == 1){
                 echo'<tr>
@@ -187,7 +191,7 @@
                         <table>
                             <td>
                                 <form action="orcamento.php" method="POST">
-                                    <button type="submit" name="selecionar" class="font btn button-margin btn-outline-dark"><a href="orcamento.php?add=tabela&id='.$resultado['cod_produto'].'" class="altera">Selecionar</a></button>
+                                    <button type="submit" name="selecionar" class="font btn button-margin btn-outline-dark"><a href="orcamento.php?add=tabela&id='.$resultado->cod_produto.'" class="altera">Selecionar</a></button>
                                 </form>
                             </td>
                         </table>

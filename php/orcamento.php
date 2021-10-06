@@ -184,8 +184,8 @@
                             <input type= "hidden" value="'.number_format($seleciona['preco'],2).'" id="preco"/>
                             <td>R$ '.number_format($_SESSION['preco_total'][$idProduto],2).'</td>
                             <td>
-                                <button class="btn btn-color" type="button" aria-expanded="false">
-                                    <a class="btn-color" href="remover_orcamento.php?remover=tabela&id='.$idProduto.'">Remover</a>
+                                <button class="btn btn-outline-dark collapsed" type="button" id="dropdownMenuButton1" aria-expanded="false">
+                                    <a onclick="confirmacao_o('.$idProduto.')">Excluir</a>
                                 </button>
                             </td>
                         </tr>    

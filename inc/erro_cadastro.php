@@ -41,9 +41,9 @@
             </symbol>
     </svg>
 
-        <div class="div_erro text-center letra">
+        <div class="div_erro text-center letra posicao_card rounded" style="max-width: 450px">
             <div class="alert alert-success posicao_alert" role="alert">
-                <h4 class="alert-heading">Ops!!</h4>
+                <h4 class="alert-heading" style="font-size: 30px">Ops!!</h4>
                 <hr>
                 <p>
                     E-mail duplicado <a href="../php/index.php">Voltar</a>

@@ -429,3 +429,22 @@ textarea{
 .dropdown a{
     color: #4c7032;
 }
+
+/*card das páginas de erro de login e cadastro*/
+
+.card_cadas{
+    color:#000000 !important;
+    text-decoration-line:underline !important;
+}
+
+.posicao_card{
+    text-align: center !important;
+    margin-left: 490px;
+    width: 400px;
+    background-color: #D1E7DD !important;
+    font-size: 20px;
+}
+
+.fundo_card{
+    background-color: #D1E7DD !important;
+}
