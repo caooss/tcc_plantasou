@@ -155,66 +155,72 @@
             <center>
                 <table>
             ';
-
-        while($resultado=$stmt->fetch(PDO::FETCH_OBJ)){
-            if($resultado->cod_produto % 2 == 1){
-                echo'<tr>
-                    <td>';    
-            }
-            echo 
-            '
-            <td></td>
-            <td></td>
-            <td>
-                <div class="card mb-5 tamanho2 text-center">
-                    <div class="font">
-                        <img src="../imgs/plantas/'.$resultado->imagem.'" width="448px" height="250px"/>
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <b class="letra">
-                                    '.$resultado->nome.'<br><br>
-                                </b>
-                            </h5>
-                            <p class="card-text">
-                                <ul>
-                                    <li>'.$resultado->vitaminas.'</li>
-                                    <li>'.$resultado->beneficios.'</li>
-                                </ul>
-                            </p>
-                            <b class="font-money">R$ '.number_format($resultado->preco,2).'/1g
+        if($stmt->rowCount()!=NULL){
+            while($resultado=$stmt->fetch(PDO::FETCH_OBJ)){
+                if($resultado->cod_produto % 2 == 1){
+                    echo'<tr>
+                        <td>';    
+                }
+                echo 
+                '
+                <td></td>
+                <td></td>
+                <td>
+                    <div class="card mb-5 tamanho2 text-center">
+                        <div class="font">
+                            <img src="../imgs/plantas/'.$resultado->imagem.'" width="448px" height="250px"/>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <b class="letra">
+                                        '.$resultado->nome.'<br><br>
+                                    </b>
+                                </h5>
+                                <p class="card-text">
+                                    <ul>
+                                        <li>'.$resultado->vitaminas.'</li>
+                                        <li>'.$resultado->beneficios.'</li>
+                                    </ul>
+                                </p>
+                                <b class="font-money">R$ '.number_format($resultado->preco,2).'/1g
+                            </div>
                         </div>
-                    </div>
-                </div>';
-                if(isset($_COOKIE["USER"])){
-                    echo '
-                    <div class="posicao"> 
-                        <table>
-                            <td>
-                                <form action="orcamento.php" method="POST">
-                                    <button type="submit" name="selecionar" class="font btn button-margin btn-outline-dark"><a href="orcamento.php?add=tabela&id='.$resultado->cod_produto.'" class="altera">Selecionar</a></button>
-                                </form>
-                            </td>
-                        </table>
-                    <div>  
-                        ';
-                    }
-                    elseif(isset($_COOKIE["ADM"])){
-                        $produto=$resultado->cod_produto;
-                        echo'
-                        <center>
-                            <table class="posicao_bot">
-                            <tr>
+                    </div>';
+                    if(isset($_COOKIE["USER"])){
+                        echo '
+                        <div class="posicao"> 
+                            <table>
                                 <td>
-                                    <button type="button" class="btn btn-color btn-outline-dark" aria-expanded="false"><a href="editar_produto.php?cod='.$produto.'" class="altera">Editar</a></button>
+                                    <form action="orcamento.php" method="POST">
+                                        <button type="submit" name="selecionar" class="font btn button-margin btn-outline-dark"><a href="orcamento.php?add=tabela&id='.$resultado->cod_produto.'" class="altera">Selecionar</a></button>
+                                    </form>
                                 </td>
-                                <td>
-                                    <button type="button" class="btn btn-color btn-outline-dark" aria-expanded="false"><a onclick="confirmacao_p('.$resultado->cod_produto.')">Remover</a></button>
-                                </td>
-                            </tr>
                             </table>
-                        </center>
+                        <div>  
                             ';
-                    }
+                        }
+                        elseif(isset($_COOKIE["ADM"])){
+                            $produto=$resultado->cod_produto;
+                            echo'
+                            <center>
+                                <table class="posicao_bot">
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-color btn-outline-dark" aria-expanded="false"><a href="editar_produto.php?cod='.$produto.'" class="altera">Editar</a></button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-color btn-outline-dark" aria-expanded="false"><a onclick="confirmacao_p('.$resultado->cod_produto.')">Remover</a></button>
+                                    </td>
+                                </tr>
+                                </table>
+                            </center>
+                                ';
+                        }
+            }
+        }else{
+            echo '
+                <br><br><br>
+                <h1 class="centro paginas">Nenhum produto foi encontrado</h1>
+            ';
         }
 
         echo'
@@ -222,6 +228,10 @@
         </tr>
         </table>
         </center>';
+    ?>
+
+    <?php
+        include "./login.php";
     ?>
 
     <script src="../js/jquery-3.5.1.min.js"></script>

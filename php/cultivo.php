@@ -110,8 +110,8 @@
                 ';
             }
         ?>
-        <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Search"/>
+        <form action="../php/pesquisa_c.php" class="d-flex" method="POST">
+            <input class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Search" name="pesquisa"/>
             <button class="btn btn-outline-success borda" type="submit">Buscar</button>
         </form>
         </div>
@@ -147,6 +147,16 @@
     <br>
     <h1 class="centro paginas">Cultivo</h1>
 
+    <center>
+    <?php
+        for ( $i = 'A'; $i != 'Z'; $i++ ){ 
+            echo '<a class="nav-link-color" href="../php/ordem_c.php?ordem='.$i.'">'.$i.'</a>ㅤ│ㅤ';
+        }
+        echo '<a class="nav-link-color" href="../php/ordem_c.php?ordem=Z">Z</a>';
+    ?>
+    </center>
+    <br><br><br>
+
     <?php
         if(isset($_COOKIE["ADM"])){
             echo'
@@ -169,10 +179,8 @@
     <?php
         include("../inc/conexao.php");
 
-        $bda = "SELECT * FROM cultivo";
-        $sql = "SELECT * FROM cultivo"; 
+        $sql = "SELECT * FROM cultivo ORDER BY nome asc"; 
 
-        $quer=mysqli_query($con, $bda);
         $query=mysqli_query($con, $sql);
         
         echo'
@@ -180,8 +188,8 @@
             <div class="container">
             ';
 
-        if(mysqli_num_rows($quer)>0){
-            while(($resultado=mysqli_fetch_assoc($quer))!=NULL){
+        if(mysqli_num_rows($query)>0){
+            while(($resultado=mysqli_fetch_assoc($query))!=NULL){
                 echo 
                 '
                 <center>
