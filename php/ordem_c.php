@@ -153,7 +153,8 @@
         echo '
         <br>
         <center>';
-
+            
+        echo '<a class="nav-link-color" href="../php/cultivo.php">TODOS</a>ㅤ│ㅤ';
             for ( $i = 'A'; $i != 'Z'; $i++ ){ 
                 echo '<a class="nav-link-color" href="../php/ordem_c.php?ordem='.$i.'">'.$i.'</a>ㅤ│ㅤ';
             }
@@ -165,7 +166,7 @@
 
         include "../inc/conexao_pdo.php";
 
-        $stmt=$conPDO->query("SELECT * FROM cultivo WHERE nome LIKE '$ordem%' LIMIT 20");
+        $stmt=$conPDO->query("SELECT * FROM cultivo WHERE nome LIKE '$ordem%' ORDER BY nome asc");
         $stmt->execute();
 
         echo'

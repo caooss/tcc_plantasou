@@ -146,10 +146,12 @@
 
     <center>
     <?php
+        echo '<a class="nav-link-color" href="../php/produtos.php">TODOS</a>ㅤ│ㅤ';
         for ( $i = 'A'; $i != 'Z'; $i++ ){ 
             echo '<a class="nav-link-color" href="../php/ordem_p.php?ordem='.$i.'">'.$i.'</a>ㅤ│ㅤ';
         }
         echo '<a class="nav-link-color" href="../php/ordem_p.php?ordem=Z">Z</a>';
+        
     ?>
     </center>
     <br><br><br>
@@ -158,7 +160,7 @@
         <?php
             include("../inc/conexao.php");
 
-            $sql="SELECT * FROM produto";
+            $sql="SELECT * FROM produto ORDER BY nome asc";
             
 
             $query=mysqli_query($con, $sql);
@@ -167,10 +169,11 @@
             <center>
                 <table>
             ';
+            $i=1;
 
             if(mysqli_num_rows($query)>0){
                 while(($resultado=mysqli_fetch_assoc($query))!=NULL){
-                    if($resultado["cod_produto"] % 2 == 1){
+                    if($i % 2 == 1){
                         echo'<tr>
                             <td>';    
                     }
@@ -228,6 +231,7 @@
                                 </center>
                                     ';
                             }
+                    $i++;
                 }
 
                 echo'

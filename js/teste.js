@@ -95,3 +95,11 @@ function confirmacao_ph(cod_p, cod_t){
     /*location.href="../php/produtos.php";*/
   }
 }
+
+function inverteData(data){
+  if(count(explode("/",data)) > 1){
+      return implode("-",array_reverse(explode("/",data)));
+  }else if(count(explode("-",data)) > 1){
+      return implode("/",array_reverse(explode("-",data)));
+  }
+}

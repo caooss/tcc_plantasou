@@ -144,20 +144,29 @@
 
     <?php
         $pesquisa=$_POST["pesquisa"];
-        echo'<h1 class="centro paginas">Resultado encontrado a partir de: '.$pesquisa.'</h1>';
+        echo'<h1 class="centro paginas">Resultado encontrado a partir de: '.$pesquisa.'</h1><br>';
+
+        echo '
+        <center>
+            │ㅤ<a class="nav-link-color font" href="../php/produtos.php">VER TODOS</a>ㅤ│<br><br><br>
+        </center>
+        ';
 
         include "../inc/conexao_pdo.php";
 
-        $stmt=$conPDO->query("SELECT * FROM produto WHERE nome LIKE '%$pesquisa%' LIMIT 20");
+        $stmt=$conPDO->query("SELECT * FROM produto WHERE nome LIKE '%$pesquisa%' ORDER BY nome asc");
         $stmt->execute();
 
         echo'
             <center>
                 <table>
             ';
+        
+        $i=1;
+        
         if($stmt->rowCount()!=NULL){
             while($resultado=$stmt->fetch(PDO::FETCH_OBJ)){
-                if($resultado->cod_produto % 2 == 1){
+                if($i % 2 == 1){
                     echo'<tr>
                         <td>';    
                 }
@@ -181,7 +190,7 @@
                                         <li>'.$resultado->beneficios.'</li>
                                     </ul>
                                 </p>
-                                <b class="font-money">R$ '.number_format($resultado->preco,2).'/1g
+                                <b class="font-money">R$ '.number_format($resultado->preco,2).'/100g
                             </div>
                         </div>
                     </div>';
@@ -215,6 +224,7 @@
                             </center>
                                 ';
                         }
+                $i++;
             }
         }else{
             echo '

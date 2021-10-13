@@ -148,11 +148,17 @@
 
     <?php
         $pesquisa=$_POST["pesquisa"];
-        echo'<h1 class="centro paginas">Resultado encontrado a partir de: '.$pesquisa.'</h1>';
+        echo'<h1 class="centro paginas">Resultado encontrado a partir de: '.$pesquisa.'</h1><br>';
+
+        echo '
+        <center>
+            │ㅤ<a class="nav-link-color" href="../php/cultivo.php">VER TODOS</a>ㅤ│<br><br><br>
+        </center>
+        ';
 
         include "../inc/conexao_pdo.php";
 
-        $stmt=$conPDO->query("SELECT * FROM cultivo WHERE nome LIKE '%$pesquisa%' LIMIT 20");
+        $stmt=$conPDO->query("SELECT * FROM cultivo WHERE nome LIKE '%$pesquisa%' ORDER BY nome asc");
         $stmt->execute();
 
         echo'
