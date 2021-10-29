@@ -181,11 +181,11 @@
                         echo'
                         <div class="mb-3 mx-auto">
                             <label for="exampleFormControlInput1" class="form-label">Imagem</label>
-                            <input type="file" class="form-control" id="exampleFormControlInput1" required name="imagem">
+                            <input type="file" class="form-control" id="exampleFormControlInput1" required name="imagem" accept="image/png, image/jpg">
                         </div>
 
                         <div class="modal-footer float-right">
-                        <button type="button" class="btn btn-outline-success nav-link-color fechar" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-outline-success nav-link-color fechar" onClick="history.go(-1)">Fechar</button>
                         <button type="submit" class="btn btn-outline-success nav-link-color borda-modal">Adicionar</button>
                         </div>
                     </form>

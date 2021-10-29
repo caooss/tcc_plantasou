@@ -100,6 +100,11 @@
     <br>
     <h1 class="centro letra">Histórico</h1>
 
+    <form action="pesquisa_h.php" enctype="multipart/form-data" method="POST">
+        <input type="month" name="mes"/>
+        <input type="submit" value="enviar"/>
+    </form>
+
     <?php
         session_start();
         include("../inc/conexao.php");
@@ -199,7 +204,7 @@
                     ';
                     $preco_final+=$historico_user["total"];
                     $idTabela=$historico_user["cod_tabela"];
-            }
+                }
             echo'
                     <tfoot>
                         <tr class="centro font">

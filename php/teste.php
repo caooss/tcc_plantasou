@@ -130,19 +130,36 @@
     if(empty($_POST)){
         echo
         '
-            <form action="teste.php" method="POST">
-                <input type="date" name="mes"/>
+            <form action="teste.php" enctype="multipart/form-data" method="POST">
+                <input type="month" name="mes"/>
                 <input type="submit" value="enviar"/>
             </form>
         ';
     }else{
-        /*$mes=$_POST["mes"];*/
-        $data = "1992-10-01";
+        $mes=$_POST["mes"];
 
-        echo inverteData($data);
+        echo $mes;
+
+        $teste='789';
+
+        $mes_ = strrpos($mes, ' ') - 2;
+        $mes_resul = substr($mes, $mes_);
+
+        $year_resul = explode('-',trim($mes));
+
+
+        echo "<br>número do mês: $mes_resul";
+        echo "<br>número do ano: $year_resul[0]";
+
+        echo "<br>$mes_resul-$year_resul[0]";
 
     }
 ?>
-    
+
+<script src="../js/jquery-3.5.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/teste.js"></script>
+
 </body>
 </html>

@@ -5,16 +5,19 @@
     }
 ?>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" dir="ltr">
+    <meta charset="UTF-8">
     <title>PlantaSou</title>
-
     <link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/estilo.css">
-    <link rel="shortcut icon" href="../imgs/logo_new.ico">
+    <link rel="stylesheet" href="../css/teste.css">
+    <script src="../js/jquery-3.5.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <script src="../js/teste.js"></script>
-
+    <link rel="shortcut icon" href="../imgs/logo_new.ico">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-light bg-light topnav">
@@ -44,7 +47,7 @@
                           if(isset($_COOKIE["ADM"])){
                             echo'
                             <div class="nav-link dropdown show">
-                                <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
                                     <img src="../imgs/tomates.png" width="20" height="20"/> Produtos
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -55,7 +58,7 @@
                             ';
                           }else{
                             echo'
-                                <a class="nav-link nav-link-color active" aria-current="page" href="#"><img src="../imgs/tomates.png" width="20" height="20"/> Produtos</a>
+                                <a class="nav-link nav-link-color" aria-current="page" href="../php/produtos.php">Produtos</a>
                             ';
                           }
                         ?>
@@ -70,7 +73,7 @@
                             if(isset($_COOKIE["ADM"])){
                             echo'
                                 <div class="nav-link dropdown show">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
+                                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
                                     <img src="../imgs/crescer-planta.png" width="20" height="20"/> Cultivos
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -81,14 +84,14 @@
                             ';
                             }else{
                             echo'
-                                <a class="nav-link nav-link-color" aria-current="page" href="../php/cultivo.php">Cultivos</a>
+                                <a class="nav-link nav-link-color" aria-current="page" href="../php/cultivo.php"><img src="../imgs/crescer-planta.png" width="20" height="20"/>Cultivos</a>
                             ';
                             }
                         ?>
                         <?php
                             if(isset($_COOKIE["USER"])){
                                 echo'
-                                    <a class="nav-link nav-link-color" href="../php/historico.php?num=0">Histórico</a>
+                                    <a class="nav-link nav-link-color active" href="../php/historico.php?num=0"> <img src="../imgs/livro.png" width="20" height="20"/>Histórico</a>
                                     <a class="nav-link nav-link-color" href="./logout_user.php"><img src="../imgs/out.png" width="15" height="15"/> Sair</a>
                                 ';
                             }else if(isset($_COOKIE["ADM"])){
@@ -103,7 +106,7 @@
                                 ';
                             }
                         ?>
-                        <form action="../php/pesquisa_p.php" class="d-flex" method="POST">
+                        <form action="#" class="d-flex" method="POST">
                             <input class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Search" name="pesquisa"/>
                             <button class="btn btn-outline-success nav-link-color borda" type="submit">Buscar</button>
                         </form>
@@ -142,122 +145,122 @@
         ?>
 
     <br>
-    <h1 class="centro paginas">Produtos</h1>
 
-    <center>
     <?php
-        echo '<a class="nav-link-color" href="../php/produtos.php">TODOS</a> │ ';
-        for ( $i = 'A'; $i != 'Z'; $i++ ){ 
-            echo '<a class="nav-link-color" href="../php/ordem_p.php?ordem='.$i.'">'.$i.'</a> │ ';
+        $mes=$_POST["mes"];
+
+        $mes_ = strrpos($mes, ' ') - 2;
+        $mes_resul = substr($mes, $mes_);
+
+        $year_resul = explode('-',trim($mes));
+
+        $data_= "$mes_resul-$year_resul[0]";
+
+        echo'<h1 class="centro paginas">Resultado encontrado a partir de: '.$data_.'</h1><br>';
+
+        echo '
+        <center>
+            │ㅤ<a class="nav-link-color" href="../php/historico?num=0.php">VER TODOS</a>ㅤ│<br><br><br>
+        </center>
+        ';
+
+        include "../inc/conexao_pdo.php";
+        $stmt=$conPDO->query("SELECT cod_tabela FROM historico GROUP BY cod_tabela");
+        $number=$stmt->rowCount();
+
+        $user=$conPDO->query("SELECT cod_usuario FROM historico WHERE cod_usuario=$usuario");
+        $n=$user->rowCount();
+
+        if($n==0){
+            echo'
+                <div class="p-5 text-center">
+                    <div class="alert fundoo font">
+                        <div class="text-black">
+                            <p>Nenhum Orçamento foi salvo!</p>
+                            </br>
+                            <p><a class="fundoo2" href="../php/orcamento.php">Você poderá salvar um orçamento na página Orçamento</a></p>
+                        </div>
+                    </div>
+                </div>';
         }
-        echo '<a class="nav-link-color" href="../php/ordem_p.php?ordem=Z">Z</a>';
-        
-    ?>
-    </center>
-    <br><br><br>
 
-    <form action="orcamento.php" method="post">
-        <?php
-            include("../inc/conexao.php");
 
-            $sql="SELECT * FROM produto ORDER BY nome asc";
-            
+        for ($i=1; $i <= $number; $i++) { 
 
-            $query=mysqli_query($con, $sql);
+            $stmt=$conPDO->query("SELECT * FROM historico h INNER JOIN produto p ON h.cod_produto=p.cod_produto WHERE cod_usuario=$usuario AND cod_tabela=$i AND data_ LIKE '%-$data_'");
+            $stmt->execute();
 
             echo'
-            <center>
-                <table>
-            ';
-            $i=1;
-
-            if(mysqli_num_rows($query)>0){
-                while(($resultado=mysqli_fetch_assoc($query))!=NULL){
-                    if($i % 2 == 1){
-                        echo'<tr>
-                            <td>';    
-                    }
+                <center>
+                <div class="container">
+                ';
+                
+                $preco_final=0;
+            
+            if($stmt->rowCount()!=NULL){
+                echo '
+                <table class=" fonte_ table-sm tabela w-75 p-3 table-bordered border-dark" cellspacing="0" rules="none">
+                <thead>
+                    <tr class="centro">
+                        <td><b>Quantidade</b></td>
+                        <td><b>Nome do produto</b></td>
+                        <td><b>Preço unitário</b></td>
+                        <td><b>Preço total</b></td>
+                        <td><b>Data</b></td>
+                        <td><b>Editar</b></td>
+                    </tr>
+                </thead>
+                ';
+                while($resultado=$stmt->fetch(PDO::FETCH_OBJ)){
                     echo 
-                    '
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <div class="card mb-5 tamanho2 text-center">
-                            <div class="font">
-                                <img src="../imgs/plantas/'.$resultado["imagem"].'" width="448px" height="250px"/>
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        <b class="letra">
-                                            '.$resultado["nome"].'<br><br>
-                                        </b>
-                                    </h5>
-                                    <p class="card-text">
-                                        <ul>
-                                            <li>'.$resultado["vitaminas"].'</li>
-                                            <li>'.$resultado["beneficios"].'</li>
-                                        </ul>
-                                    </p>
-                                    <b class="font-money">R$ '.number_format($resultado["preco"],2).'/100g
-                                </div>
-                            </div>
-                        </div>';
-                        if(isset($_COOKIE["USER"])){
-                            echo '
-                            <div class="posicao"> 
-                                <table>
+                        '
+                        <tbody>
+                                <tr class="centro">
+                                    <td>'.$resultado->quantidade_produto.'</td>
+                                    <td>'.$resultado->nome.'</td>
+                                    <td>'.number_format($resultado->preco,2).'</td>
+                                    <td>'.number_format($resultado->total,2).'</td>
+                                    <td>'.$resultado->data_.'</td>
                                     <td>
-                                        <form action="orcamento.php" method="POST">
-                                            <button type="submit" name="selecionar" class="font btn button-margin btn-outline-dark"><a href="orcamento.php?add=tabela&id='.$resultado['cod_produto'].'" class="altera">Selecionar</a></button>
-                                        </form>
+                                        <button type="button" class="btn btn-color btn-outline-dark" aria-expanded="false">
+                                            <a onclick="confirmacao_ph('.$resultado->cod_produto.', '.$resultado->cod_tabela.')">Excluir</a>
+                                        </button>
                                     </td>
-                                </table>
-                            <div>  
-                                ';
-                            }
-                            elseif(isset($_COOKIE["ADM"])){
-                                $produto=$resultado["cod_produto"];
-                                echo'
-                                <center>
-                                    <table class="posicao_bot">
-                                    <tr>
-                                        <td>
-                                            <button type="button" class="btn btn-color btn-outline-dark" aria-expanded="false"><a href="editar_produto.php?cod='.$produto.'" class="altera">Editar</a></button>
-                                        </td>
-                                        <td>
-                                            <button type="button" class="btn btn-color btn-outline-dark" aria-expanded="false"><a onclick="confirmacao_p('.$resultado['cod_produto'].')">Remover</a></button>
-                                        </td>
-                                    </tr>
-                                    </table>
-                                </center>
-                                    ';
-                            }
-                    $i++;
+                                </tr>
+                            </tbody>
+                        ';
+                        $preco_final+=$resultado->total;
+                        $idTabela=$resultado->cod_tabela;
                 }
-
-                echo'
-                    </td>
-                </tr>
-                </table>
-                </center>';
-            }else{
-                echo mysqli_error($con);
-            }
-            include("../inc/disconnect.php");
-        ?>
-    </form>
+                echo '<tfoot>
+                            <tr class="centro font">
+                                <th colspan="5">Total: R$ '.number_format($preco_final,2).'</th>
+                                <td>
+                                    <button class="btn btn-outline-dark collapsed" type="button" aria-expanded="false">
+                                        <a onclick="confirmacao_h('.$idTabela.')">Remover Tabela</a>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>';
+        }else{
+            echo '
+                <br><br><br>
+                <h1 class="centro paginas">Nenhum cultivo foi encontrado</h1>
+            ';
+        }
+    }
+        echo'
+                    </div>
+                </div>
+                </div>
+                </center>
+                ';
+    ?>
 
     <?php
         include "./login.php";
-
-        /*include "./editar_produto.php";*/
-        
-        /*include "./cadastro_produto.php";*/
-        
     ?>
-
-    <script src="../js/jquery-3.5.1.min.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
 
 </body>
 </html>

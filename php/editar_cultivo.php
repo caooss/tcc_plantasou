@@ -36,7 +36,7 @@
                         if(isset($_COOKIE["ADM"])){
                         echo'
                             <div class="nav-link dropdown show">
-                                <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
                                     <img src="../imgs/tomates.png" width="20" height="20"/> Produtos
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -63,7 +63,7 @@
                         if(isset($_COOKIE["ADM"])){
                         echo'
                             <div class="nav-link dropdown show">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
+                                <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
                                 <img src="../imgs/crescer-planta.png" width="20" height="20"/> Cultivos
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -147,7 +147,7 @@
                                 <center>
                                     <h1 class="centro paginas">Edição do Cultivo: '.$edit["nome"].'</h1>
 
-                                    <form action="editar_cultivo.php?cod=0" method="POST" class="w-75 p-5">
+                                    <form action="editar_cultivo.php?cod=0" method="POST" enctype="multipart/form-data" class="w-75 p-5">
                                         <div class="mb-3">
                                             <label for="exampleFormControlInput1" class="form-label font">Nome</label> 
                                             <input type="text" name="nome" class="form-control" placeholder="Nome..." value="'.$edit['nome'].'" required/>
@@ -178,8 +178,13 @@
                                             <textarea name="temp_colheita" value="'.$edit['temp_colheita'].'" cols="50" rows="4" required>'.$edit['temp_colheita'].'</textarea>
                                         </div>
 
+                                        <div class="mb-3 mx-auto">
+                                            <label for="exampleFormControlInput1" class="form-label">Imagem</label>
+                                            <input type="file" class="form-control" id="exampleFormControlInput1_" name="imagem" accept="image/png, image/jpg">
+                                        </div>
+
                                         <div class="modal-footer float-right">
-                                                <button type="button" class="btn btn-outline-success fechar" data-bs-dismiss="modal">Fechar</button>
+                                                <button type="button" class="btn btn-outline-success fechar" onClick="history.go(-1)">Fechar</button>
                                                 <button type="submit" class="btn btn-outline-success borda-modal">Modificar</button>
                                         </div>
 
@@ -196,6 +201,7 @@
                         
                     }else{
                         include('../inc/conexao.php');
+                        if($_FILES['imagem']['size'] == 0){
                             $nome=$_POST['nome'];
                             $clima=$_POST['clima'];
                             $plantio=$_POST['plantio'];
@@ -216,7 +222,38 @@
                             $queryEdit=mysqli_query($con, $sqlEdit);
 
                             header("Location: ../php/cultivo.php");
+                        }else{
+                            $nome=$_POST['nome'];
+                            $clima=$_POST['clima'];
+                            $plantio=$_POST['plantio'];
+                            $luminosidade=$_POST['luminosidade'];
+                            $irrigacao=$_POST['irrigacao'];
+                            $temp_colheita=$_POST['temp_colheita'];
+                            $imagem=$_FILES['imagem'];
+                            $cod_cultivo=$_POST['editar'];
+
+                            $extensao=strtolower(substr($imagem['name'], -4)); //pega a extensão
+                            $novo_nome=md5(time()).$extensao; //define um nome novo para o arquivo
+                            $diretorio="../imgs/plantas/"; //define o diretório para onde enviaremos o arquivo
+
+                            move_uploaded_file($imagem['tmp_name'], $diretorio.$novo_nome); //efetua o upload
+
+                            $sqlEdit="UPDATE cultivo SET
+                            nome='$nome',
+                            clima='$clima',
+                            plantio='$plantio',
+                            luminosidade='$luminosidade',
+                            irrigacao='$irrigacao',
+                            temp_colheita='$temp_colheita',
+                            src='$novo_nome'
+                            WHERE cod_cultivo=$cod_cultivo";
+
+                            $queryEdit=mysqli_query($con, $sqlEdit);
+
+                            header("Location: ../php/cultivo.php");
                         }
+                            
+                    }
 ?>
 </body>
 </html>

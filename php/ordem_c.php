@@ -154,9 +154,9 @@
         <br>
         <center>';
             
-        echo '<a class="nav-link-color" href="../php/cultivo.php">TODOS</a>ㅤ│ㅤ';
+        echo '<a class="nav-link-color" href="../php/cultivo.php">TODOS</a> │ ';
             for ( $i = 'A'; $i != 'Z'; $i++ ){ 
-                echo '<a class="nav-link-color" href="../php/ordem_c.php?ordem='.$i.'">'.$i.'</a>ㅤ│ㅤ';
+                echo '<a class="nav-link-color" href="../php/ordem_c.php?ordem='.$i.'">'.$i.'</a> │ ';
             }
             echo '<a class="nav-link-color" href="../php/ordem_c.php?ordem=Z">Z</a>';
          

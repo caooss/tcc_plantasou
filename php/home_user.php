@@ -159,7 +159,7 @@
                                       <div class="card-body">
                                         <h4 class="card-title"><b>Histórico</b></h4>
                                         <p class="card-text">
-                                          Na página <a href="./historico.php">histórico</a>, se possuir cadastro, o usuário poderá encontrar todos os produtos já selecionados.
+                                          Na página <a href="./historico?num=0.php">histórico</a>, se possuir cadastro, o usuário poderá encontrar todos os produtos já selecionados.
                                         </p>
                                       </div>
                                     </div>
@@ -185,11 +185,6 @@
           </div>
 
         </div>
-
-        <?php
-          include "../inc/validaCadastro.php";
-          include "../inc/cadastro.php";
-        ?>
 
         <script src="../js/jquery-3.5.1.min.js"></script>
         <script src="../js/popper.min.js"></script>
