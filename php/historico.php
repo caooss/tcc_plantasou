@@ -100,9 +100,9 @@
     <br>
     <h1 class="centro letra">Histórico</h1>
 
-    <form action="pesquisa_h.php" enctype="multipart/form-data" method="POST">
+    <form action="pesquisa_h.php" enctype="multipart/form-data" method="POST" class="centro">
         <input type="month" name="mes"/>
-        <input type="submit" value="enviar"/>
+        <input type="submit" value="Buscar"/>
     </form>
 
     <?php
@@ -184,13 +184,14 @@
                     </thead>
                 ';
                 while(($historico_user=mysqli_fetch_assoc($query))!=NULL){
+                    $total = $historico_user["preco"]*$historico_user["quantidade_produto"];
                     echo '
                         <tbody>
                             <tr class="centro">
                                 <td>'.$historico_user["quantidade_produto"].'</td>
                                 <td>'.$historico_user["nome"].'</td>
                                 <td>'.number_format($historico_user["preco"],2).'</td>
-                                <td>'.number_format($historico_user["total"],2).'</td>
+                                <td>'.number_format($total,2).'</td>
                                 <td>'.$historico_user["data_"].'</td>
                                 <td>
                                     <button type="button" class="btn btn-color btn-outline-dark" aria-expanded="false">
@@ -202,7 +203,7 @@
                         
                     
                     ';
-                    $preco_final+=$historico_user["total"];
+                    $preco_final+=$total;
                     $idTabela=$historico_user["cod_tabela"];
                 }
             echo'

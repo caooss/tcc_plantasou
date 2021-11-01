@@ -2,6 +2,19 @@ body, html {
   height: 100%;
 }
 
+html::-webkit-scrollbar {
+    width: 10px; 
+ }
+
+html::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #5E7561;
+  border-radius: 25px;
+}
+
 td {
     border: 5px solid transparent;
     background-clip: padding-box;

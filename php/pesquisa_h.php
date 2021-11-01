@@ -1,23 +1,23 @@
 <?php
-    session_start();
-    if(isset($_COOKIE["USER"])){
-        $usuario= $_COOKIE["USER"];
-    }
+    if(empty($_COOKIE["USER"])){
+        header ("Location: ../php/index.php");
+      }else{
+        setcookie('USER', $_COOKIE["USER"], time()+1800);
+      }
+      if(isset($_COOKIE["USER"])){
+          $usuario= $_COOKIE["USER"];
+      }
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"  dir="ltr">
     <title>PlantaSou</title>
+
     <link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/estilo.css">
-    <link rel="stylesheet" href="../css/teste.css">
-    <script src="../js/jquery-3.5.1.min.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/teste.js"></script>
     <link rel="shortcut icon" href="../imgs/logo_new.ico">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </head>
 <body>
     <nav class="navbar navbar-light bg-light topnav">
@@ -84,7 +84,7 @@
                             ';
                             }else{
                             echo'
-                                <a class="nav-link nav-link-color" aria-current="page" href="../php/cultivo.php"><img src="../imgs/crescer-planta.png" width="20" height="20"/>Cultivos</a>
+                                <a class="nav-link nav-link-color" aria-current="page" href="../php/cultivo.php">Cultivos</a>
                             ';
                             }
                         ?>
@@ -106,10 +106,6 @@
                                 ';
                             }
                         ?>
-                        <form action="#" class="d-flex" method="POST">
-                            <input class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Search" name="pesquisa"/>
-                            <button class="btn btn-outline-success nav-link-color borda" type="submit">Buscar</button>
-                        </form>
             </div>
         </nav>
 
@@ -183,19 +179,16 @@
                     </div>
                 </div>';
         }
+        $j=0;
 
 
         for ($i=1; $i <= $number; $i++) { 
 
             $stmt=$conPDO->query("SELECT * FROM historico h INNER JOIN produto p ON h.cod_produto=p.cod_produto WHERE cod_usuario=$usuario AND cod_tabela=$i AND data_ LIKE '%-$data_'");
             $stmt->execute();
+            $j+=$stmt->rowCount();
 
-            echo'
-                <center>
-                <div class="container">
-                ';
-                
-                $preco_final=0;
+            $preco_final=0;
             
             if($stmt->rowCount()!=NULL){
                 echo '
@@ -212,6 +205,7 @@
                 </thead>
                 ';
                 while($resultado=$stmt->fetch(PDO::FETCH_OBJ)){
+                    $total = $resultado->preco*$resultado->quantidade_produto;
                     echo 
                         '
                         <tbody>
@@ -219,7 +213,7 @@
                                     <td>'.$resultado->quantidade_produto.'</td>
                                     <td>'.$resultado->nome.'</td>
                                     <td>'.number_format($resultado->preco,2).'</td>
-                                    <td>'.number_format($resultado->total,2).'</td>
+                                    <td>'.number_format($total,2).'</td>
                                     <td>'.$resultado->data_.'</td>
                                     <td>
                                         <button type="button" class="btn btn-color btn-outline-dark" aria-expanded="false">
@@ -229,7 +223,7 @@
                                 </tr>
                             </tbody>
                         ';
-                        $preco_final+=$resultado->total;
+                        $preco_final+=$total;
                         $idTabela=$resultado->cod_tabela;
                 }
                 echo '<tfoot>
@@ -243,24 +237,21 @@
                             </tr>
                         </tfoot>
                     </table>';
-        }else{
+            }
+        }
+
+        if($j==0){
             echo '
                 <br><br><br>
-                <h1 class="centro paginas">Nenhum cultivo foi encontrado</h1>
+                <h1 class="centro paginas">Nenhum histórico referente a está data foi encontrado</h1>
             ';
         }
-    }
-        echo'
-                    </div>
-                </div>
-                </div>
-                </center>
-                ';
     ?>
 
-    <?php
-        include "./login.php";
-    ?>
+    <script src="../js/jquery-3.5.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/teste.js"></script>
 
 </body>
 </html>

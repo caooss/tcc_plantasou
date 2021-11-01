@@ -7,6 +7,7 @@
         <link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap.min.css" />
         <link rel="stylesheet" href="../css/estilo.css"/>
         <link rel="shortcut icon" href="../imgs/logo_new.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     </head>
     <body>
