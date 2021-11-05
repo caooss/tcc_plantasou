@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../css/estilo.css">
     <link rel="shortcut icon" href="../imgs/logo_new.ico">
     <script src="../js/teste.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 
 </head>
 <body>
@@ -197,7 +198,7 @@
                                             <li>'.$resultado["beneficios"].'</li>
                                         </ul>
                                     </p>
-                                    <b class="font-money">R$ '.number_format($resultado["preco"],2).'/100g
+                                    <b class="font-money">R$ '.number_format($resultado["preco"],2).'/10g
                                 </div>
                             </div>
                         </div>';

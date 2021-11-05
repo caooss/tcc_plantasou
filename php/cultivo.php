@@ -18,6 +18,7 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/teste.js"></script>
     <link rel="shortcut icon" href="../imgs/logo_new.ico">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     
@@ -159,25 +160,6 @@
     <br><br><br>
 
     <?php
-        if(isset($_COOKIE["ADM"])){
-            echo'
-                
-            ';
-
-            /*<div class="p-5 text-center">
-                    <div class="alert font">
-                        <div class="text-black d-grid gap-2">
-                            <button type="button" class="btn adicionar" data-bs-toggle="modal" data-bs-target="#cadastro_cultivo">
-                                Adicionar
-                            </button>   
-                        </div>
-                    </div>
-                </div>*/
-        }
-    ?>
-
-
-    <?php
         include("../inc/conexao.php");
 
         $sql = "SELECT * FROM cultivo ORDER BY nome asc"; 
@@ -272,8 +254,6 @@
     ?>
     <?php
         include "./login.php";
-        /*include "./editar_cultivo.php";*/
-        /*include "./cadastro_cultivo.php";*/
     ?>
     
 </body>

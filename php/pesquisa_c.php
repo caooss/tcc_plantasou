@@ -17,6 +17,7 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/teste.js"></script>
     <link rel="shortcut icon" href="../imgs/logo_new.ico">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>

@@ -14,7 +14,7 @@
                     <div class="input-group-addon">
                       <i class="material-icons">face</i>
                     </div>
-                    <input type="text" name="nome" class="form-control" placeholder="Nome de Usuário"/>
+                    <input type="text" name="nome" class="form-control" placeholder="Nome de Usuário" required/>
                   </div>
                 </div>
 
@@ -23,7 +23,7 @@
                     <div class="input-group-addon">
                       <i class="material-icons">email</i>
                     </div>
-                    <input type="email" name="email" class="form-control" placeholder="exemplo@gmail.com"/>
+                    <input type="email" name="email" class="form-control" placeholder="exemplo@gmail.com" required/>
                   </div>
                 </div>
 
@@ -32,7 +32,7 @@
                     <div class="input-group-addon">
                       <i class="material-icons">lock</i>
                     </div>
-                    <input type="password" name="senha" class="form-control" placeholder="123456789"/>
+                    <input type="password" name="senha" class="form-control" placeholder="*********" required/>
                   </div>
                 </div>
 

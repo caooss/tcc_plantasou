@@ -1,3 +1,10 @@
+<?php
+    if(empty($_COOKIE["ADM"])){
+        header ("Location: ../php/index.php");
+      }else{
+        setcookie('ADM', $_COOKIE["ADM"], time()+1800);
+      }
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>

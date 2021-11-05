@@ -15,7 +15,7 @@
                             <div class="input-group-addon">
                               <i class="material-icons">email</i>
                             </div>  
-                            <input type="email" name="email" class="form-control" placeholder="exemplo@gmail.com"/>
+                            <input type="email" name="email" class="form-control" placeholder="exemplo@gmail.com" required/>
                           </div>
                         </div>
 
@@ -24,7 +24,7 @@
                             <div class="input-group-addon">
                               <i class="material-icons">lock</i>
                             </div>
-                            <input type="password" name="senha" class="form-control" placeholder="*********"/>
+                            <input type="password" name="senha" class="form-control" placeholder="*********" required/>
                           </div>
                         </div>
 
