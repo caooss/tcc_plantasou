@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 05-Nov-2021 às 19:50
+-- Generation Time: 10-Nov-2021 às 20:50
 -- Versão do servidor: 5.7.24
 -- versão do PHP: 7.2.14
 
@@ -73,7 +73,6 @@ CREATE TABLE IF NOT EXISTS `historico` (
   `cod_produto` int(11) DEFAULT NULL,
   `quantidade_produto` int(11) DEFAULT NULL,
   `data_` varchar(20) DEFAULT NULL,
-  `total` float DEFAULT NULL,
   `cod_tabela` int(11) NOT NULL,
   PRIMARY KEY (`cod_historico`),
   KEY `cod_usuario` (`cod_usuario`),
@@ -84,15 +83,15 @@ CREATE TABLE IF NOT EXISTS `historico` (
 -- Extraindo dados da tabela `historico`
 --
 
-INSERT INTO `historico` (`cod_historico`, `cod_usuario`, `cod_produto`, `quantidade_produto`, `data_`, `total`, `cod_tabela`) VALUES
-(1, 2, 12, 5, '20-07-2021', 25, 1),
-(4, 2, 11, 2, '20-07-2021', 3.78, 1),
-(18, 2, 11, 50, '20-07-2021', 94.5, 2),
-(28, 2, 11, 1, '30-07-2021', 1.89, 3),
-(29, 2, 12, 1, '30-07-2021', 5, 3),
-(30, 2, 11, 2, '30-07-2021', 3.78, 4),
-(31, 2, 12, 2, '30-07-2021', 10, 4),
-(32, 2, 14, 1, '06-10-2021', 3, 5);
+INSERT INTO `historico` (`cod_historico`, `cod_usuario`, `cod_produto`, `quantidade_produto`, `data_`, `cod_tabela`) VALUES
+(1, 2, 12, 5, '20-07-2021', 1),
+(4, 2, 11, 2, '20-07-2021', 1),
+(18, 2, 11, 50, '20-07-2021', 2),
+(28, 2, 11, 1, '30-07-2021', 3),
+(29, 2, 12, 1, '30-07-2021', 3),
+(30, 2, 11, 2, '30-07-2021', 4),
+(31, 2, 12, 2, '30-07-2021', 4),
+(32, 2, 14, 1, '06-10-2021', 5);
 
 -- --------------------------------------------------------
 
