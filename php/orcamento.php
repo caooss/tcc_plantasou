@@ -2,7 +2,7 @@
     if(empty($_COOKIE["USER"])){
       header ("Location: ../php/index.php");
     }else{
-      setcookie('USER', $_COOKIE["USER"], time()+1800);
+      setcookie('USER', $_COOKIE["USER"], time()+3600);
     }
     if(isset($_COOKIE["USER"])){
         $usuario= $_COOKIE["USER"];
@@ -56,7 +56,15 @@
                             if(isset($_COOKIE["USER"])){
                                 echo'
                                     <a class="nav-link nav-link-color" href="../php/historico.php?num=0">Histórico</a>
-                                    <a class="nav-link nav-link-color" href="./logout_user.php"><img src="../imgs/out.png" width="15" height="15"/> Sair</a>
+                                    <div class="nav-link dropdown show">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
+                                            <img src="../imgs/engrenagem.png" width="20" height="20"/> Ações
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <a class="dropdown-item" href="../php/alterar_dados.php">Alterar dados</a>
+                                            <a class="dropdown-item" href="./logout_user.php"><img src="../imgs/out.png" width="15" height="15"/> Sair</a>
+                                        </div>
+                                    </div>
                                 ';
                             }else if(isset($_COOKIE["ADM"])){
                                 echo'

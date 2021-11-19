@@ -2,7 +2,7 @@
     if(empty($_COOKIE["ADM"])){
       header ("Location: ../php/index.php");
     }else{
-      setcookie('ADM', 1, time()+1800);
+      setcookie('ADM', 1, time()+3600);
     }
 ?>
 

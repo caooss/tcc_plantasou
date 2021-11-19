@@ -103,3 +103,32 @@ function inverteData(data){
       return implode("/",array_reverse(explode("-",data)));
   }
 }
+
+function confirmacao_excluir_usuario(id){
+  var resultado=confirm("Você deseja mesmo deletar sua conta?");
+  if(resultado){
+    alert("Usuario excluido com sucesso!");
+    location.href="../php/remover_usuario.php?id="+id;
+  }else{
+    /*location.href="../php/produtos.php";*/
+  }
+}
+
+function confirmacao_v_home(){
+  var resultado=confirm("Você deseja mesmo voltar para a Home?");
+  if(resultado){
+    location.href="../php/home_user.php";
+  }else{
+    /*location.href="../php/produtos.php";*/
+  }
+}
+
+function confirmacao_c_usuario(id){
+  var resultado=confirm("Você deseja mesmo alterar os dados da sua conta?");
+  if(resultado){
+    alert("Dados alterados com sucesso!");
+    location.href="../php/alterar_dados.php?id="+id;
+  }else{
+    location.href="../php/home_user.php";
+  }
+}

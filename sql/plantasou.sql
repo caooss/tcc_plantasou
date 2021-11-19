@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 10-Nov-2021 às 20:50
--- Versão do servidor: 5.7.24
--- versão do PHP: 7.2.14
+-- Generation Time: Nov 19, 2021 at 08:06 PM
+-- Server version: 5.7.24
+-- PHP Version: 7.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -27,7 +27,7 @@ USE `plantasou`;
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `cultivo`
+-- Table structure for table `cultivo`
 --
 
 DROP TABLE IF EXISTS `cultivo`;
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `cultivo` (
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `cultivo`
+-- Dumping data for table `cultivo`
 --
 
 INSERT INTO `cultivo` (`cod_cultivo`, `nome`, `clima`, `plantio`, `luminosidade`, `irrigacao`, `temp_colheita`, `src`, `nome_php`) VALUES
@@ -63,7 +63,7 @@ INSERT INTO `cultivo` (`cod_cultivo`, `nome`, `clima`, `plantio`, `luminosidade`
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `historico`
+-- Table structure for table `historico`
 --
 
 DROP TABLE IF EXISTS `historico`;
@@ -77,10 +77,10 @@ CREATE TABLE IF NOT EXISTS `historico` (
   PRIMARY KEY (`cod_historico`),
   KEY `cod_usuario` (`cod_usuario`),
   KEY `cod_produto` (`cod_produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `historico`
+-- Dumping data for table `historico`
 --
 
 INSERT INTO `historico` (`cod_historico`, `cod_usuario`, `cod_produto`, `quantidade_produto`, `data_`, `cod_tabela`) VALUES
@@ -91,12 +91,13 @@ INSERT INTO `historico` (`cod_historico`, `cod_usuario`, `cod_produto`, `quantid
 (29, 2, 12, 1, '30-07-2021', 3),
 (30, 2, 11, 2, '30-07-2021', 4),
 (31, 2, 12, 2, '30-07-2021', 4),
-(32, 2, 14, 1, '06-10-2021', 5);
+(32, 2, 14, 1, '06-10-2021', 5),
+(33, 2, 16, 1, '19-11-2021', 6);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `produto`
+-- Table structure for table `produto`
 --
 
 DROP TABLE IF EXISTS `produto`;
@@ -110,10 +111,10 @@ CREATE TABLE IF NOT EXISTS `produto` (
   `imagem` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`cod_produto`),
   KEY `cod_cultivo` (`cod_cultivo`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `produto`
+-- Dumping data for table `produto`
 --
 
 INSERT INTO `produto` (`cod_produto`, `nome`, `vitaminas`, `beneficios`, `preco`, `cod_cultivo`, `imagem`) VALUES
@@ -126,12 +127,15 @@ INSERT INTO `produto` (`cod_produto`, `nome`, `vitaminas`, `beneficios`, `preco`
 (17, 'Melão', 'Vitamina C, A e Complexo B', 'O melão é uma fruta com baixas calorias que tem propriedades diuréticas, ajudando a diminuir a retenção de líquidos e antioxidantes, prevenindo o envelhecimento precoce da pele. Contém minerais como o cálcio, potássio e fibras. É um alimento rico em água que melhora o funcionamento do intestino, evita a prisão de ventre e ajuda na hidratação do corpo, podendo ser uma opção saudável e refrescante nos dias quentes.', 6.08, 10, '8b978d5d0de5f71d17fde883d687bcf3.png'),
 (18, 'Beterraba', 'Rica em vitaminas A, B, C e minerais como sódio, potássio, zinco, magnésio e ferro.', 'A planta roxa também atua na prevenção de doenças e do envelhecimento dos tecidos.', 3.06, 11, 'ae4d372c269e019a84bd4d143f2d1d55.png'),
 (19, 'Pepino', 'O vegetal é fonte de vitaminas A, C, K e do complexo B e contém minerais como magnésio, potássio, fósforo, cálcio e manganês, além de antioxidantes.', 'O pepino ajuda a emagrecer, porque é pobre em calorias e dá a sensação de saciedade; Melhora a contração e saúde muscular, por conter potássio e magnésio; Melhora a circulação sanguínea, por ser pobre em gorduras e rico em água; Mantém a hidratação, por ser feito principalmente de água', 23.7, 12, 'b7fb1fac30ba5891233083caca21cb7a.png'),
-(20, 'Cebolinha', 'Vitamina A e C', 'Ela contém antioxidantes e substâncias anti-inflamatórias em grande quantidade.', 25.24, 13, '735d834f271405f6d1067f4a28d6822c.png');
+(20, 'Cebolinha', 'Vitamina A e C', 'Ela contém antioxidantes e substâncias anti-inflamatórias em grande quantidade.', 25.24, 13, '735d834f271405f6d1067f4a28d6822c.png'),
+(21, 'Húmus de minhoca', 'O húmus de minhoca é um dos húmus mais famosos, considerado por muitos o melhor fertilizante!.', 'Hoje é possível encontrar o húmus de minhoca preparado, pronto para ser colocado na sua horta! O melhor é que neste caso, mesmo que seja um fertilizante orgânico, os benefícios são imediatos. O animal sofre um processo de decomposição, restando apenas os nutrientes que as plantas usufruem.', 7, 4, 'e953debf2e9ce20228dcb634db99daea.png'),
+(22, 'Farinha de ossos', 'Para que os nutrientes sejam aproveitados de forma eficaz, o ideal é utilizar farinha de ossos, um produto facilmente encontrado em lojas especializadas.', 'Rico em fósforo e cálcio, esse fertilizante ainda auxilia a regular o pH da terra, sendo uma boa opção para qualquer espécie! A farinha de ossos, entretanto, pode ter atuação mais lenta. Por isso, é mais indicada para a manutenção de plantas que já estão saudáveis, para que elas continuem se desenvolvendo!', 1.59, 4, 'c427ea50f09abf9130c7f6639675c838.png'),
+(23, 'Esterco', 'O esterco pode ser um adubo caseiro ou é possível encontrá-lo em lojas especializadas já pronto para uso. Estes são muito indicados para hortas e jardins. Basta misturá-lo à terra para que as plantinhas possam aproveitar seus nutrientes!', 'Como são de origem natural, os adubos orgânicos não possuem contraindicação! Se estiver buscando um produto para aplicar regularmente em sua planta, eles podem ser a escolha perfeita!', 15.78, 4, '98d8c8b20f7a4b76497ffb455383d90c.png');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuario`
+-- Table structure for table `usuario`
 --
 
 DROP TABLE IF EXISTS `usuario`;
@@ -141,10 +145,10 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `senha` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   PRIMARY KEY (`cod_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `usuario`
+-- Dumping data for table `usuario`
 --
 
 INSERT INTO `usuario` (`cod_usuario`, `nome`, `senha`, `email`) VALUES
@@ -152,22 +156,21 @@ INSERT INTO `usuario` (`cod_usuario`, `nome`, `senha`, `email`) VALUES
 (2, 'Rafael', '123456', 'rafael@gmail.com'),
 (3, 'Lorena', '1234', 'lorena@gmail.com'),
 (4, 'Luiza', '123l', 'luiza@gmail.com'),
-(5, 'Pirolla', '123', 'pirolla@gmail.com'),
-(6, 'Jack', '456', 'jaques@gmail.com');
+(5, 'Pirolla', '123', 'pirolla@gmail.com');
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Limitadores para a tabela `historico`
+-- Constraints for table `historico`
 --
 ALTER TABLE `historico`
   ADD CONSTRAINT `cod_produto` FOREIGN KEY (`cod_produto`) REFERENCES `produto` (`cod_produto`) ON DELETE CASCADE,
   ADD CONSTRAINT `cod_usuario` FOREIGN KEY (`cod_usuario`) REFERENCES `usuario` (`cod_usuario`);
 
 --
--- Limitadores para a tabela `produto`
+-- Constraints for table `produto`
 --
 ALTER TABLE `produto`
   ADD CONSTRAINT `cod_cultivo` FOREIGN KEY (`cod_cultivo`) REFERENCES `cultivo` (`cod_cultivo`);

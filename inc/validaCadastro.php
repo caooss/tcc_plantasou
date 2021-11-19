@@ -49,10 +49,10 @@
         if(mysqli_num_rows($query)>0){
             while(($usuario=mysqli_fetch_assoc($query))!=NULL){
                 if((((($email==$usuario['email']) && $email=="admin@admin.com")) && (($senha==$usuario['senha']) && $senha=="admin"))){
-                    setcookie('ADM', 1, time()+1800);
+                    setcookie('ADM', 1, time()+3600);
                     header("Location: ../php/home_adm.php");
                 }else if(($email==$usuario['email']) && ($senha==$usuario['senha'])){
-                    setcookie('USER', $usuario['cod_usuario'], time()+1800);
+                    setcookie('USER', $usuario['cod_usuario'], time()+3600);
                     echo "deu ruim";
                     header("Location: ../php/home_user.php");
                 }
