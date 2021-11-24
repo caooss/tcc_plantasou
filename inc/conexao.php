@@ -1,5 +1,5 @@
 <?php
-    $con=mysqli_connect("localhost", "rafael", "rafael", "plantasou");
+    $con=mysqli_connect("db4free.net", "plantasou", "plantasou", "plantasou");
     $con->set_charset("utf8");
 
     if(!$con){

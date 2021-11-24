@@ -1,3 +1,3 @@
 <?php
-    $conPDO=new PDO("mysql:host=localhost;dbname=plantasou;charset=UTF8", "rafael", "rafael");
+    $conPDO=new PDO("mysql:host=db4free.net;dbname=plantasou;charset=UTF8", "plantasou", "plantasou");
 ?>
