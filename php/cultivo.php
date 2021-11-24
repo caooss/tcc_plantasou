@@ -154,7 +154,7 @@
     ?>
 
     <br>
-    <h1 class="centro paginas">Cultivo</h1>
+    <h1 class="centro paginas">Cultivos</h1>
 
     <center>
     <?php
