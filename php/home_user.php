@@ -33,7 +33,7 @@
         <a class="nav-link nav-link-color" href="./produtos.php">Produtos</a>
         <a class="nav-link nav-link-color" href="../php/orcamento.php">Orçamento</a>
         <a class="nav-link nav-link-color" href="./cultivo.php">Cultivos</a>
-        <a class="nav-link nav-link-color" href="../php/historico?num=0.php">Histórico</a>
+        <a class="nav-link nav-link-color" href="../php/historico.php?num=0">Histórico</a>
         <div class="nav-link dropdown show">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-bs-haspopup="true" aria-bs-expanded="false">
             <img src="../imgs/engrenagem.png" width="20" height="20"/> Ações
