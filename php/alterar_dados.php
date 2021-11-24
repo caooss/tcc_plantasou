@@ -208,7 +208,7 @@
                 $stmt->execute();
 
                 /*include('../inc/disconnect.php');*/
-                header("Location: ../php/home_user.php");
+                /*header("Location: ../php/home_user.php");*/
             }
         }
     ?>
