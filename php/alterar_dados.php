@@ -199,6 +199,7 @@
 
             echo "$email<br>";
             echo "$senha<br>";
+            echo "$usuario<br>";
 
             $stmt=$conPDO->query("
             UPDATE usuario SET
