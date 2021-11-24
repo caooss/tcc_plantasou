@@ -208,6 +208,12 @@
             WHERE cod_usuario=$usuario");
             $stmt->execute();
 
+            if($stmt){
+                echo "Foi";
+            }else{
+                echo "deu ruim";
+            }
+
             include('../inc/disconnect.php');
             /*header("Location: ../php/home_user.php");*/
         }
