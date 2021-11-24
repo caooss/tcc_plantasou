@@ -114,7 +114,7 @@
                   if(empty($_POST)){
                     echo '
                     <center>
-                      <form action="#" method="POST" enctype="multipart/form-data" class="w-75 p-5">
+                      <form action="../php/cadastro_cultivo.php" method="POST" enctype="multipart/form-data" class="w-75 p-5">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label font">Nome</label> 
                             <input type="text" name="nome" class="form-control" placeholder="Nome..." required/>
@@ -190,7 +190,7 @@
                               VALUES ('$nome', '$clima', '$plantio', '$luminosidade', '$irrigacao', '$temp_colheita','$novo_nome', '$nome_php')";
                         
                         $query=mysqli_query($con, $sql);
-                        include('../inc/disconnect.php');
+                        /*include('../inc/disconnect.php');*/
 
                         header("Location: ../php/cultivo.php");
                     }
