@@ -156,7 +156,7 @@
                     <center>
                         <h1 class="centro paginas">Edição do Usuário: '.$edit["nome"].'</h1>
 
-                        <form action="alterar_dados.php" method="POST" enctype="multipart/form-data" class="w-75 p-5">
+                        <form action="#" method="POST" enctype="multipart/form-data" class="w-75 p-5">
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label font">Alterar E-Mail</label> 
                                 <input type="email" name="email" class="form-control" placeholder="exemplo@gmail.com" value="'.$edit['email'].'" required/>
