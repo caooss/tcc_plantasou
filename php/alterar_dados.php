@@ -171,9 +171,7 @@
                                     <button class="btn btn-outline-dark collapsed" type="button" id="dropdownMenuButton1" aria-expanded="false">
                                         <a onclick="confirmacao_v_home()">Voltar para o Home</a>
                                     </button>
-                                    <button class="btn btn-outline-dark collapsed" type="submit" id="dropdownMenuButton1" aria-expanded="false">
-                                        Confirmar
-                                    </button>
+                                    <input type="submit" value="Confirmar"/>
                                     <button class="btn btn-outline-dark collapsed" type="button" id="dropdownMenuButton1" aria-expanded="false">
                                         <a onclick="confirmacao_excluir_usuario('.$usuario.')">Excluir Conta</a>
                                     </button>

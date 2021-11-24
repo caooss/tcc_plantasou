@@ -153,6 +153,10 @@
 
         echo "<br>$mes_resul-$year_resul[0]";
 
+        <button class="btn btn-outline-dark collapsed" type="submit" id="dropdownMenuButton1" aria-expanded="false">
+                                        Confirmar
+                                    </button>
+
     }
 ?>
 
