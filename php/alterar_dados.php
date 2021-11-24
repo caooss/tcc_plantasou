@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PlantaSou</title>
 
     <link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/estilo.css">
@@ -98,7 +98,7 @@
                             <img src="../imgs/engrenagem.png" width="20" height="20"/> Ações
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item active" href="../php/alterar_dados.php">Alterar dados</a>
+                            <a class="dropdown-item" href="../php/alterar_dados.php">Alterar dados</a>
                             <a class="dropdown-item" href="./logout_user.php"><img src="../imgs/out.png" width="15" height="15"/> Sair</a>
                         </div>
                     </div>
@@ -197,25 +197,22 @@
             $email=$_POST['email'];
             $senha=$_POST['nova_senha'];
 
-            echo "$email<br>";
-            echo "$senha<br>";
-            echo "$usuario<br>";
+            $stmt_=$conPDO->query("SELECT email FROM usuario WHERE email='$email'");
+            $qtd=$stmt_->rowCount();
 
-            $stmt=$conPDO->query("
-            UPDATE usuario SET
-            email='$email',
-            senha='$senha'
-            WHERE cod_usuario=$usuario");
-            $stmt->execute();
-
-            if($stmt){
-                echo "Foi";
+            if($qtd>0){
+                header('Location: ../inc/erro_cadastro.php');
             }else{
-                echo "deu ruim";
-            }
+                $stmt=$conPDO->query("
+                UPDATE usuario SET
+                email='$email',
+                senha='$senha'
+                WHERE cod_usuario=$usuario");
+                $stmt->execute();
 
-            include('../inc/disconnect.php');
-            /*header("Location: ../php/home_user.php");*/
+                /*include('../inc/disconnect.php');*/
+                header("Location: ../php/home_user.php");
+            }
         }
     ?>
                     

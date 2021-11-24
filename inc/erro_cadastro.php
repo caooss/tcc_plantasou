@@ -46,7 +46,7 @@
                 <h4 class="alert-heading" style="font-size: 30px">Ops!!</h4>
                 <hr>
                 <p>
-                    E-mail duplicado <a href="../php/index.php">Voltar</a>
+                    E-mail duplicado <a href="../php/home_user.php">Voltar</a>
                 </p>
             </div>        
         </div>
