@@ -139,6 +139,12 @@
                 $data_=$historico['data'];
                 $total=$historico['total'];
 
+                echo "$cod_usuario<br>";
+                echo "$cod_produto<br>";
+                echo "$quantidade_produto<br>";
+                echo "$data_<br>";
+                echo "$total<br>";
+
                 intval($cod_usuario);
                 intval($quantidade_produto);
 
