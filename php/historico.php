@@ -121,7 +121,6 @@
         $num=$_GET['num'];
 
         if((isset($_SESSION['dados'])) && $num==1){
-            echo "TESTE!!!";
 
             $sqlMax="SELECT MAX(cod_tabela) FROM historico";
                 $queryMax=mysqli_query($con, $sqlMax);
