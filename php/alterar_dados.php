@@ -201,7 +201,8 @@
             $qtd=$stmt_->rowCount();
 
             if($qtd>0){
-                header('Location: ../inc/erro_cadastro.php');
+                /*header('Location: ../inc/erro_cadastro.php');*/
+                echo "deu ruim";
             }else{
                 $stmt=$conPDO->query("
                 UPDATE usuario SET
