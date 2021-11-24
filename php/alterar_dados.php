@@ -182,12 +182,7 @@
                             <input type="hidden" name="editar" value="'.$usuario.'"/>
                         </form>
 
-                    </center>
-                    
-                    <script src="../js/jquery-3.5.1.min.js"></script>
-                    <script src="../js/popper.min.js"></script>
-                    <script src="../js/bootstrap.min.js"></script>
-                    <script src="../js/teste.js"></script>';
+                    </center>';
                 }
             }
             
@@ -204,6 +199,7 @@
                 /*header('Location: ../inc/erro_cadastro.php');*/
                 echo "deu ruim";
             }else{
+                echo "foi, eu acho";
                 $stmt=$conPDO->query("
                 UPDATE usuario SET
                 email='$email',
