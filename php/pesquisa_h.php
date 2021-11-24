@@ -164,7 +164,7 @@
 
         echo '
         <center>
-            │ㅤ<a class="nav-link-color" href="../php/historico?num=0.php">VER TODOS</a>ㅤ│<br><br><br>
+            │ㅤ<a class="nav-link-color" href="../php/historico.php?num=0">VER TODOS</a>ㅤ│<br><br><br>
         </center>
         ';
 

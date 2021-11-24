@@ -168,7 +168,7 @@
                                       <div class="card-body">
                                         <h4 class="card-title"><b>Histórico</b></h4>
                                         <p class="card-text">
-                                          Na página <a href="./historico?num=0.php">histórico</a>, se possuir cadastro, o usuário poderá encontrar todos os produtos já selecionados.
+                                          Na página <a href="./historico.php?num=0">histórico</a>, se possuir cadastro, o usuário poderá encontrar todos os produtos já selecionados.
                                         </p>
                                       </div>
                                     </div>
