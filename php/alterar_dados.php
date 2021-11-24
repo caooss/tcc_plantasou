@@ -183,6 +183,7 @@
                     </center>';
                 }
             }
+            include('../inc/disconnect.php');
             
         }else{
             include('../inc/conexao_PDO.php');
