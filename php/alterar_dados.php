@@ -197,6 +197,9 @@
             $email=$_POST['email'];
             $senha=$_POST['nova_senha'];
 
+            echo "$email<br>";
+            echo "$senha<br>";
+
             $stmt=$conPDO->query("
             UPDATE usuario SET
             email='$email',
@@ -205,7 +208,7 @@
             $stmt->execute();
 
             include('../inc/disconnect.php');
-            header("Location: ../php/home_user.php");
+            /*header("Location: ../php/home_user.php");*/
         }
     ?>
                     
