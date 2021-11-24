@@ -190,8 +190,13 @@
             $email=$_POST['email'];
             $senha=$_POST['nova_senha'];
 
+            echo "$email<br>";
+            echo "$senha<br>";
+
             $stmt_=$conPDO->query("SELECT email FROM usuario WHERE email='$email'");
             $qtd=$stmt_->rowCount();
+
+            echo "$qtd<br>";
 
             if($qtd>0){
                 /*header('Location: ../inc/erro_cadastro.php');*/
