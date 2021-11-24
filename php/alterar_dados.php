@@ -171,7 +171,9 @@
                                     <button class="btn btn-outline-dark collapsed" type="button" id="dropdownMenuButton1" aria-expanded="false">
                                         <a onclick="confirmacao_v_home()">Voltar para o Home</a>
                                     </button>
-                                    <input type="submit" value="Confirmar"/>
+                                    <button class="btn btn-outline-dark collapsed" type="submit" id="dropdownMenuButton1" aria-expanded="false">
+                                        Confirmar
+                                    </button>
                                     <button class="btn btn-outline-dark collapsed" type="button" id="dropdownMenuButton1" aria-expanded="false">
                                         <a onclick="confirmacao_excluir_usuario('.$usuario.')">Excluir Conta</a>
                                     </button>
@@ -186,13 +188,10 @@
             include('../inc/disconnect.php');
             
         }else{
-            include('../inc/conexao_PDO.php');
+            include('../inc/conexao_pdo.php');
 
             $email=$_POST['email'];
             $senha=$_POST['nova_senha'];
-
-            echo "$email<br>";
-            echo "$senha<br>";
 
             $stmt_=$conPDO->query("SELECT email FROM usuario WHERE email='$email'");
             $qtd=$stmt_->rowCount();
@@ -200,10 +199,8 @@
             echo "$qtd<br>";
 
             if($qtd>0){
-                /*header('Location: ../inc/erro_cadastro.php');*/
-                echo "deu ruim";
+                header('Location: ../inc/erro_cadastro.php');
             }else{
-                echo "foi, eu acho";
                 $stmt=$conPDO->query("
                 UPDATE usuario SET
                 email='$email',
@@ -211,8 +208,8 @@
                 WHERE cod_usuario=$usuario");
                 $stmt->execute();
 
-                /*include('../inc/disconnect.php');*/
-                /*header("Location: ../php/home_user.php");*/
+                include('../inc/disconnect.php');
+                header("Location: ../php/home_user.php");
             }
         }
     ?>
