@@ -144,7 +144,7 @@
                 if(empty($_POST)){
                 echo '
                 <center>
-                    <form action="cadastro_produto.php" method="POST" enctype="multipart/form-data" class="w-75 p-5">
+                    <form action="../php/cadastro_produto.php" method="POST" enctype="multipart/form-data" class="w-75 p-5">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label font">Produto</label> 
                             <input type="text" name="nome" class="form-control" placeholder="Produto..." required/>
